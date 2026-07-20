@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/*
+ * MeetingTailor Design-Tokens — 1:1 wie StayTailor + DineTailor:
+ * Warm Ivory · Midnight Navy · Heritage Blue. Der Token-Name --gold
+ * ist historisch — der Farbwert ist ein Blau-600 aus der Schwester-Familie.
+ * Bewusst nur hell — dunkle Sektionen sind gestaltete Navy-Panels,
+ * kein Theme-Switch.
+ */
+:root {
+  --background: #f7f8fb;
+  --foreground: #0b1120;
+  --surface: #ffffff;
+  --surface-muted: #eef2fb;
+  --border: #e3e8f2;
+  --muted-foreground: #55607a;
+
+  --ink: #0b1120;        /* Midnight Navy */
+  --ink-soft: #111a2e;   /* Navy-Panel */
+  --ink-border: #24304d; /* Navy-Border */
+
+  --cream: #f7f8fb;      /* Warm Ivory */
+  --cream-dark: #eef2fb;
+
+  --gold: #2563eb;       /* Heritage Blue (Blue-600) — Akzent-Rolle */
+  --gold-hover: #1d4ed8;
+  --gold-soft: #eef2fb;
+
+  --thread-red: #f99c00; /* Clay-Orange — sparsam für Warn/Alert */
+
+  --elevation-soft: 0 1px 2px rgb(11 17 32 / 0.05), 0 1px 3px rgb(11 17 32 / 0.06);
+  --elevation-elevated: 0 6px 18px rgb(11 17 32 / 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-border: var(--ink-border);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-soft: var(--gold-soft);
+  --color-thread-red: var(--thread-red);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+
+  --shadow-soft: var(--elevation-soft);
+  --shadow-elevated: var(--elevation-elevated);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--gold-soft) 60%, transparent);
+}
+
+/* Tabellarische Ziffern für die Zahlen-Sektion (S8). */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Marquee-Ticker (Sitzungs-Momente über die volle Breite) ------ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex !important;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* --- Goldener Faden: SVG-Path-Draw-Animation ---------------------- */
+@keyframes thread-draw {
+  from {
+    stroke-dashoffset: var(--thread-len, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.thread-draw {
+  stroke-dasharray: var(--thread-len, 1000);
+  stroke-dashoffset: var(--thread-len, 1000);
+  animation: thread-draw 2.4s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .thread-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- Pipeline-Puls für „in Verarbeitung"-Status ------------------- */
+@keyframes pipeline-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.02);
+  }
+}
+.pipeline-pulse {
+  animation: pipeline-pulse 2.2s ease-in-out infinite;
+  transform-origin: left center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-pulse {
+    animation: none;
+  }
+}
+
+/* --- Uhr-Digit-Roll für Hero-Timestamp ---------------------------- */
+@keyframes clock-flip {
+  0%,
+  45% {
+    transform: translateY(0);
+  }
+  55%,
+  100% {
+    transform: translateY(-1em);
+  }
+}
+.clock-track {
+  display: inline-block;
+  line-height: 1;
+  animation: clock-flip 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .clock-track {
+    animation: none;
+    transform: translateY(-1em);
+  }
+}
+
+/* --- IntersectionObserver-getriggerte Reveal-Animation ------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms ease-out;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
