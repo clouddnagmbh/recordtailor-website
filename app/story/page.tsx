@@ -58,7 +58,22 @@ function StoryDE() {
             als Erster merken muss. In der Fliegerei ist das zweite die
             Größe, die zählt. Und in beiden Berufen überstrahlt ein
             Prinzip alles andere: es zählt jedes Leben. Every life counts.
-            Nicht 999 von 1 000. <strong>Alle.</strong>
+            Nicht 999 von 1 000. <strong className="font-serif text-2xl not-italic text-gold sm:text-3xl">Alle.</strong>
+          </p>
+
+          <p>
+            Wenn Sie wissen wollen, ob das eine Berufs-Pose oder ein
+            Betriebssystem ist, ein kleines Detail: als ich im{" "}
+            <strong>Herbst 2025 nach dreißig Jahren Pause wieder mit
+            Tennis begonnen</strong> habe, habe ich mir keinen
+            Vereinstrainer aus dem Nachbardorf gesucht. Ich habe einen
+            gefunden, der jahrzehntelang{" "}
+            <strong>ATP-Top-10-Spieler</strong> betreut hat. Nicht, weil
+            ich vorhabe, auf die Tour zurückzukehren. Sondern weil ich,
+            wenn ich etwas ernst nehme, wissen will, wo mein Deckel
+            wirklich ist — nicht, wo ihn ein durchschnittlicher Trainer
+            vermuten würde. <strong>Business oder Privatleben:
+            dieselbe Haltung.</strong>
           </p>
 
           <p>
@@ -159,7 +174,7 @@ function StoryDE() {
             dessen, was man aus der Aviation mitnimmt, ins DMS. Every
             life counts wird zu <em>every record measures</em>: jedes
             Dokument zählt, jedes Dokument ist messbar, jedes Dokument
-            gehört gefunden — nicht 999 von 1 000. <strong>Alle.</strong>
+            gehört gefunden — nicht 999 von 1 000. <strong className="font-serif text-2xl not-italic text-gold sm:text-3xl">Alle.</strong>
           </p>
 
           <p>
@@ -501,7 +516,20 @@ function StoryEN() {
             notice. In aviation, the second is the quality that matters.
             And in both professions one principle overshadows everything
             else: every life counts. Not 999 out of 1 000.{" "}
-            <strong>All of them.</strong>
+            <strong className="font-serif text-2xl not-italic text-gold sm:text-3xl">All of them.</strong>
+          </p>
+
+          <p>
+            If you want to know whether that's professional posture or
+            operating system, one small detail: when I{" "}
+            <strong>picked up tennis again in autumn 2025 after a
+            thirty-year break</strong>, I didn't look for the local
+            club coach. I found one who had spent decades working with{" "}
+            <strong>ATP top-10 players</strong>. Not because I plan to
+            return to the tour. Because when I take something
+            seriously, I want to know where my ceiling really sits —
+            not where an average coach would guess it.{" "}
+            <strong>Business or private life: same posture.</strong>
           </p>
 
           <p>
@@ -588,7 +616,7 @@ function StoryEN() {
             becomes <em>every record measures</em>: every document
             counts, every document is measurable, every document
             deserves to be findable — not 999 out of 1 000.{" "}
-            <strong>All of them.</strong>
+            <strong className="font-serif text-2xl not-italic text-gold sm:text-3xl">All of them.</strong>
           </p>
 
           <p>
