@@ -2,70 +2,93 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum und Offenlegung nach § 5 ECG / § 25 MedienG.",
+  robots: { index: false, follow: true },
+  alternates: { canonical: "/impressum" },
 };
 
 export default function ImpressumPage() {
   return (
-    <div className="mx-auto max-w-3xl px-5 py-20">
-      <h1 className="font-serif text-4xl font-medium tracking-tight">Impressum</h1>
+    <article className="mx-auto max-w-3xl px-5 py-16">
+      <h1 className="mb-2 font-serif text-3xl font-semibold sm:text-4xl">Impressum</h1>
+      <p className="mb-8 text-sm text-muted-foreground">
+        Informationspflicht laut § 5 E-Commerce-Gesetz, § 14 Unternehmensgesetzbuch,
+        § 63 Gewerbeordnung und Offenlegungspflicht laut § 25 Mediengesetz.
+      </p>
 
-      <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
+      <div className="space-y-6 text-sm leading-relaxed text-foreground/90">
         <section>
-          <h2 className="mb-2 text-base font-semibold text-foreground">
-            Medieninhaber und Herausgeber
-          </h2>
+          <p>RecordTailor ist ein Produkt der</p>
+          <p className="mt-2 font-semibold">CloudDNA GmbH</p>
+          <p>Untere Hauptstraße 23</p>
+          <p>7410 Loipersdorf, Österreich</p>
+        </section>
+
+        <section>
+          <p>Unternehmensgegenstand: IT-Dienstleistungen</p>
+          <p>UID-Nummer: ATU72725928</p>
+          <p>Firmenbuchnummer: FN 480760 a</p>
+          <p>Firmenbuchgericht: Handelsgericht Eisenstadt</p>
+          <p>Firmensitz: 7410 Loipersdorf, Untere Hauptstraße 23</p>
+        </section>
+
+        <section>
+          <p>Tel.: +43 664 1964199</p>
+          <p>E-Mail: office@clouddna.at · hello@recordtailor.com</p>
+        </section>
+
+        <section>
+          <p>Geschäftsführer: Martin Koch</p>
+          <p>Beteiligungsverhältnisse: Gesellschafter Martin Koch 100 %</p>
+          <p>Verleihungsstaat: Österreich</p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 font-serif text-lg font-semibold">Offenlegung gemäß § 25 MedienG</h2>
           <p>
-            CloudDNA GmbH
-            <br />
-            Untere Hauptstraße 23
-            <br />
-            7410 Loipersdorf im Burgenland
-            <br />
-            Österreich
+            Diese Website informiert über Produkte und Dienstleistungen der CloudDNA GmbH für
+            KI-natives Dokumentenmanagement (Marke: RecordTailor).
           </p>
         </section>
 
         <section>
-          <h2 className="mb-2 text-base font-semibold text-foreground">Kontakt</h2>
+          <h2 className="mb-2 font-serif text-lg font-semibold">EU-Streitschlichtung</h2>
           <p>
-            E-Mail: hello@recordtailor.com
-            <br />
-            Web: https://recordtailor.com
+            Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform
+            der EU zu richten: ec.europa.eu/consumers/odr. Sie können allfällige Beschwerden auch
+            an die oben angegebene E-Mail-Adresse richten.
           </p>
         </section>
 
         <section>
-          <h2 className="mb-2 text-base font-semibold text-foreground">
-            Firmenbuch und Behörde
-          </h2>
+          <h2 className="mb-2 font-serif text-lg font-semibold">Haftung für Inhalte dieser Webseite</h2>
           <p>
-            Firmenbuchnummer, Firmenbuchgericht und zuständige Bezirkshauptmannschaft
-            werden hier ergänzt, sobald die Betriebsstätte für RecordTailor final
-            eingerichtet ist.
+            Wir entwickeln die Inhalte dieser Webseite ständig weiter und bemühen uns, korrekte und
+            aktuelle Informationen bereitzustellen. Leider können wir keine Haftung für die
+            Korrektheit aller Inhalte auf dieser Webseite übernehmen, speziell für jene, die seitens
+            Dritter bereitgestellt werden. Sollten Ihnen problematische oder rechtswidrige Inhalte
+            auffallen, bitten wir Sie, uns umgehend zu kontaktieren.
           </p>
         </section>
 
         <section>
-          <h2 className="mb-2 text-base font-semibold text-foreground">
-            Angaben zur Online-Streitbeilegung
-          </h2>
+          <h2 className="mb-2 font-serif text-lg font-semibold">Haftung für Links auf dieser Webseite</h2>
           <p>
-            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung
-            zur Verfügung: https://ec.europa.eu/consumers/odr. Wir sind nicht
-            verpflichtet, an einem Streitbeilegungsverfahren teilzunehmen.
+            Unsere Webseite enthält Links zu anderen Webseiten, für deren Inhalt wir nicht
+            verantwortlich sind. Wenn Ihnen rechtswidrige Links auf unserer Webseite auffallen,
+            bitten wir Sie, uns zu kontaktieren.
           </p>
         </section>
 
         <section>
-          <h2 className="mb-2 text-base font-semibold text-foreground">Haftung</h2>
+          <h2 className="mb-2 font-serif text-lg font-semibold">Urheberrechtshinweis</h2>
           <p>
-            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für
-            die Inhalte externer Links. Für den Inhalt verlinkter Seiten sind ausschließlich
-            deren Betreiber verantwortlich.
+            Alle Inhalte dieser Webseite (Bilder, Fotos, Texte, Videos) unterliegen dem Urheberrecht.
+            Falls notwendig, werden wir die unerlaubte Nutzung von Teilen der Inhalte unserer Seite
+            rechtlich verfolgen. Die auf dieser Website dargestellten Marken Dritter sind Eigentum
+            ihrer jeweiligen Inhaber.
           </p>
         </section>
       </div>
-    </div>
+    </article>
   );
 }
