@@ -40,10 +40,10 @@ function StoryDE() {
             Ich bin kein Dokumenten-Mensch. Ich habe zwei Berufe erlernt, in
             denen es keine 99,9 % gibt: Linienpilot bei Austrian Airlines und
             Fluglotse bei Austro Control. Beides sind Ausbildungen, in die
-            man erst einmal hineinkommen muss — die Aufnahmetests gehören zu
-            den schwersten in Österreich — und beides sind Berufe, in denen
-            ein Prinzip alles überstrahlt: es zählt jedes Leben. Every life
-            counts. Nicht 999 von 1 000. Alle.
+            man erst einmal hineinkommen muss — die Aufnahmetests gehören
+            zu den schwersten in Österreich — und beides sind Berufe, in
+            denen ein Prinzip alles überstrahlt: es zählt jedes Leben.
+            Every life counts. Nicht 999 von 1 000. Alle.
           </p>
 
           <p>
@@ -51,35 +51,16 @@ function StoryDE() {
             Wenn man Jahre damit verbringt, im Cockpit oder im Tower jeden
             Handgriff auf Wiederholbarkeit, jedes Verfahren auf
             Nachvollziehbarkeit und jedes Ergebnis auf Vollständigkeit zu
-            prüfen, dann kann man es nicht mehr abschalten, wenn man in ein
-            anderes Feld wechselt. Man schaut auf jedes System und misst es:{" "}
-            <em>Bringt es 100 %? Oder nur „meistens"?</em>
+            prüfen, dann kann man es nicht mehr abschalten, wenn man in
+            ein anderes Feld wechselt. Man schaut auf jedes System und
+            misst es: <em>bringt es 100 %? Oder nur „meistens"?</em>
           </p>
+        </div>
 
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
-            Von KSIC zu CloudDNA.
-          </h2>
+        <CloudDnaOriginBlock />
 
-          <p>
-            Ich habe irgendwann angefangen, Software zu bauen — zuerst als
-            Freelancer, dann mit einer Firma, die ich KSIC nannte. Ein
-            trockenes Kürzel aus der Consulting-Ära. Wir integrierten
-            SAP-Systeme für Konzernkunden. Der Name war ehrlich zu dem, was
-            wir taten, und exakt so charmant.
-          </p>
-
-          <p>
-            Nach ein paar Jahren kippte das Verhältnis: der Anteil unserer
-            Arbeit, der eigentlich Produkt-Arbeit war und keine reine
-            Beratung mehr, wurde immer größer. Der Name passte nicht mehr
-            zur Firma. Wir haben umbenannt — <strong>CloudDNA</strong>. Die
-            alte DNA blieb (SAP tief in den Genen, cockpitartige Genauigkeit
-            in den Prozessen), was sich verändert hatte, war der
-            Aggregatzustand. Wir waren jetzt Produkt-Firma. Seit gut zehn
-            Jahren.
-          </p>
-
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
+        <div className="mt-14 space-y-6 text-base leading-relaxed text-foreground/85">
+          <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight">
             Zehn Jahre Aktenordner. Und dann ein Satz.
           </h2>
 
@@ -89,34 +70,34 @@ function StoryDE() {
             Dokumentenströme, Archive. Wir haben in jedem größeren Projekt
             dasselbe Muster gefunden. Man beginnt mit einer Folie in einer
             PowerPoint, die zeigt, wie die Belege durchs Haus wandern. SAP
-            liest das Papier, ein OCR-Server drückt es in ein Archiv-System,
-            ein Sachbearbeiter freigibt, das Archiv verlinkt es zurück ins
-            SAP. Auf der Folie sieht das aus wie eine Autobahn. In der
-            Realität ist es ein Feldweg, der bei jedem zweiten Kilometer in
-            ein Wartezimmer mündet.
+            liest das Papier, ein OCR-Server drückt es in ein
+            Archiv-System, ein Sachbearbeiter freigibt, das Archiv verlinkt
+            es zurück ins SAP. Auf der Folie sieht das aus wie eine
+            Autobahn. In der Realität ist es ein Feldweg, der bei jedem
+            zweiten Kilometer in ein Wartezimmer mündet.
           </p>
 
           <p>
             Ich habe Kunden gesehen, die für ihr DMS mehr Lizenzgebühren
-            zahlten als für ihr HR-System. Ich habe Kunden gesehen, die eine
-            eigene Vollzeitstelle nur dafür geschaffen hatten, dass jemand
-            die Metadaten der eingescannten Belege händisch korrigiert. Ich
-            habe einen Vorstand einer regionalen Genossenschaft
-            kennengelernt, der zu mir sagte:
+            zahlten als für ihr HR-System. Ich habe Kunden gesehen, die
+            eine eigene Vollzeitstelle nur dafür geschaffen hatten, dass
+            jemand die Metadaten der eingescannten Belege händisch
+            korrigiert. Ich habe einen Vorstand einer regionalen
+            Genossenschaft kennengelernt, der zu mir sagte:
           </p>
 
           <blockquote className="border-l-2 border-gold py-1 pl-5 font-serif text-xl italic leading-relaxed">
-            „Wir zahlen einen sechsstelligen Betrag im Jahr für ein Archiv,
-            das unsere Buchhalterin bittet, mit Excel zu suchen, weil dort
-            die Rechnungen schneller zu finden sind."
+            „Wir zahlen einen sechsstelligen Betrag im Jahr für ein
+            Archiv, das unsere Buchhalterin bittet, mit Excel zu suchen,
+            weil dort die Rechnungen schneller zu finden sind."
           </blockquote>
 
           <p>
             Für jemanden aus dem Cockpit ist das die Sorte Satz, bei dem
             das Prinzip greift. Das ist nicht 99,9 %. Das ist nicht einmal
-            50 %. Das ist ein System, das seinen eigenen Zweck verfehlt und
-            dafür bezahlt wird. Man kann das nicht wegdenken, wenn man
-            gelernt hat, jedes Verfahren zu prüfen, bis es passt.
+            50 %. Das ist ein System, das seinen eigenen Zweck verfehlt
+            und dafür bezahlt wird. Man kann das nicht wegdenken, wenn
+            man gelernt hat, jedes Verfahren zu prüfen, bis es passt.
           </p>
 
           <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
@@ -124,32 +105,37 @@ function StoryDE() {
           </h2>
 
           <p>
-            2024 wurde etwas möglich, das vorher nicht möglich war. Nicht in
-            der Marketing-Definition von KI, sondern in der handfesten: ein
-            lokal laufendes Modell, das ein Rechnungs-PDF anschaut und in
-            Sekunden weiß, was es ist. IBAN, Betrag, Vertragsbezug,
-            Fälligkeit. Nicht aus einer Cloud-Blackbox — auf einer GPU, die
-            im Serverraum unseres Kunden steht.
+            2024 wurde etwas möglich, das vorher nicht möglich war. Nicht
+            in der Marketing-Definition von KI, sondern in der
+            handfesten: ein lokal laufendes Modell, das ein Rechnungs-PDF
+            anschaut und in Sekunden weiß, was es ist. IBAN, Betrag,
+            Vertragsbezug, Fälligkeit. Nicht aus einer Cloud-Blackbox —
+            auf einer GPU, die im Serverraum unseres Kunden steht.
           </p>
 
           <p>
             Ich habe zuerst ein Experiment gebaut, für einen einzelnen
-            Kunden. Ein kleines Skript, das den Scan-Ordner beobachtet und
-            den DMS-Import mit Klassifikations-Vorschlägen füttert. Am
-            zweiten Tag hat die Buchhalterin mich angerufen: „Kann das Ding
-            auch die Verträge finden, in denen wir uns zu einer
+            Kunden. Ein kleines Skript, das den Scan-Ordner beobachtet
+            und den DMS-Import mit Klassifikations-Vorschlägen füttert. Am
+            zweiten Tag hat die Buchhalterin mich angerufen: „Kann das
+            Ding auch die Verträge finden, in denen wir uns zu einer
             Sammelrechnung verpflichtet haben?" Am dritten Tag: „Und die
             Verträge, wo Kündigungsfristen kurz vor Ablauf sind?"
           </p>
 
           <p>
             Ich habe verstanden, dass ich nicht mehr am Rand des DMS
-            arbeitete. Ich baute gerade das DMS. Nur ohne die Legacy-Ballast
-            der Vor-KI-Ära, die kein Anbieter mehr loswird — Fat-Clients,
-            TWAIN-Treiber, Lizenzmodelle nach User und Modul, Cloud-Zwang.
+            arbeitete. Ich baute gerade das DMS. Nur ohne die
+            Legacy-Ballast der Vor-KI-Ära, die kein Anbieter mehr loswird
+            — Fat-Clients, TWAIN-Treiber, Lizenzmodelle nach User und
+            Modul, Cloud-Zwang.
           </p>
+        </div>
 
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
+        <TailorFamilyPivotBlock siteName="RecordTailor" />
+
+        <div className="mt-14 space-y-6 text-base leading-relaxed text-foreground/85">
+          <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight">
             Every record measures.
           </h2>
 
@@ -157,43 +143,16 @@ function StoryDE() {
             Der Claim ist kein Wortspiel. Er ist die direkte Übersetzung
             dessen, was man aus der Aviation mitnimmt, ins DMS. Every life
             counts wird zu <em>every record measures</em>: jedes Dokument
-            zählt, jedes Dokument ist mess­bar, jedes Dokument gehört
+            zählt, jedes Dokument ist messbar, jedes Dokument gehört
             gefunden — nicht 999 von 1 000. Alle.
           </p>
 
           <p>
             Wir bauen RecordTailor so, wie ein Fluglotse einen
             Verkehrssektor räumt: ohne blinde Flecken, mit prüfbaren
-            Verfahren, mit einer Hash-Chain über jede Entscheidung. Und wir
-            liefern es so aus, wie eine Cockpit-Crew übergibt: mit einer
-            klaren Checkliste, ohne offene Enden.
-          </p>
-
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
-            Warum ausgerechnet aus dem Burgenland?
-          </h2>
-
-          <p>
-            Weil hier bei uns ein Unternehmen wie CloudDNA existieren kann,
-            das seit einem Jahrzehnt mit Enterprise-Kunden arbeitet, ohne
-            eine einzige Runde Venture-Capital gesehen zu haben. Weil wir
-            Software so bauen wie unsere Nachbarn ihren Wein: mit Zeit, mit
-            Ehre für das Handwerk, und mit einem klaren Bild davon, was ein
-            gutes Produkt am Ende ausmacht. Und weil wir hier nahe genug am
-            deutschen Mittelstand sitzen, um zu wissen, wo es weh tut — und
-            weit genug weg vom „Silicon Wien"-Ökosystem, um nicht auf jeder
-            Hype-Welle mitschwimmen zu müssen.
-          </p>
-
-          <p>
-            RecordTailor ist unser Angebot an alle, die ein DMS haben, das
-            eigentlich einen Rechtsanwalt bräuchte, damit man ihm kündigen
-            kann. An alle, deren Buchhaltung heimlich Excel benutzt, weil
-            das Suchen im DMS zu lange dauert. An alle, denen ein Anbieter
-            versprochen hat, „KI-fähig zu sein", und die dann eine
-            PDF-Textbox bekommen haben. Es ist ein DMS, das wir selbst
-            benutzen würden — und das man mit derselben Genauigkeit misst
-            wie einen Anflug.
+            Verfahren, mit einer Hash-Chain über jede Entscheidung. Und
+            wir liefern es so aus, wie eine Cockpit-Crew übergibt: mit
+            einer klaren Checkliste, ohne offene Enden.
           </p>
 
           <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
@@ -212,8 +171,8 @@ function StoryDE() {
           <p>
             Wenn Sie ein Dokument haben, das Sie nicht mehr finden —
             schicken Sie es uns. Wir zeigen Ihnen in einer halben Stunde,
-            was RecordTailor damit macht. Und wenn wir nicht passen, sagen
-            wir es. Ehrlich. Wie im Tower.
+            was RecordTailor damit macht. Und wenn wir nicht passen,
+            sagen wir es. Ehrlich. Wie im Tower.
           </p>
         </div>
 
@@ -239,6 +198,256 @@ function StoryDE() {
   );
 }
 
+/* ------------------------------------------------------------
+   CloudDNA-Origin — kanonisch, wie auf allen Tailor-Websites.
+   „Zehn Jahre, ein Fischlokal, eine Umbenennung"
+   ------------------------------------------------------------ */
+function CloudDnaOriginBlock() {
+  return (
+    <section className="mt-14 space-y-5 leading-relaxed">
+      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+        Zehn Jahre, ein Fischlokal, eine Umbenennung
+      </div>
+      <h2 className="font-serif text-2xl font-semibold leading-tight sm:text-3xl">
+        Wie aus KSIC die CloudDNA wurde.
+      </h2>
+      <p>
+        Ich habe die CloudDNA vor zehn Jahren gegründet — ursprünglich
+        nicht unter diesem Namen. Ich kam damals von SAP, wo ich Jahre
+        in einem der größten Softwarekonzerne der Welt verbracht hatte.
+        Ein sicherer Hafen. Genau der Ort, den man nicht verlässt, wenn
+        man Kinder, ein Haus und eine ernste Miene hat. Ich habe ihn
+        trotzdem verlassen.
+      </p>
+      <p>
+        Am Anfang stand ein sperriger Name: die{" "}
+        <strong>KSIC GmbH</strong> — Koch Security, Integration and Cloud
+        Consulting. Vier Buchstaben, die niemand aussprechen konnte, mit
+        einer Beschreibung, die alles und nichts sagte. Ich habe schnell
+        gemerkt: das war die zweite Sache, die man an einem SAP-Ausstieg
+        nicht macht — sich einen Namen geben, der klingt wie ein
+        Compliance-Standard.
+      </p>
+      <p>
+        Die Rettung kam bei einem Abendessen — obwohl ich das damals
+        noch nicht wusste.{" "}
+        <strong>Blankenese, Hamburg, ein Fischlokal an der Elbe.</strong>{" "}
+        Ich war zu Besuch bei einem alten SAP-Kollegen —{" "}
+        <strong>Jörg</strong>, einer dieser Menschen, die man einen
+        SAP-Guru nennt, ohne dass es kitschig klingt. Mit dabei:{" "}
+        <strong>Daniel</strong>, damals mein erster Mitarbeiter, für den
+        es die allererste Dienstreise war. Am Fischtisch saß er nicht —
+        wir zwei alten Hasen wollten in Ruhe reden. (Daniel, falls du
+        das jemals liest: den Steinbutt tut mir bis heute leid.)
+      </p>
+      <p>
+        Wir tranken einen weißen Burgunder, ich versuchte zum dritten
+        Mal, meinen Firmennamen zu erklären. Jörg unterbrach mich, hob
+        das Glas und sagte einen einzigen Satz:{" "}
+        <em>„Martin, du hast die Cloud in deiner DNA."</em>
+      </p>
+      <p>Kein Vortrag. Keine Analyse. Ein Satz.</p>
+      <p>
+        Am nächsten Morgen bin ich in einem Hamburger Hotelzimmer
+        aufgestanden, habe aus dem Fenster geschaut und gedacht:{" "}
+        <strong>CloudDNA — das wäre ein geiler Name.</strong> Zwei
+        Wochen später hieß die KSIC GmbH nicht mehr KSIC. Und Daniel hat
+        seither noch viele Dienstreisen gemacht, allerdings meistens mit
+        am Tisch.
+      </p>
+      <p className="border-l-2 border-gold pl-4 italic text-muted-foreground">
+        Chapeau, Jörg. Ohne diesen einen Satz an diesem einen Tisch
+        säßen wir hier vermutlich immer noch als KSIC — und du müsstest
+        beim nächsten Wiedersehen wieder erklären, was die vier
+        Buchstaben eigentlich bedeuten. Ein Abendessen, das sich
+        gelohnt hat. Ein Kollege, den man behalten sollte.
+      </p>
+      <p>
+        Was blieb, sind drei Dinge, die den Betrieb seit dem ersten Tag
+        prägen — und mich als Menschen sowieso:
+      </p>
+      <ul className="ml-4 list-disc space-y-2 marker:text-gold">
+        <li>
+          Die Liebe zu <strong>gutem Essen und aufrichtigem Wein</strong>.
+          Wichtige Entscheidungen fallen bei uns nicht in
+          Konferenzräumen. Sie fallen an Tischen mit gutem Licht.
+        </li>
+        <li>
+          Das <strong>Reisen</strong> — mit Kunden in ganz Europa, mit
+          dem eigenen Team in Regionen, aus denen wir Talente holen oder
+          in denen wir Kunden begleiten. Jede zweite Reise wird zur
+          Weinreise, ob wir es geplant haben oder nicht.
+        </li>
+        <li>
+          Das <strong>Südburgenland als Basis</strong> — die
+          Thermenregion, die Weinregion. Nicht Wien, nicht Berlin, nicht
+          San Francisco. Wir sitzen dort, wo unser Team lebt, und
+          schöpfen aus zwei Talentschmieden, die man auf keiner
+          Weltkarte findet: der <strong>HTL Pinkafeld</strong> und der{" "}
+          <strong>FH Burgenland</strong>. Ohne die beiden gäbe es diese
+          Firma nicht.
+        </li>
+      </ul>
+      <p>
+        Angefangen haben wir in einem winzigen Büro in{" "}
+        <strong>Oberwart</strong>. Heute sitzen wir in der{" "}
+        <strong>ehemaligen Raiffeisenbank in Loipersdorf</strong>, direkt
+        in der Thermenregion. Ein Gebäude, das schon einmal einen
+        anderen Bezug zum Himmel hatte, wenn man so will: nach oben. Von
+        bescheidenen Anfängen zu einem Ort mit etwas mehr Platz — das
+        ist Fortschritt.
+      </p>
+      <p>
+        Aus dem Duo mit Daniel ist inzwischen ein Team von{" "}
+        <strong>mehr als zwanzig Menschen</strong> geworden. Wir haben{" "}
+        <strong>siebzehn Bücher bei SAP Press</strong> veröffentlicht —
+        bunt gemischt, aber immer aus der Praxis, nie aus dem Marketing.
+        Das ist die Sorte Kilometerstand, die man nicht ausdenken kann.
+      </p>
+      <p>
+        Unser Motto — <strong>„We deliver"</strong> — meint zwei Dinge:
+        Kundenaufträge, und ein Glas Wein im richtigen Moment. Wir sehen
+        uns als modernes, agiles SAP-Startup. Wir sind nicht die Titanic
+        der Beratungshäuser, wir sind ein <strong>Regattaboot</strong>.
+        Schneller Kurswechsel, kleiner Wendekreis, keine drei Wochen
+        Meeting-Marathon, bis eine Entscheidung fällt.
+      </p>
+      <p className="pt-1">
+        <em>The Sky is the Limit.</em> Und ja — die Cloud ist manchmal
+        wolkig. Aber genau dafür haben wir sie ja in den Genen.
+      </p>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------
+   Tailor-Family-Pivot — kanonisch, wie auf allen Tailor-Websites.
+   „Wir haben uns neu erfunden. Weil die KI uns dazu gezwungen hat."
+   ------------------------------------------------------------ */
+function TailorFamilyPivotBlock({ siteName }: { siteName: string }) {
+  return (
+    <section className="mt-14 rounded-3xl border border-border bg-surface-muted p-8 sm:p-10">
+      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+        Warum überhaupt eine Tailor-Familie
+      </div>
+      <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight sm:text-3xl">
+        Wir haben uns neu erfunden. Weil die KI uns dazu gezwungen hat.
+      </h2>
+      <div className="mt-6 space-y-5 text-base leading-relaxed">
+        <p>
+          Ich habe die CloudDNA aufgebaut, um für Konzerne
+          SAP-Integrationen zu bauen — schwere Software, in Monaten
+          getaktet, mit Angeboten in sechsstelliger Höhe. In dieser Welt
+          war <em>Individualsoftware</em> ein rotes Tuch. Für uns. Für
+          unsere Kunden. Für alle. Man mied sie wie der Teufel das
+          Weihwasser: zu teuer, zu langsam, zu riskant. Standard-Software
+          mit hundert Kompromissen galt als das Vernünftige.
+        </p>
+        <p>Bis 2023.</p>
+        <p>
+          Als ich zum ersten Mal ernsthaft mit Sprachmodellen gearbeitet
+          habe, wurde mir klar: das ist keine graduelle Verbesserung.
+          Das ist der Umbruch, der unser Handwerk umschreibt. Und für
+          die Softwarehäuser — die Konzern-Berater, die SAP-Schmieden,
+          die Nischen-Werkstätten — eine echte Bedrohung. Nicht in fünf
+          Jahren. In eineinhalb.
+        </p>
+        <p>
+          Ich habe zwei Dinge daraus gemacht. Erstens: ich habe mich
+          selbst hingesetzt und Software gebaut — nicht, weil ich das
+          besser kann als meine Leute, sondern weil ich verstehen
+          wollte, wie sich unser Beruf verändert. Und weil ich glaube,
+          dass man seinem Team nicht mit einer PowerPoint erklären kann,
+          wie KI-gestützte Entwicklung funktioniert. Man muss es
+          vorleben, nachts, am eigenen Editor, mit denselben Werkzeugen,
+          die man ihnen empfiehlt.
+        </p>
+        <p>
+          Zweitens: ich habe die Erkenntnis genommen und daraus eine
+          Produktlinie gemacht. Denn die Kosten-Kurve hat sich
+          verschoben. Was früher drei Monate und ein sechsstelliger
+          Betrag war, geht heute in zwei Wochen. Nicht, weil
+          Programmierer plötzlich zaubern. Sondern weil sie mit
+          Copiloten arbeiten, die die Fleißarbeit übernehmen — und die
+          Programmierer werden dadurch wieder das, was sie eigentlich
+          sein sollten: Handwerker mit Kopf, nicht Tipper mit Zeitdruck.
+        </p>
+        <p>
+          <strong>
+            Individualsoftware ist unter diesen Bedingungen kein Luxus
+            mehr. Sie ist das Vernünftigste, was ein Softwarehaus einem
+            Kunden anbieten kann.
+          </strong>
+        </p>
+        <p>
+          Statt nur darüber zu reden, wollte ich es meinen Leuten
+          vorleben. Also habe ich Domänen ausgesucht, die ich gut genug
+          kenne — oder in denen ich Freunde habe, die mir jede Woche das
+          Problem erklären, bis es sitzt — um sie ehrlich zu bauen:
+        </p>
+        <ul className="ml-4 list-disc space-y-2 marker:text-gold">
+          <li>
+            <strong>TaxTailor</strong> — für Steuerkanzleien, weil ein
+            Freund mir bei einem Glas Wein von seinem
+            Windows-Terminal-Server erzählt hat.
+          </li>
+          <li>
+            <strong>DineTailor</strong> — für die Gastronomie, weil ich
+            seit Jahren an fremden Tischen sitze und Champagner an
+            Wirte verkaufe.
+          </li>
+          <li>
+            <strong>StayTailor</strong> — für Hotellerie, weil die
+            Thermenregion Loipersdorf voller Betriebe steckt, die sich
+            unter dem Konditionen-Diktat der Portale ducken.
+          </li>
+          <li>
+            <strong>MeetingTailor</strong> — für Sitzungen und Gremien,
+            weil in meinem Freundeskreis Stiftungsräte, Gemeinderäte und
+            Vereinsvorstände immer wieder dieselbe Nachtszene
+            beschreiben.
+          </li>
+          <li>
+            <strong>DocumentTailor</strong> — für SAP-Häuser, weil ich
+            selbst fünfzehn Jahre lang Formulare auf den SAP Adobe
+            Document Services gebaut habe und die Nachfolgefrage nicht
+            länger unbeantwortet lassen wollte.
+          </li>
+          <li>
+            <strong>RecordTailor</strong> — für alle, die ein DMS
+            brauchen, das nicht nur speichert, sondern liest. Weil ich
+            zu oft am Tisch gesessen bin, an dem eine Buchhalterin
+            heimlich Excel öffnet, weil das DMS zu langsam ist.
+          </li>
+        </ul>
+        <p>
+          Maßgeschneiderte Werkzeuge für Branchen, die von generischen
+          Cloud-Portalen aus den USA seit Jahren schlecht bedient
+          werden. Die CloudDNA ist deshalb kein SAP-Zulieferer mehr —
+          sie ist ein Werkstattbetrieb mit einer wachsenden
+          Produktlinie. Wirtschaftlich riskanter. Menschlich das
+          Ehrlichste, was wir tun konnten.
+        </p>
+        <p className="pt-2">
+          Wenn Sie {siteName} überzeugt, ist das der Grund.
+        </p>
+        <p className="pt-4 text-sm text-muted-foreground">
+          Die Schwester-Werkstätten:{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://taxtailor.at">taxtailor.at</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://dinetailor.com">dinetailor.com</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://staytailor.com">staytailor.com</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://meetingtailor.at">meetingtailor.at</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://documenttailor.com">documenttailor.com</a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
 /* ============================================================
    EN
    ============================================================ */
@@ -256,67 +465,50 @@ function StoryEN() {
         <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/85">
           <p>
             I'm not a document person. I trained in two professions where
-            99.9 % doesn't exist: airline pilot with Austrian Airlines, and
-            air traffic controller with Austro Control. Both take some of
-            the toughest selection tests in Austria to enter, and both are
-            professions ruled by a single principle that overshadows
-            everything else: every life counts. Not 999 out of 1 000. All
-            of them.
+            99.9 % doesn't exist: airline pilot with Austrian Airlines,
+            and air traffic controller with Austro Control. Both take
+            some of the toughest selection tests in Austria to enter, and
+            both are professions ruled by a single principle that
+            overshadows everything else: every life counts. Not 999 out
+            of 1 000. All of them.
           </p>
 
           <p>
-            That imprint doesn't leave you when you hand over the yoke. If
-            you've spent years — in the cockpit or in the tower — checking
-            every action for repeatability, every procedure for
-            traceability, every outcome for completeness, you cannot switch
-            it off when you move into a different field. You look at every
-            system and measure it: <em>does it deliver 100 %? Or only
-            „most of the time"?</em>
+            That imprint doesn't leave you when you hand over the yoke.
+            If you've spent years — in the cockpit or in the tower —
+            checking every action for repeatability, every procedure for
+            traceability, every outcome for completeness, you cannot
+            switch it off when you move into a different field. You look
+            at every system and measure it: <em>does it deliver 100 %?
+            Or only „most of the time"?</em>
           </p>
+        </div>
 
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
-            From KSIC to CloudDNA.
-          </h2>
+        <CloudDnaOriginBlockEN />
 
-          <p>
-            At some point I started building software — first as a
-            freelancer, then with a company I called KSIC. A dry abbreviation
-            from the consulting era. We built SAP integrations for large
-            enterprises. The name was honest to what we did, and about as
-            charming.
-          </p>
-
-          <p>
-            A few years in, the balance tipped: the share of our work that
-            was really product work — no longer just consulting — kept
-            growing. The name didn't fit the company any more. We renamed
-            it — <strong>CloudDNA</strong>. The old DNA stayed (SAP deep in
-            the genes, cockpit-grade precision in the processes), what had
-            changed was the state of matter. We were a product company
-            now. That was a good ten years ago.
-          </p>
-
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
+        <div className="mt-14 space-y-6 text-base leading-relaxed text-foreground/85">
+          <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight">
             Ten years of filing cabinets. Then one sentence.
           </h2>
 
           <p>
-            For those ten years I worked with CloudDNA in a corner nobody
-            sees from the outside: SAP integrations, document flows,
-            archives. In every larger project we found the same pattern.
-            You start with a slide showing how documents travel through the
-            house. SAP reads the paper, an OCR server pushes it into an
-            archive, a clerk approves, the archive links back to SAP. On
-            the slide it looks like a motorway. In reality it's a country
-            road that passes a waiting room every second kilometre.
+            For those ten years I worked with CloudDNA in a corner
+            nobody sees from the outside: SAP integrations, document
+            flows, archives. In every larger project we found the same
+            pattern. You start with a slide showing how documents travel
+            through the house. SAP reads the paper, an OCR server pushes
+            it into an archive, a clerk approves, the archive links back
+            to SAP. On the slide it looks like a motorway. In reality
+            it's a country road that passes a waiting room every second
+            kilometre.
           </p>
 
           <p>
-            I've seen customers pay more in annual license fees for their
-            DMS than for their HR system. I've seen customers create a
-            dedicated full-time position just to manually correct metadata
-            on scanned documents. I met a board member of a regional
-            cooperative who told me:
+            I've seen customers pay more in annual license fees for
+            their DMS than for their HR system. I've seen customers
+            create a dedicated full-time position just to manually
+            correct metadata on scanned documents. I met a board member
+            of a regional cooperative who told me:
           </p>
 
           <blockquote className="border-l-2 border-gold py-1 pl-5 font-serif text-xl italic leading-relaxed">
@@ -326,11 +518,9 @@ function StoryEN() {
           </blockquote>
 
           <p>
-            For someone from the cockpit, that's the kind of sentence the
-            principle grips onto. That isn't 99.9 %. That isn't even 50 %.
-            That's a system paid to fail at its own purpose. You can't
-            un-think it once you've trained to check every procedure until
-            it fits.
+            For someone from the cockpit, that's the kind of sentence
+            the principle grips onto. That isn't 99.9 %. That isn't
+            even 50 %. That's a system paid to fail at its own purpose.
           </p>
 
           <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
@@ -339,30 +529,25 @@ function StoryEN() {
 
           <p>
             In 2024 something became possible that had not been possible
-            before. Not in the marketing sense of AI, but the concrete one:
-            a locally running model that looks at an invoice PDF and, in
-            seconds, knows what it is. IBAN, amount, contract reference,
-            due date. Not from a cloud black box — on a GPU that sits in
-            our customer's own server room.
+            before: a locally running model that looks at an invoice PDF
+            and, in seconds, knows what it is. Not from a cloud black
+            box — on a GPU that sits in our customer's own server room.
           </p>
 
           <p>
-            I first built it as an experiment, for one customer. A small
-            script that watched the scan folder and fed classification
-            suggestions into the DMS import. On day two the bookkeeper
-            called: „Can this thing also find the contracts where we
-            committed to a monthly invoice roll-up?" On day three: „And
-            the contracts where cancellation windows are about to close?"
+            I first built it as an experiment, for one customer. On day
+            two the bookkeeper called: „Can this thing also find the
+            contracts where we committed to a monthly invoice roll-up?"
+            On day three: „And the contracts where cancellation windows
+            are about to close?" I realised I was no longer working at
+            the edge of the DMS. I was building the DMS.
           </p>
+        </div>
 
-          <p>
-            I realised I was no longer working at the edge of the DMS. I
-            was building the DMS. Just without the pre-AI legacy weight no
-            incumbent can shed — fat clients, TWAIN drivers,
-            per-user-per-module licensing, cloud-lock-in.
-          </p>
+        <TailorFamilyPivotBlockEN siteName="RecordTailor" />
 
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
+        <div className="mt-14 space-y-6 text-base leading-relaxed text-foreground/85">
+          <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight">
             Every record measures.
           </h2>
 
@@ -370,40 +555,16 @@ function StoryEN() {
             The claim isn't a pun. It's the direct translation of what
             aviation leaves in you, into a DMS. Every life counts becomes{" "}
             <em>every record measures</em>: every document counts, every
-            document is measurable, every document deserves to be findable
-            — not 999 out of 1 000. All of them.
+            document is measurable, every document deserves to be
+            findable — not 999 out of 1 000. All of them.
           </p>
 
           <p>
             We build RecordTailor the way a controller clears a traffic
-            sector: no blind spots, with auditable procedures, with a hash
-            chain across every decision. And we hand it over the way a
-            cockpit crew does: with a clean checklist, no loose ends.
-          </p>
-
-          <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
-            Why from Burgenland, of all places?
-          </h2>
-
-          <p>
-            Because in our part of the world a company like CloudDNA can
-            exist that has worked with enterprise customers for a decade
-            without raising a single round of venture capital. We build
-            software the way our neighbours make wine: with time, with
-            respect for the craft, and with a clear picture of what a good
-            product actually looks like in the end. And because we sit
-            close enough to the German-speaking Mittelstand to know where
-            it hurts, and far enough from any „Silicon Vienna" ecosystem
-            to not have to ride every hype wave that comes past.
-          </p>
-
-          <p>
-            RecordTailor is our offer to everyone whose DMS would need a
-            lawyer to be cancelled. To everyone whose accounting team
-            secretly uses Excel because DMS search takes too long. To
-            everyone whose vendor promised to be „AI-ready" and delivered
-            a PDF text box. It's the DMS we would use ourselves — and one
-            we measure with the same precision as an approach.
+            sector: no blind spots, with auditable procedures, with a
+            hash chain across every decision. And we hand it over the
+            way a cockpit crew does: with a clean checklist, no loose
+            ends.
           </p>
 
           <h2 className="mt-14 font-serif text-3xl font-medium tracking-tight">
@@ -420,9 +581,9 @@ function StoryEN() {
 
           <p>
             If you have a document you can't find any more — send it to
-            us. In half an hour we'll show you what RecordTailor does with
-            it. And if we're not the right fit, we'll say so. Honestly.
-            Like in the tower.
+            us. In half an hour we'll show you what RecordTailor does
+            with it. And if we're not the right fit, we'll say so.
+            Honestly. Like in the tower.
           </p>
         </div>
 
@@ -445,5 +606,236 @@ function StoryEN() {
 
       <TailorFamilySection currentSlug="recordtailor" />
     </div>
+  );
+}
+
+function CloudDnaOriginBlockEN() {
+  return (
+    <section className="mt-14 space-y-5 leading-relaxed">
+      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+        Ten years, a fish restaurant, a rename
+      </div>
+      <h2 className="font-serif text-2xl font-semibold leading-tight sm:text-3xl">
+        How KSIC became CloudDNA.
+      </h2>
+      <p>
+        I founded CloudDNA ten years ago — originally under a different
+        name. I came from SAP at the time, where I had spent years
+        inside one of the largest software companies in the world. A
+        safe harbour. Precisely the place you don't leave when you have
+        kids, a house and a serious face. I left anyway.
+      </p>
+      <p>
+        The starting point was a clumsy name:{" "}
+        <strong>KSIC GmbH</strong> — Koch Security, Integration and
+        Cloud Consulting. Four letters no one could pronounce, wrapped
+        in a description that said everything and nothing. I quickly
+        realised: that's the second thing you don't do when leaving SAP
+        — give yourself a name that sounds like a compliance standard.
+      </p>
+      <p>
+        The rescue arrived at dinner — though I didn't know it yet.{" "}
+        <strong>Blankenese, Hamburg, a fish restaurant on the Elbe.</strong>{" "}
+        I was visiting an old SAP colleague — <strong>Jörg</strong>, one
+        of those people you call an SAP guru without it sounding
+        cheesy. Along came <strong>Daniel</strong>, my very first
+        employee at the time, on his very first business trip. He
+        wasn't seated at the fish table — the two old hands wanted a
+        quiet talk. (Daniel, if you ever read this: I'm still sorry
+        about the turbot.)
+      </p>
+      <p>
+        We drank a white Burgundy and I tried, for the third time, to
+        explain my company name. Jörg cut me off, raised his glass and
+        said a single sentence:{" "}
+        <em>„Martin, you've got the Cloud in your DNA."</em>
+      </p>
+      <p>No lecture. No analysis. One sentence.</p>
+      <p>
+        The next morning I stood up in a Hamburg hotel room, looked out
+        of the window, and thought:{" "}
+        <strong>CloudDNA — that would be a great name.</strong> Two
+        weeks later, KSIC GmbH was no longer KSIC. And Daniel has been
+        on many business trips since — usually with a seat at the table.
+      </p>
+      <p className="border-l-2 border-gold pl-4 italic text-muted-foreground">
+        Chapeau, Jörg. Without that one sentence at that one table
+        we'd still be KSIC, and you'd still have to explain what the
+        four letters mean at every reunion. A dinner that was worth it.
+        A colleague worth keeping.
+      </p>
+      <p>
+        What stayed are three things that have shaped the company from
+        day one — and me as a person anyway:
+      </p>
+      <ul className="ml-4 list-disc space-y-2 marker:text-gold">
+        <li>
+          A love of <strong>good food and honest wine</strong>. Important
+          decisions here don't happen in meeting rooms. They happen at
+          tables with good light.
+        </li>
+        <li>
+          <strong>Travel</strong> — with customers all over Europe,
+          with our own team in regions we source talent from or where
+          we accompany our customers. Every second trip becomes a wine
+          trip, whether we planned it or not.
+        </li>
+        <li>
+          <strong>Southern Burgenland as our base</strong> — the
+          spa region, the wine region. Not Vienna, not Berlin, not San
+          Francisco. We sit where our team lives, and draw from two
+          talent forges you won't find on any world map: the{" "}
+          <strong>HTL Pinkafeld</strong> and the <strong>FH
+          Burgenland</strong>. Without either, this company wouldn't
+          exist.
+        </li>
+      </ul>
+      <p>
+        We started in a tiny office in <strong>Oberwart</strong>. Today
+        we sit in the <strong>former Raiffeisenbank in Loipersdorf</strong>,
+        right in the spa region. A building that once had a different
+        relationship with the sky, if you like: upward. From modest
+        beginnings to a place with a bit more room — that's progress.
+      </p>
+      <p>
+        The duo with Daniel has grown into a team of{" "}
+        <strong>more than twenty people</strong>. We've published{" "}
+        <strong>seventeen books at SAP Press</strong> — mixed subjects,
+        but always from practice, never from marketing. That's the kind
+        of mileage you can't invent.
+      </p>
+      <p>
+        Our motto — <strong>„We deliver"</strong> — means two things:
+        customer commitments, and a glass of wine at the right moment.
+        We see ourselves as a modern, agile SAP startup. We are not the
+        Titanic of consulting houses; we are a{" "}
+        <strong>regatta boat</strong>. Quick course changes, small
+        turning circle, no three-week meeting marathon to reach a
+        decision.
+      </p>
+      <p className="pt-1">
+        <em>The sky is the limit.</em> And yes — the cloud is sometimes
+        cloudy. But that's exactly why we have it in our genes.
+      </p>
+    </section>
+  );
+}
+
+function TailorFamilyPivotBlockEN({ siteName }: { siteName: string }) {
+  return (
+    <section className="mt-14 rounded-3xl border border-border bg-surface-muted p-8 sm:p-10">
+      <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+        Why a Tailor family at all
+      </div>
+      <h2 className="mt-3 font-serif text-2xl font-semibold leading-tight sm:text-3xl">
+        We reinvented ourselves. Because AI forced us to.
+      </h2>
+      <div className="mt-6 space-y-5 text-base leading-relaxed">
+        <p>
+          I built CloudDNA to make SAP integrations for large
+          enterprises — heavy software, in monthly rhythms, six-figure
+          proposals. In that world, <em>custom software</em> was the
+          red rag. For us. For our customers. For everyone. You avoided
+          it like the plague: too expensive, too slow, too risky.
+          Standard software with a hundred compromises was considered
+          the sensible choice.
+        </p>
+        <p>Until 2023.</p>
+        <p>
+          When I first worked seriously with language models, it hit
+          me: this is not a gradual improvement. This is the shift that
+          rewrites our craft. And for the software shops — the
+          enterprise consultancies, the SAP forges, the niche
+          workshops — a real threat. Not in five years. In eighteen
+          months.
+        </p>
+        <p>
+          I did two things with that. First: I sat down and built
+          software myself — not because I do it better than my people,
+          but because I wanted to understand how our profession is
+          changing. And because I don't believe you can explain
+          AI-assisted development to your team in a PowerPoint. You
+          have to live it, at night, at your own editor, with the same
+          tools you recommend to them.
+        </p>
+        <p>
+          Second: I turned the insight into a product line. Because the
+          cost curve has shifted. What used to be three months and a
+          six-figure sum can be done in two weeks now. Not because
+          programmers suddenly perform magic — but because they work
+          with copilots that take over the drudgery, and programmers
+          become again what they should have been all along: craftsmen
+          with a head on their shoulders, not typists on a deadline.
+        </p>
+        <p>
+          <strong>
+            Custom software isn't a luxury under these conditions any
+            more. It's the most reasonable thing a software house can
+            offer a customer.
+          </strong>
+        </p>
+        <p>
+          Instead of just talking about it, I wanted to live it in
+          front of my team. So I picked domains I knew well enough — or
+          where I have friends who explain the problem to me every week
+          until it sticks — and built honestly:
+        </p>
+        <ul className="ml-4 list-disc space-y-2 marker:text-gold">
+          <li>
+            <strong>TaxTailor</strong> — for tax firms, because a
+            friend told me at a glass of wine about his Windows terminal
+            server.
+          </li>
+          <li>
+            <strong>DineTailor</strong> — for hospitality, because
+            I've spent years at other people's tables selling champagne
+            to restaurateurs.
+          </li>
+          <li>
+            <strong>StayTailor</strong> — for hotels, because the spa
+            region of Loipersdorf is full of businesses ducking under
+            the pricing dictates of the portals.
+          </li>
+          <li>
+            <strong>MeetingTailor</strong> — for boards and councils,
+            because my circle of friends is full of foundation
+            trustees, town councillors and association boards who all
+            describe the same late-night scene.
+          </li>
+          <li>
+            <strong>DocumentTailor</strong> — for SAP houses, because
+            I spent fifteen years building forms on SAP Adobe Document
+            Services and no longer wanted the successor question left
+            open.
+          </li>
+          <li>
+            <strong>RecordTailor</strong> — for anyone who needs a DMS
+            that not only stores, but reads. Because I've too often sat
+            at the table where a bookkeeper secretly opens Excel
+            because DMS search is too slow.
+          </li>
+        </ul>
+        <p>
+          Tailored tools for industries that generic US cloud portals
+          have served poorly for years. CloudDNA is no longer an SAP
+          supplier — it's a workshop with a growing product line.
+          Riskier economically. And the most honest thing we could do,
+          humanly.
+        </p>
+        <p className="pt-2">If {siteName} convinces you, that's the reason.</p>
+        <p className="pt-4 text-sm text-muted-foreground">
+          The sibling workshops:{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://taxtailor.at">taxtailor.at</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://dinetailor.com">dinetailor.com</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://staytailor.com">staytailor.com</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://meetingtailor.at">meetingtailor.at</a>{" "}
+          ·{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://documenttailor.com">documenttailor.com</a>
+        </p>
+      </div>
+    </section>
   );
 }
