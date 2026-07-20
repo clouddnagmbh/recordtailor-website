@@ -45,13 +45,23 @@ const de: Dict = {
   "trust.2": "EU-Datenhoheit",
   "trust.3": "SAP ArchiveLink",
   "trust.4": "CMIS 1.1",
-  "trust.5": "Ohne Fat-Client",
+  "trust.5": "No training required",
   "trust.6": "Open-Source-Kern",
 
-  // --- Golden line (positioning) ---
-  "line.title": "Wir sind das DMS der nächsten Generation.",
+  // --- UX manifesto (former golden line) ---
+  "line.eyebrow": "UX & Innovation rule",
+  "line.title": "Nicht aus 1998. Nicht aus dem Beratungshaus.",
   "line.body":
-    "Kein weiteres „Aktenschrank-in-der-Cloud\". RecordTailor liest Ihre Dokumente, versteht Ihre Fachbegriffe, verzweigt Änderungen wie Git und beantwortet Fragen mit Zitat und Fundstelle — alles in Ihrem eigenen Rechenzentrum.",
+    "Andere DMS starten mit einem vierzigtägigen Setup, in dem Berater Ihre Belegarten definieren, Ihre Attribute pflegen, Ihre Formulare bauen. Bei uns baut die KI Ihr Schema — aus Ihrem eigenen Dokumenten-Bestand. Werfen Sie 50 Rechnungen und 20 Verträge in einen Ordner: RecordTailor liest, klassifiziert und schlägt Ihnen ein komplettes Attribut-Modell vor. Vier Stunden. Nicht vier Monate. Und das UI dahinter kommt nicht aus 1998 — es ist keyboard-first, dark-mode-fluent, mobile-ready. Wer eine Suchmaschine bedienen kann, bedient RecordTailor.",
+  "line.pill.1.t": "KI-Assistent für Belegarten",
+  "line.pill.1.b":
+    "Aus 50 Dokumenten das Schema. Aus 500 das perfekte. Sie korrigieren nur, was der Assistent nicht sicher weiß — den Rest schlägt er vor. Jede neue Belegart lernt er beim ersten Freigabe-Klick weiter.",
+  "line.pill.2.t": "No training required.",
+  "line.pill.2.b":
+    "Wir schicken Ihnen keinen zweitägigen Schulungs-Sprint. Kein Handbuch, kein Onboarding-Wizard mit fünfzehn Klicks. Sie loggen sich ein, ziehen ein Dokument in den Browser, sehen was passiert. Fertig.",
+  "line.pill.3.t": "UX aus 2026, nicht aus Windows 95.",
+  "line.pill.3.b":
+    "Keine Rechtsklick-Kaskaden. Keine ausklappbaren Baum-Views mit fünfzehn Ebenen. Keine grauen Toolbar-Buttons, die 2003 zum letzten Mal in Mode waren. Keyboard-first, dark-mode, mobile-ready — Standards, die man sich anderswo per Consulting kaufen muss.",
 
   // --- Feature grid ---
   "feat.title": "Sechs Fähigkeiten, die andere als „Add-On\" verkaufen.",
@@ -78,9 +88,9 @@ const de: Dict = {
   "feat.5.body":
     "RecordTailor spricht ArchiveLink und CMIS 1.1 nativ. SAP kann uns als Archiv anbinden. Alfresco-Migrationen laufen ohne Datenverlust. Kein Middleware-Zoo.",
 
-  "feat.6.title": "Scan-Ingest ohne Fat-Client",
+  "feat.6.title": "KI-Assistent baut Ihr Schema",
   "feat.6.body":
-    "MFP direkt in RecordTailor scannen. Auto-Trennung erkennt Belegwechsel. Kein Windows-Scan-Client, keine TWAIN-Treiber-Kämpfe, keine Software auf Endgeräten.",
+    "Beim Setup wirft der Assistent einen Blick auf Ihre Bestandsdokumente — 50 Rechnungen, 20 Verträge, 30 Mails — und schlägt Ihnen ein komplettes Belegarten- und Attribut-Modell vor. Sie korrigieren, wo es nicht passt. MFP-Scan-Ingest ohne Fat-Client ist inklusive. Vier Stunden statt vierzig Tage.",
 
   // --- On-Premise section ---
   "prem.eyebrow": "Warum reine On-Premise",
@@ -102,15 +112,15 @@ const de: Dict = {
   "cmp.title": "Warum nicht das, was alle nutzen?",
   "cmp.legacy.title": "Klassische DMS (die grossen Drei)",
   "cmp.legacy.1": "Cloud-only oder komplexes SaaS-Deployment mit Datenabfluss",
-  "cmp.legacy.2": "Fat-Client für Scan, Signatur, Suche",
-  "cmp.legacy.3": "Metadaten müssen händisch gepflegt werden",
+  "cmp.legacy.2": "Windows-95-UI mit Rechtsklick-Kaskaden. Zweitägige Anwenderschulung.",
+  "cmp.legacy.3": "40-Tage-Setup-Consulting, um Belegarten und Attribute zu definieren",
   "cmp.legacy.4": "KI ist ein kostenpflichtiges Add-On, das externe LLMs anzapft",
   "cmp.legacy.5": "Versionen sind lineare Kopien — kein Branching, kein Merge",
   "cmp.legacy.6": "Lizenzmodell nach User, Modul, Storage, Support",
   "cmp.rt.title": "RecordTailor",
   "cmp.rt.1": "Reine On-Premise, ein Helm-Chart, air-gapped-fähig",
-  "cmp.rt.2": "100 % Browser. MFP-Scan, Signatur, Suche — kein Endgeräte-Setup",
-  "cmp.rt.3": "KI erkennt Metadaten in unter 30 Sekunden pro Dokument",
+  "cmp.rt.2": "UX aus 2026. Keyboard-first, mobile-ready. No training required.",
+  "cmp.rt.3": "KI-Assistent baut Ihr Schema in vier Stunden aus Ihrem Bestand",
   "cmp.rt.4": "KI ist der Kern, nicht das Add-On. Lokale LLMs mitgeliefert",
   "cmp.rt.5": "Branches, Merge, Diff — echte Versionierung wie in Git",
   "cmp.rt.6": "Ein Preis, verhandelt für Ihr Rechenzentrum",
@@ -322,12 +332,22 @@ const en: Dict = {
   "trust.2": "EU data sovereignty",
   "trust.3": "SAP ArchiveLink",
   "trust.4": "CMIS 1.1",
-  "trust.5": "No fat client",
+  "trust.5": "No training required",
   "trust.6": "Open-source core",
 
-  "line.title": "The DMS of the next generation.",
+  "line.eyebrow": "UX & innovation rule",
+  "line.title": "Not from 1998. Not from a consulting house.",
   "line.body":
-    "Not another \"filing cabinet in the cloud\". RecordTailor reads your documents, understands your domain vocabulary, branches changes like Git, and answers questions with citation and source — all inside your own data center.",
+    "Other DMSes start with a forty-day setup where consultants define your document types, curate your attributes, build your forms. Here, the AI builds your schema — from your own document set. Drop 50 invoices and 20 contracts into a folder: RecordTailor reads, classifies and proposes a complete attribute model. Four hours. Not four months. And the UI behind it isn't from 1998 — it's keyboard-first, dark-mode-fluent, mobile-ready. If you can use a search engine, you can use RecordTailor.",
+  "line.pill.1.t": "AI schema assistant.",
+  "line.pill.1.b":
+    "From 50 documents the schema. From 500 the perfect one. You only correct what the assistant isn't sure about; the rest it proposes. Every new document type it learns further on the first approval click.",
+  "line.pill.2.t": "No training required.",
+  "line.pill.2.b":
+    "We don't send you on a two-day training sprint. No manual, no onboarding wizard with fifteen clicks. You log in, drag a document into the browser, watch it happen. Done.",
+  "line.pill.3.t": "UX from 2026, not Windows 95.",
+  "line.pill.3.b":
+    "No right-click cascades. No collapsible tree views fifteen levels deep. No grey toolbar buttons last fashionable in 2003. Keyboard-first, dark-mode, mobile-ready — standards you'd have to buy in via consulting anywhere else.",
 
   "feat.title": "Six capabilities others sell as add-ons.",
   "feat.sub":
@@ -347,9 +367,9 @@ const en: Dict = {
   "feat.5.title": "SAP ArchiveLink & CMIS",
   "feat.5.body":
     "RecordTailor speaks ArchiveLink and CMIS 1.1 natively. SAP can attach us as an archive. Alfresco migrations run without data loss.",
-  "feat.6.title": "Scan ingest, no fat client",
+  "feat.6.title": "AI assistant builds your schema",
   "feat.6.body":
-    "MFP scans straight into RecordTailor. Auto-separation detects document boundaries. No Windows scan clients, no TWAIN driver wars.",
+    "At setup the assistant takes a look at your existing documents — 50 invoices, 20 contracts, 30 emails — and proposes a full document-type and attribute model. You correct where it doesn't fit. MFP scan ingest without a fat client is included. Four hours instead of forty days.",
 
   "prem.eyebrow": "Why on-premise only",
   "prem.title": "Your documents stay where they belong.",
@@ -369,15 +389,15 @@ const en: Dict = {
   "cmp.title": "Why not what everyone else uses?",
   "cmp.legacy.title": "Classic DMS (the big three)",
   "cmp.legacy.1": "Cloud-only or complex SaaS deployment with data leakage",
-  "cmp.legacy.2": "Fat clients for scanning, signing, searching",
-  "cmp.legacy.3": "Metadata must be curated by hand",
+  "cmp.legacy.2": "Windows-95 UI with right-click cascades. Two-day user training required.",
+  "cmp.legacy.3": "40-day setup consulting to define document types and attributes",
   "cmp.legacy.4": "AI is a paid add-on that calls external LLMs",
   "cmp.legacy.5": "Versions are linear copies — no branching, no merge",
   "cmp.legacy.6": "Licensing per user, per module, per storage, per support",
   "cmp.rt.title": "RecordTailor",
   "cmp.rt.1": "On-premise only, one Helm chart, air-gapped ready",
-  "cmp.rt.2": "100 % browser. MFP scan, sign, search — no endpoint setup",
-  "cmp.rt.3": "AI extracts metadata in under 30 seconds per document",
+  "cmp.rt.2": "UX from 2026. Keyboard-first, mobile-ready. No training required.",
+  "cmp.rt.3": "AI assistant builds your schema in four hours from your own document set",
   "cmp.rt.4": "AI is the core, not the add-on. Local LLMs shipped",
   "cmp.rt.5": "Branches, merge, diff — real versioning like Git",
   "cmp.rt.6": "One price, negotiated for your data center",

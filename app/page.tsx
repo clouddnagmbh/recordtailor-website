@@ -5,13 +5,15 @@ import {
   Check,
   GitBranch,
   GitCommit,
+  KeyboardIcon,
   Lock,
   Network,
   Plug,
-  ScanLine,
   Search,
   ShieldCheck,
+  Sparkles,
   Timer,
+  Wand2,
 } from "lucide-react";
 
 import { AppScreens } from "@/components/app-screens";
@@ -102,17 +104,42 @@ export default async function Home() {
       {/* S2b — Emblem slab (Logo prominent + Made-to-Measure Claim) */}
       <EmblemSlab />
 
-      {/* S3 — Positioning line */}
+      {/* S3 — UX & Innovation Manifesto (former positioning line) */}
       <section className="border-b border-border bg-cream">
-        <div className="mx-auto max-w-4xl px-5 py-20">
+        <div className="mx-auto max-w-6xl px-5 py-20">
           <Reveal>
-            <h2 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">
-              {t("line.title")}
-            </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              {t("line.body")}
-            </p>
+            <div className="max-w-3xl">
+              <div className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">
+                {t("line.eyebrow")}
+              </div>
+              <h2 className="mt-3 font-serif text-4xl font-medium leading-[1.08] tracking-tight sm:text-5xl">
+                {t("line.title")}
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                {t("line.body")}
+              </p>
+            </div>
           </Reveal>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {[
+              { icon: Wand2, i: 1 },
+              { icon: Sparkles, i: 2 },
+              { icon: KeyboardIcon, i: 3 },
+            ].map(({ icon: Icon, i }) => (
+              <Reveal key={i} delay={i * 80}>
+                <article className="h-full rounded-2xl border-2 border-gold/30 bg-gold-soft/40 p-6">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-base font-semibold">{t(`line.pill.${i}.t`)}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {t(`line.pill.${i}.b`)}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -143,7 +170,7 @@ export default async function Home() {
               { icon: Search, i: 3 },
               { icon: Network, i: 4 },
               { icon: Plug, i: 5 },
-              { icon: ScanLine, i: 6 },
+              { icon: Wand2, i: 6 },
             ].map(({ icon: Icon, i }) => (
               <Reveal key={i} delay={i * 60}>
                 <article className="h-full rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-elevated">
