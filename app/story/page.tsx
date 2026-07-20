@@ -5,8 +5,6 @@ import { TailorFamilySection } from "@/components/tailor-family";
 import { DICTS } from "@/lib/i18n/dictionary";
 import { getLocale } from "@/lib/i18n";
 
-export const dynamic = "force-static";
-
 export async function generateMetadata() {
   const l = await getLocale();
   return {
