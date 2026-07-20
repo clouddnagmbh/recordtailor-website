@@ -192,7 +192,7 @@ const de: Dict = {
   // --- Emblem / Made to Measure Slab ---
   "emblem.top": "Made to measure",
   "emblem.bottom": "Built for workflows",
-  "emblem.headline": "„Made to measure" ist bei uns kein Marketing-Wort.",
+  "emblem.headline": "„Made to measure\" ist bei uns kein Marketing-Wort.",
   "emblem.body":
     "Jedes RecordTailor-Deployment wird auf Ihre Belegarten, Ihre Prozesse, Ihren Vertragskatalog zugeschnitten. Kein Konfigurations-Assistent, der aus einer Standard-Liste kreuzt. Ein Setup-Sprint, in dem wir mit Ihrem Team messen: welche Dokumente, welche Kanten, welche Fristen. Was rauskommt, passt so genau auf Ihr Haus wie ein maßgeschneidertes Sakko — und ist genauso wenig austauschbar.",
   "emblem.measure.1.n": "48 h",
