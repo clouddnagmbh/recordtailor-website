@@ -3,13 +3,13 @@ import path from "node:path";
 
 import { ImageResponse } from "next/og";
 
-export const alt = "MeetingTailor — Protokolle nach Maß.";
+export const alt = "RecordTailor — Every record measures.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 async function logoDataUri(): Promise<string> {
   const bytes = await readFile(
-    path.join(process.cwd(), "public/brand/meetingtailor-512.png"),
+    path.join(process.cwd(), "public/brand/recordtailor.png"),
   );
   return `data:image/png;base64,${bytes.toString("base64")}`;
 }
@@ -26,23 +26,23 @@ export default async function OG() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          background: "#191926",
-          color: "#faf6ef",
+          background: "#0b1120",
+          color: "#f7f8fb",
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        {/* Offizielles MeetingTailor-Emblem */}
+        {/* Offizielles RecordTailor-Emblem */}
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={logo}
-            width={72}
-            height={72}
-            alt="MeetingTailor"
+            width={88}
+            height={88}
+            alt="RecordTailor"
             style={{ borderRadius: "50%", display: "block" }}
           />
-          <div style={{ fontSize: 34, fontWeight: 600, letterSpacing: -0.3, display: "flex" }}>
-            MeetingTailor
+          <div style={{ fontSize: 36, fontWeight: 600, letterSpacing: -0.3, display: "flex" }}>
+            RecordTailor
           </div>
         </div>
 
@@ -57,20 +57,20 @@ export default async function OG() {
               fontWeight: 700,
             }}
           >
-            Minutes, made to measure.
+            Every record measures.
           </div>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              fontSize: 72,
+              fontSize: 76,
               lineHeight: 1.05,
               fontWeight: 600,
-              maxWidth: 960,
+              maxWidth: 1000,
             }}
           >
-            <span style={{ display: "flex" }}>Protokolle</span>
-            <span style={{ display: "flex" }}>nach Maß.</span>
+            <span style={{ display: "flex" }}>Dokumente.</span>
+            <span style={{ display: "flex" }}>Nach Maß.</span>
           </div>
         </div>
 
@@ -79,10 +79,10 @@ export default async function OG() {
             display: "flex",
             gap: 12,
             fontSize: 18,
-            color: "rgba(250,246,239,0.75)",
+            color: "rgba(247,248,251,0.72)",
           }}
         >
-          <span>Sitzung · Transkript · Goldener Faden · On-Premise · DSGVO</span>
+          <span>KI-Triage · Branches · Hybrid-Suche · Knowledge Graph · On-Prem oder Managed</span>
         </div>
       </div>
     ),
