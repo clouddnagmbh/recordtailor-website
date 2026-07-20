@@ -154,12 +154,13 @@ function StoryDE() {
             Every record measures.
           </h2>
 
-          <p>
+          <p className="font-serif text-2xl font-semibold leading-[1.25] tracking-tight text-foreground sm:text-3xl">
             Der Claim ist kein Wortspiel. Er ist die direkte Übersetzung
-            dessen, was man aus der Aviation mitnimmt, ins DMS. Every life
-            counts wird zu <em>every record measures</em>: jedes Dokument
-            zählt, jedes Dokument ist messbar, jedes Dokument gehört
-            gefunden — nicht 999 von 1 000. Alle.
+            dessen, was man aus der Aviation mitnimmt, ins DMS.{" "}
+            <span className="text-gold">Every life counts</span> wird zu{" "}
+            <span className="text-gold">every record measures</span>:
+            jedes Dokument zählt, jedes Dokument ist messbar, jedes
+            Dokument gehört gefunden — <em className="not-italic">nicht 999 von 1 000. Alle.</em>
           </p>
 
           <p>
@@ -582,12 +583,14 @@ function StoryEN() {
             Every record measures.
           </h2>
 
-          <p>
+          <p className="font-serif text-2xl font-semibold leading-[1.25] tracking-tight text-foreground sm:text-3xl">
             The claim isn't a pun. It's the direct translation of what
-            aviation leaves in you, into a DMS. Every life counts becomes{" "}
-            <em>every record measures</em>: every document counts, every
-            document is measurable, every document deserves to be
-            findable — not 999 out of 1 000. All of them.
+            aviation leaves in you, into a DMS.{" "}
+            <span className="text-gold">Every life counts</span> becomes{" "}
+            <span className="text-gold">every record measures</span>:
+            every document counts, every document is measurable, every
+            document deserves to be findable —{" "}
+            <em className="not-italic">not 999 out of 1 000. All of them.</em>
           </p>
 
           <p>
