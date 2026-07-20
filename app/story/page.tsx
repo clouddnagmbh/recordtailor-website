@@ -50,15 +50,15 @@ function StoryDE() {
             bestanden.
           </p>
           <p>
-            Bei <strong>MENSA</strong> bin ich obendrein — was, wenn ich
-            ehrlich bin, weniger sagt als der Cockpit-Test. IQ misst, wie{" "}
+            Bei MENSA bin ich obendrein — was, wenn ich ehrlich bin,
+            weniger sagt als der Cockpit-Test. IQ misst, wie{" "}
             <em>schnell</em> jemand denkt. Der Cockpit-Test misst, wie{" "}
             <em>ruhig</em> jemand bleibt, wenn die Anzeige rechts oben
             schon fünf Sekunden lang etwas Falsches meldet und man es
             als Erster merken muss. In der Fliegerei ist das zweite die
             Größe, die zählt. Und in beiden Berufen überstrahlt ein
             Prinzip alles andere: es zählt jedes Leben. Every life counts.
-            Nicht 999 von 1 000. Alle.
+            Nicht 999 von 1 000. <strong>Alle.</strong>
           </p>
 
           <p>
@@ -154,13 +154,12 @@ function StoryDE() {
             Every record measures.
           </h2>
 
-          <p className="font-serif text-2xl font-semibold leading-[1.25] tracking-tight text-foreground sm:text-3xl">
+          <p>
             Der Claim ist kein Wortspiel. Er ist die direkte Übersetzung
-            dessen, was man aus der Aviation mitnimmt, ins DMS.{" "}
-            <span className="text-gold">Every life counts</span> wird zu{" "}
-            <span className="text-gold">every record measures</span>:
-            jedes Dokument zählt, jedes Dokument ist messbar, jedes
-            Dokument gehört gefunden — <em className="not-italic">nicht 999 von 1 000. Alle.</em>
+            dessen, was man aus der Aviation mitnimmt, ins DMS. Every
+            life counts wird zu <em>every record measures</em>: jedes
+            Dokument zählt, jedes Dokument ist messbar, jedes Dokument
+            gehört gefunden — nicht 999 von 1 000. <strong>Alle.</strong>
           </p>
 
           <p>
@@ -494,15 +493,15 @@ function StoryEN() {
             through both.
           </p>
           <p>
-            I'm also a <strong>MENSA</strong> member — which, if I'm
-            honest, says less than the cockpit test. IQ measures how{" "}
-            <em>fast</em> you think. The cockpit test measures how{" "}
-            <em>calm</em> you stay when the indicator top-right has been
-            showing something wrong for five seconds and you have to be
-            the first to notice. In aviation, the second is the quality
-            that matters. And in both professions one principle
-            overshadows everything else: every life counts. Not 999 out
-            of 1 000. All of them.
+            I'm also a MENSA member — which, if I'm honest, says less
+            than the cockpit test. IQ measures how <em>fast</em> you
+            think. The cockpit test measures how <em>calm</em> you stay
+            when the indicator top-right has been showing something
+            wrong for five seconds and you have to be the first to
+            notice. In aviation, the second is the quality that matters.
+            And in both professions one principle overshadows everything
+            else: every life counts. Not 999 out of 1 000.{" "}
+            <strong>All of them.</strong>
           </p>
 
           <p>
@@ -583,14 +582,13 @@ function StoryEN() {
             Every record measures.
           </h2>
 
-          <p className="font-serif text-2xl font-semibold leading-[1.25] tracking-tight text-foreground sm:text-3xl">
+          <p>
             The claim isn't a pun. It's the direct translation of what
-            aviation leaves in you, into a DMS.{" "}
-            <span className="text-gold">Every life counts</span> becomes{" "}
-            <span className="text-gold">every record measures</span>:
-            every document counts, every document is measurable, every
-            document deserves to be findable —{" "}
-            <em className="not-italic">not 999 out of 1 000. All of them.</em>
+            aviation leaves in you, into a DMS. Every life counts
+            becomes <em>every record measures</em>: every document
+            counts, every document is measurable, every document
+            deserves to be findable — not 999 out of 1 000.{" "}
+            <strong>All of them.</strong>
           </p>
 
           <p>
