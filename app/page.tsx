@@ -16,6 +16,7 @@ import {
 
 import { AppScreens } from "@/components/app-screens";
 import { AustriaBadge } from "@/components/austria-badge";
+import { EmblemSlab } from "@/components/emblem-slab";
 import { Reveal } from "@/components/reveal";
 import { TailorFamilySection } from "@/components/tailor-family";
 import { getT } from "@/lib/i18n";
@@ -98,14 +99,17 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* S2b — Emblem slab (Logo prominent + Made-to-Measure Claim) */}
+      <EmblemSlab />
+
       {/* S3 — Positioning line */}
-      <section className="border-b border-border bg-ink text-cream">
+      <section className="border-b border-border bg-cream">
         <div className="mx-auto max-w-4xl px-5 py-20">
           <Reveal>
             <h2 className="font-serif text-4xl font-medium tracking-tight sm:text-5xl">
               {t("line.title")}
             </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-cream/80">
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
               {t("line.body")}
             </p>
           </Reveal>

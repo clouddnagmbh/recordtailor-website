@@ -188,6 +188,19 @@ const de: Dict = {
   "featgrid.eyebrow": "Was drin steckt",
   "screens.eyebrow": "Wie es sich anfühlt",
   "screens.title": "Drei Momente in der Anwendung.",
+
+  // --- Emblem / Made to Measure Slab ---
+  "emblem.top": "Made to measure",
+  "emblem.bottom": "Built for workflows",
+  "emblem.headline": "„Made to measure" ist bei uns kein Marketing-Wort.",
+  "emblem.body":
+    "Jedes RecordTailor-Deployment wird auf Ihre Belegarten, Ihre Prozesse, Ihren Vertragskatalog zugeschnitten. Kein Konfigurations-Assistent, der aus einer Standard-Liste kreuzt. Ein Setup-Sprint, in dem wir mit Ihrem Team messen: welche Dokumente, welche Kanten, welche Fristen. Was rauskommt, passt so genau auf Ihr Haus wie ein maßgeschneidertes Sakko — und ist genauso wenig austauschbar.",
+  "emblem.measure.1.n": "48 h",
+  "emblem.measure.1.l": "Sprint mit Ihrem Team",
+  "emblem.measure.2.n": "14",
+  "emblem.measure.2.l": "typische Belegarten",
+  "emblem.measure.3.n": "97 %",
+  "emblem.measure.3.l": "Klassifikations-Konfidenz nach Sprint",
   "nocloud.pill1": "Keine Cloud-Variante.",
   "nocloud.pill2": "Und das bleibt so.",
 
@@ -436,6 +449,18 @@ const en: Dict = {
   "featgrid.eyebrow": "What's inside",
   "screens.eyebrow": "What it feels like",
   "screens.title": "Three moments inside the app.",
+
+  "emblem.top": "Made to measure",
+  "emblem.bottom": "Built for workflows",
+  "emblem.headline": "\"Made to measure\" isn't marketing here.",
+  "emblem.body":
+    "Every RecordTailor deployment is tailored to your document types, your processes, your contract catalog. No config wizard ticking boxes on a standard list. A setup sprint where we measure with your team: which documents, which edges, which deadlines. What comes out fits your house like a bespoke suit — and is just as un-swappable.",
+  "emblem.measure.1.n": "48 h",
+  "emblem.measure.1.l": "sprint with your team",
+  "emblem.measure.2.n": "14",
+  "emblem.measure.2.l": "typical document types",
+  "emblem.measure.3.n": "97 %",
+  "emblem.measure.3.l": "classification confidence after sprint",
   "nocloud.pill1": "No cloud edition.",
   "nocloud.pill2": "And that stays that way.",
 
