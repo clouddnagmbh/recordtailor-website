@@ -37,13 +37,28 @@ function StoryDE() {
 
         <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/85">
           <p>
-            Ich bin kein Dokumenten-Mensch. Ich habe zwei Berufe erlernt, in
-            denen es keine 99,9 % gibt: Linienpilot bei Austrian Airlines und
-            Fluglotse bei Austro Control. Beides sind Ausbildungen, in die
-            man erst einmal hineinkommen muss — die Aufnahmetests gehören
-            zu den schwersten in Österreich — und beides sind Berufe, in
-            denen ein Prinzip alles überstrahlt: es zählt jedes Leben.
-            Every life counts. Nicht 999 von 1 000. Alle.
+            Ich bin kein Dokumenten-Mensch. Ich habe zwei Berufe erlernt,
+            in denen es keine 99,9 % gibt: Linienpilot bei{" "}
+            <strong>Austrian Airlines</strong> und Fluglotse bei{" "}
+            <strong>Austro Control</strong>. Die Aufnahmetests für beide
+            gehören zu den <strong>schwersten der Welt</strong> — der
+            DLR-Psycho-Test in Hamburg mit seiner Durchfallquote nördlich
+            von <strong>98 %</strong>, das mehrtägige Assessment bei
+            Austro Control, in dem Menschen erfahren, wie belastbar sie
+            wirklich sind, oft zum ersten Mal in ihrem Leben. Zehntausende
+            bewerben sich, ein paar Dutzend kommen durch. Ich habe beide
+            bestanden.
+          </p>
+          <p>
+            Bei <strong>MENSA</strong> bin ich obendrein — was, wenn ich
+            ehrlich bin, weniger sagt als der Cockpit-Test. IQ misst, wie{" "}
+            <em>schnell</em> jemand denkt. Der Cockpit-Test misst, wie{" "}
+            <em>ruhig</em> jemand bleibt, wenn die Anzeige rechts oben
+            schon fünf Sekunden lang etwas Falsches meldet und man es
+            als Erster merken muss. In der Fliegerei ist das zweite die
+            Größe, die zählt. Und in beiden Berufen überstrahlt ein
+            Prinzip alles andere: es zählt jedes Leben. Every life counts.
+            Nicht 999 von 1 000. Alle.
           </p>
 
           <p>
@@ -465,10 +480,26 @@ function StoryEN() {
         <div className="mt-10 space-y-6 text-base leading-relaxed text-foreground/85">
           <p>
             I'm not a document person. I trained in two professions where
-            99.9 % doesn't exist: airline pilot with Austrian Airlines,
-            and air traffic controller with Austro Control. Both take
-            some of the toughest selection tests in Austria to enter, and
-            both are professions ruled by a single principle that
+            99.9 % doesn't exist: airline pilot with{" "}
+            <strong>Austrian Airlines</strong> and air traffic controller
+            with <strong>Austro Control</strong>. The selection tests for
+            both are among the{" "}
+            <strong>toughest anywhere in the world</strong> — the DLR
+            psychometric assessment in Hamburg with its failure rate north
+            of <strong>98 %</strong>, and the multi-day Austro Control
+            assessment where people find out how resilient they really
+            are, often for the first time in their lives. Tens of
+            thousands apply, a few dozen make it through. I made it
+            through both.
+          </p>
+          <p>
+            I'm also a <strong>MENSA</strong> member — which, if I'm
+            honest, says less than the cockpit test. IQ measures how{" "}
+            <em>fast</em> you think. The cockpit test measures how{" "}
+            <em>calm</em> you stay when the indicator top-right has been
+            showing something wrong for five seconds and you have to be
+            the first to notice. In aviation, the second is the quality
+            that matters. And in both professions one principle
             overshadows everything else: every life counts. Not 999 out
             of 1 000. All of them.
           </p>
