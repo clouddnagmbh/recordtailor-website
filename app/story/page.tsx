@@ -455,7 +455,7 @@ function TailorFamilyPivotBlock({ siteName }: { siteName: string }) {
           ·{" "}
           <a className="text-gold underline-offset-4 hover:underline" href="https://staytailor.com">staytailor.com</a>{" "}
           ·{" "}
-          <a className="text-gold underline-offset-4 hover:underline" href="https://meetingtailor.at">meetingtailor.at</a>{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://www.meetingtailor.com">meetingtailor.com</a>{" "}
           ·{" "}
           <a className="text-gold underline-offset-4 hover:underline" href="https://documenttailor.com">documenttailor.com</a>
         </p>
@@ -865,7 +865,7 @@ function TailorFamilyPivotBlockEN({ siteName }: { siteName: string }) {
           ·{" "}
           <a className="text-gold underline-offset-4 hover:underline" href="https://staytailor.com">staytailor.com</a>{" "}
           ·{" "}
-          <a className="text-gold underline-offset-4 hover:underline" href="https://meetingtailor.at">meetingtailor.at</a>{" "}
+          <a className="text-gold underline-offset-4 hover:underline" href="https://www.meetingtailor.com">meetingtailor.com</a>{" "}
           ·{" "}
           <a className="text-gold underline-offset-4 hover:underline" href="https://documenttailor.com">documenttailor.com</a>
         </p>

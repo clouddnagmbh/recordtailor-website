@@ -41,7 +41,7 @@ const SIBLINGS: Sibling[] = [
   },
   {
     slug: "meetingtailor",
-    href: "https://meetingtailor.at",
+    href: "https://www.meetingtailor.com",
     name: "MeetingTailor",
     tag: "Tagungen & Events",
     icon: Users,
@@ -62,7 +62,7 @@ const SIBLINGS: Sibling[] = [
   },
   {
     slug: "weintailor",
-    href: "https://weintailor.at",
+    href: "https://weintailor.com",
     name: "Weintailor",
     tag: "Winzerinnen und Winzer",
     icon: Grape,
