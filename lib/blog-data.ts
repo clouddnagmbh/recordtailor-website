@@ -41,7 +41,7 @@ export const ARTICLES: BlogArticle[] = [
       {
         heading: "1. ACLs, die niemand mehr versteht",
         paragraphs: [
-          "Jedes gewachsene DMS hat Gruppen und Rechte, die in dreizehn Iterationen entstanden sind. Der ursprüngliche Grund, warum die Gruppe „Recht-Freigabe-Sonderfall-2018" existiert, ist mit dem damaligen Compliance-Officer in Pension gegangen. Wenn Sie diese Gruppen 1:1 kopieren, tragen Sie das Chaos mit. Wenn Sie sie neu machen, riskieren Sie, dass zwei Sachbearbeiter am Montag nichts mehr sehen können.",
+          "Jedes gewachsene DMS hat Gruppen und Rechte, die in dreizehn Iterationen entstanden sind. Der ursprüngliche Grund, warum die Gruppe „Recht-Freigabe-Sonderfall-2018\" existiert, ist mit dem damaligen Compliance-Officer in Pension gegangen. Wenn Sie diese Gruppen 1:1 kopieren, tragen Sie das Chaos mit. Wenn Sie sie neu machen, riskieren Sie, dass zwei Sachbearbeiter am Montag nichts mehr sehen können.",
           "Was funktioniert: eine ACL-Inventur vor der Migration. Wir laufen mit einem Skript durch das Bestandssystem, listen jede aktive Gruppe mit letztem Nutzungs-Zeitstempel und Zahl der aktuell darauf beruhenden Dokumente. Alles, was seit 24 Monaten nicht benutzt wurde, kommt in eine Cleanup-Liste. Der Cutover startet mit einem sauberen Rechte-Set.",
         ],
       },
@@ -55,14 +55,14 @@ export const ARTICLES: BlogArticle[] = [
       {
         heading: "3. Retention Policies migrieren nicht automatisch",
         paragraphs: [
-          "„Wir behalten die Retention Policies bei" ist ein Satz, der in Discovery-Meetings oft fällt und selten hält. Retention-Policies sind DMS-spezifisch — was Alfresco als Aspect ausdrückt, ist in DocuWare eine Storage-Location-Regel, in OpenText ein Records-Management-Container. Die Semantik ist selten 1:1 übertragbar.",
+          "„Wir behalten die Retention Policies bei\" ist ein Satz, der in Discovery-Meetings oft fällt und selten hält. Retention-Policies sind DMS-spezifisch — was Alfresco als Aspect ausdrückt, ist in DocuWare eine Storage-Location-Regel, in OpenText ein Records-Management-Container. Die Semantik ist selten 1:1 übertragbar.",
           "Was hilft: Retention Policies vor der Migration in einer plattformneutralen Tabelle festhalten (Dokumentklasse, Aufbewahrungsdauer, Löschtrigger, Legal Hold). Diese Tabelle ist ohnehin für die DSGVO-Dokumentation nützlich und wird nach dem Cutover das neue Regelwerk.",
         ],
       },
       {
         heading: "4. Signatur-Historie ist mehr als eine PDF-Datei",
         paragraphs: [
-          "Eine eIDAS-qualifizierte Signatur ist an einen Zertifikatspfad gebunden. Wenn Sie das DMS wechseln, muss die Kette Signatur → Zertifikat → CA → Root weiterhin nachvollziehbar sein. Sonst gilt die Signatur nach dem Cutover als „nicht mehr verifizierbar" und Ihre PAdES-B-LTA-Ambition ist futsch.",
+          "Eine eIDAS-qualifizierte Signatur ist an einen Zertifikatspfad gebunden. Wenn Sie das DMS wechseln, muss die Kette Signatur → Zertifikat → CA → Root weiterhin nachvollziehbar sein. Sonst gilt die Signatur nach dem Cutover als „nicht mehr verifizierbar\" und Ihre PAdES-B-LTA-Ambition ist futsch.",
           "Konkret: Signatur-Metadaten, Timestamp-Authorities, LTV-Informationen (Long-Term Validation) müssen mitgehen. Wir prüfen jede Signatur beim Import auf Validität und lassen Ausreißer in eine Manual-Review-Queue laufen, statt sie stumm zu kopieren.",
         ],
       },
@@ -76,14 +76,14 @@ export const ARTICLES: BlogArticle[] = [
       {
         heading: "6. Volltextindex neu bauen — Zeit und Speicher planen",
         paragraphs: [
-          "Ein Volltextindex über 5 Millionen Dokumente ist ein paar Terabyte groß und dauert Stunden. Wenn Sie das erst am Cutover-Wochenende starten, riskieren Sie, dass am Montagfrüh die Suche „nichts findet" — obwohl das Dokument da ist. Der Nutzer merkt es. Und ruft an.",
+          "Ein Volltextindex über 5 Millionen Dokumente ist ein paar Terabyte groß und dauert Stunden. Wenn Sie das erst am Cutover-Wochenende starten, riskieren Sie, dass am Montagfrüh die Suche „nichts findet\" — obwohl das Dokument da ist. Der Nutzer merkt es. Und ruft an.",
           "Was funktioniert: Volltextindex parallel zum Content-Import aufbauen. Am Cutover-Datum ist der Index synchron. Der Suche-Feature-Flag wird umgestellt, sobald die Deckung geprüft ist.",
         ],
       },
       {
         heading: "7. Change-Management: Ihre Sachbearbeiter sind das Nadelöhr, nicht das System",
         paragraphs: [
-          "Ein modernes DMS mit KI-Klassifikation ändert die Arbeitsroutine der Sachbearbeiter. Wer bisher fünf Klicks pro Beleg gebraucht hat, macht jetzt zwei. Das klingt gut — und ist bei den ersten fünfzig Belegen auch gut. Beim ersten Beleg, bei dem die KI unsicher ist und der Sachbearbeiter selbst entscheiden muss, taucht das Muster auf: „Aha, die KI kann's also doch nicht." Das ist ein Change-Management-Moment, kein Software-Bug.",
+          "Ein modernes DMS mit KI-Klassifikation ändert die Arbeitsroutine der Sachbearbeiter. Wer bisher fünf Klicks pro Beleg gebraucht hat, macht jetzt zwei. Das klingt gut — und ist bei den ersten fünfzig Belegen auch gut. Beim ersten Beleg, bei dem die KI unsicher ist und der Sachbearbeiter selbst entscheiden muss, taucht das Muster auf: „Aha, die KI kann's also doch nicht.\" Das ist ein Change-Management-Moment, kein Software-Bug.",
           "Was hilft: transparente Konfidenz-Scores. Der Sachbearbeiter sieht bei jedem Vorschlag, wie sicher die KI ist. Unter 80 % entscheidet der Mensch. Über 80 % geht es automatisch. So bleibt das Vertrauen intakt, weil die KI nicht überredet — sie fragt.",
         ],
       },
@@ -91,7 +91,7 @@ export const ARTICLES: BlogArticle[] = [
         heading: "8. Rollback-Plan — der, den man hoffentlich nie braucht",
         paragraphs: [
           "Am Cutover-Wochenende geht etwas schief. Nicht bei uns, hoffentlich. Aber wenn: Sie brauchen einen Rollback-Plan, der in unter zwei Stunden zurück zum alten DMS führt. Klingt trivial. Ist es nicht.",
-          "Der einfache Fall: das alte DMS läuft 30 Tage lang im Read-Only-Modus weiter. Neue Belege gehen ins neue System, alte bleiben abrufbar aus dem alten. Falls ein Rollback nötig ist, wird der Read-Only-Modus aufgehoben und der neue Endpunkt zurück umkonfiguriert. Voraussetzung: Sie haben die Cutover-Reihenfolge so gebaut, dass Rollback tatsächlich möglich ist — kein einmaliger Schema-Break, keine „wir löschen jetzt die alten Daten"-Schritte am Cutover-Tag.",
+          "Der einfache Fall: das alte DMS läuft 30 Tage lang im Read-Only-Modus weiter. Neue Belege gehen ins neue System, alte bleiben abrufbar aus dem alten. Falls ein Rollback nötig ist, wird der Read-Only-Modus aufgehoben und der neue Endpunkt zurück umkonfiguriert. Voraussetzung: Sie haben die Cutover-Reihenfolge so gebaut, dass Rollback tatsächlich möglich ist — kein einmaliger Schema-Break, keine „wir löschen jetzt die alten Daten\"-Schritte am Cutover-Tag.",
         ],
       },
       {
@@ -116,7 +116,7 @@ export const ARTICLES: BlogArticle[] = [
     sections: [
       {
         paragraphs: [
-          "DMS-Systeme sind zwanzig Jahre alt. Die meisten Kernkonzepte — Repository, Metadaten, ACLs, Volltextsuche — waren 2005 bereits ausgereift. Was sich in den letzten zwei Jahren radikal verändert hat, sind die Werkzeuge, mit denen ein DMS Dokumente „verstehen" kann. Wer 2026 ein DMS kauft und diese Werkzeuge nicht bekommt, kauft ein Produkt von 2018.",
+          "DMS-Systeme sind zwanzig Jahre alt. Die meisten Kernkonzepte — Repository, Metadaten, ACLs, Volltextsuche — waren 2005 bereits ausgereift. Was sich in den letzten zwei Jahren radikal verändert hat, sind die Werkzeuge, mit denen ein DMS Dokumente „verstehen\" kann. Wer 2026 ein DMS kauft und diese Werkzeuge nicht bekommt, kauft ein Produkt von 2018.",
           "Fünf Fähigkeiten trennen 2026 die Moderne vom Museum:",
         ],
       },
@@ -124,7 +124,7 @@ export const ARTICLES: BlogArticle[] = [
         heading: "1. Klassifikation in unter 30 Sekunden — lokal",
         paragraphs: [
           "Ein Dokument, das reingeht, muss innerhalb einer halben Minute klassifiziert sein, mit Konfidenz-Score und extrahierten Attributen. Nicht in einer externen Cloud, sondern auf einer GPU im eigenen Rechenzentrum. Alles langsamer bedeutet: der Sachbearbeiter wartet, verliert Vertrauen und macht die Arbeit doppelt.",
-          "Die 30-Sekunden-Grenze ist keine Marketing-Zahl. Sie ist die Grenze, ab der ein Mensch das Ergebnis noch als „direkt" wahrnimmt. Alles darüber ist Batch-Verhalten, und Batch-Verhalten wird ignoriert.",
+          "Die 30-Sekunden-Grenze ist keine Marketing-Zahl. Sie ist die Grenze, ab der ein Mensch das Ergebnis noch als „direkt\" wahrnimmt. Alles darüber ist Batch-Verhalten, und Batch-Verhalten wird ignoriert.",
         ],
       },
       {
@@ -137,7 +137,7 @@ export const ARTICLES: BlogArticle[] = [
       {
         heading: "3. Hybrid-Suche: Volltext + Vektor-Semantik",
         paragraphs: [
-          "„Zeig mir alle Verträge mit einer DSGVO-Löschpflicht nach 30 Tagen" ist eine typische Suche. Volltextsuche findet, was das Wort „30 Tage" enthält. Sie findet nicht den Vertrag, der „binnen eines Monats" schreibt. Vektor-Semantik findet beides.",
+          "„Zeig mir alle Verträge mit einer DSGVO-Löschpflicht nach 30 Tagen\" ist eine typische Suche. Volltextsuche findet, was das Wort „30 Tage\" enthält. Sie findet nicht den Vertrag, der „binnen eines Monats\" schreibt. Vektor-Semantik findet beides.",
           "Ein DMS ohne Vektor-Suche findet nur, was der Nutzer bereits weiß. Ein DMS mit Vektor-Suche findet, was der Nutzer meint. Das ist ein Kategorienunterschied, kein Feature-Vergleich.",
         ],
       },
@@ -230,14 +230,14 @@ export const ARTICLES: BlogArticle[] = [
       {
         heading: "Das Problem: Menschen suchen nach Bedeutung, nicht nach Wörtern",
         paragraphs: [
-          "„Zeig mir alle Verträge, in denen wir zur DSGVO-Löschung nach 30 Tagen verpflichtet sind." Klassische Suche findet den Vertrag, der wörtlich „DSGVO-Löschung nach 30 Tagen" enthält. Sie findet nicht den Vertrag, der „Löschverpflichtung binnen eines Monats" schreibt. Sie findet auch nicht den Vertrag, der auf § 17 Abs. 1 DSGVO verweist, ohne den Absatz zu zitieren.",
+          "„Zeig mir alle Verträge, in denen wir zur DSGVO-Löschung nach 30 Tagen verpflichtet sind.\" Klassische Suche findet den Vertrag, der wörtlich „DSGVO-Löschung nach 30 Tagen\" enthält. Sie findet nicht den Vertrag, der „Löschverpflichtung binnen eines Monats\" schreibt. Sie findet auch nicht den Vertrag, der auf § 17 Abs. 1 DSGVO verweist, ohne den Absatz zu zitieren.",
           "Der Sachbearbeiter weiß das nach der dritten fehlgeschlagenen Suche. Ab da wird jede DMS-Suche mit sinkender Erwartung angegangen. Nach einem halben Jahr ist die Excel-Tabelle der offizielle Suchindex.",
         ],
       },
       {
         heading: "Die Lösung: Vektor-Semantik + Volltext gleichzeitig",
         paragraphs: [
-          "Semantische Suche (Vektor-Embeddings) versteht Bedeutung. „30 Tage" und „binnen eines Monats" landen im Vektorraum an derselben Stelle. Das Modell weiß, dass die zwei Formulierungen dasselbe meinen, weil es Millionen von Texten gesehen hat, in denen sie austauschbar verwendet werden.",
+          "Semantische Suche (Vektor-Embeddings) versteht Bedeutung. „30 Tage\" und „binnen eines Monats\" landen im Vektorraum an derselben Stelle. Das Modell weiß, dass die zwei Formulierungen dasselbe meinen, weil es Millionen von Texten gesehen hat, in denen sie austauschbar verwendet werden.",
           "Vektor-Suche allein ist nicht genug — sie ist gut bei Bedeutung, aber schwach bei genauen Zahlen, Rechnungsnummern, IBANs. Hybrid-Suche kombiniert Vektor-Semantik mit klassischem Volltext-Ranking in einer Query. Das Ergebnis: der Sachbearbeiter tippt, was er meint, und findet, was er meint — auch wenn er nicht die exakten Worte trifft.",
         ],
       },
