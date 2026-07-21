@@ -43,7 +43,7 @@ export const LEGACY_DMS: LegacyDms[] = [
       },
       {
         title: "ACL-Mapping ohne Datenverlust",
-        body: "Alfresco-Site-Groups, -Permissions und -Aspects werden auf RecordTailor-RLS-Policies gemappt. Wir liefern eine 1:1-Übersetzungstabelle und ein CLI-Tool, das jede Alfresco-ACL prüft, bevor migriert wird. Kein „das haben wir vergessen"-Moment nach dem Cutover.",
+        body: "Alfresco-Site-Groups, -Permissions und -Aspects werden auf RecordTailor-RLS-Policies gemappt. Wir liefern eine 1:1-Übersetzungstabelle und ein CLI-Tool, das jede Alfresco-ACL prüft, bevor migriert wird. Kein „das haben wir vergessen\"-Moment nach dem Cutover.",
       },
       {
         title: "KI ab Tag eins",
@@ -347,7 +347,7 @@ export const LEGACY_DMS: LegacyDms[] = [
       },
       {
         title: "Suche, die tatsächlich findet",
-        body: "Hybrid-Suche: Volltext plus Vektor-Semantik. „Zeig mir alle Verträge mit DSGVO-Löschpflicht nach 30 Tagen" liefert auch die Dokumente, wo genau das mit anderen Worten drinsteht.",
+        body: "Hybrid-Suche: Volltext plus Vektor-Semantik. „Zeig mir alle Verträge mit DSGVO-Löschpflicht nach 30 Tagen\" liefert auch die Dokumente, wo genau das mit anderen Worten drinsteht.",
       },
     ],
     migrationPhases: [
