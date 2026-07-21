@@ -60,7 +60,7 @@ export default async function ProduktPage() {
       </section>
 
       <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-6xl px-5 py-16 grid gap-6 sm:grid-cols-2">
+        <div className="mx-auto max-w-6xl px-5 py-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map(({ icon: Icon, i }) => (
             <Reveal key={i} delay={i * 60}>
               <article className="h-full rounded-2xl border border-border bg-surface p-8">
