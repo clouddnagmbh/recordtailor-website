@@ -17,9 +17,11 @@ const de: Dict = {
 
   // --- Nav ---
   "nav.produkt": "Produkt",
+  "nav.migration": "Migration",
   "nav.onprem": "On-Premise",
   "nav.sicherheit": "Sicherheit",
   "nav.preise": "Preise",
+  "nav.blog": "Blog",
   "nav.story": "Story",
   "nav.cta_primary": "Kontakt",
 
@@ -111,9 +113,9 @@ const de: Dict = {
   "prem.p2.title": "Air-Gapped-fähig.",
   "prem.p2.body":
     "Installation ohne Internet-Zugang. Updates als signiertes Tarball. Attestation-Check verifiziert die Herkunft.",
-  "prem.p3.title": "Ein Kubernetes, ein Helm-Chart.",
+  "prem.p3.title": "Docker Compose oder Kubernetes — Sie wählen.",
   "prem.p3.body":
-    "Deploy mit einem Kommando. Keine 40-Container-Compose-Datei zum Zusammenschrauben.",
+    "Standard-Deployment ist Docker Compose: ein Kommando, ein Docker-Host, fertig. Für HA-Setups und größere Skalierung liefern wir ein Helm-Chart mit. Kein 40-Container-Zusammenschraub-Marathon, egal welcher Weg.",
 
   // --- Compare ---
   "cmp.eyebrow": "Kein Vergleich mit Legacy-DMS",
@@ -126,7 +128,7 @@ const de: Dict = {
   "cmp.legacy.5": "Versionen sind lineare Kopien — kein Branching, kein Merge",
   "cmp.legacy.6": "Lizenzmodell nach User, Modul, Storage, Support",
   "cmp.rt.title": "RecordTailor",
-  "cmp.rt.1": "Reine On-Premise, ein Helm-Chart, air-gapped-fähig",
+  "cmp.rt.1": "Docker Compose als Standard, Kubernetes/Helm optional, air-gapped-fähig",
   "cmp.rt.2": "UX aus 2026. Keyboard-first, mobile-ready. No training required.",
   "cmp.rt.3": "KI-Assistent baut Ihr Schema in vier Stunden aus Ihrem Bestand",
   "cmp.rt.4": "KI ist der Kern, nicht das Add-On. Lokale LLMs mitgeliefert",
@@ -154,7 +156,7 @@ const de: Dict = {
   "price.included.1": "Alle Module — KI, Branching, Graph, Suche, Signaturen, ArchiveLink, CMIS",
   "price.included.2": "Unbegrenzte User im eigenen Netz",
   "price.included.3": "Lokale KI-Modelle mit Lizenz für kommerzielle Nutzung",
-  "price.included.4": "Air-Gapped-Installation, Helm-Chart, Attestation-Check",
+  "price.included.4": "Air-Gapped-Installation, Docker Compose oder Helm-Chart, Attestation-Check",
   "price.included.5": "Update-Kanal (signiert) für 24 Monate",
   "price.cta.body":
     "Setzen Sie sich mit uns zusammen. Wir schauen uns Ihre Belegvolumina an, machen Ihnen ein Angebot fürs Grundpaket plus SLA, und dann wissen Sie, was Sie haben. Keine Fangfragen zur Firmengröße.",
@@ -197,8 +199,8 @@ const de: Dict = {
   "contact.title": "Reden wir.",
   "contact.body":
     "30 Minuten. Sie zeigen uns Ihren aktuellen DMS-Schmerz, wir zeigen Ihnen RecordTailor. Ehrlich: wenn wir nicht passen, sagen wir es.",
-  "contact.mail": "hello@recordtailor.com",
-  "contact.phone": "+43 664 000 00 00",
+  "contact.mail": "office@clouddna.at",
+  "contact.phone": "+43 664 1964199",
   "contact.address": "CloudDNA GmbH · Loipersdorf",
 
   // --- Misc chrome ---
@@ -234,11 +236,11 @@ const de: Dict = {
   "price.track.onprem.label": "Als Produkt",
   "price.track.onprem.title": "Selbst betreiben.",
   "price.track.onprem.body":
-    "Sie kaufen die Lizenz, wir übergeben Ihnen Ihr eigenes System. Läuft in Ihrem Rechenzentrum, Ihrem Kubernetes, hinter Ihrer Firewall.",
+    "Sie kaufen die Lizenz, wir übergeben Ihnen Ihr eigenes System. Läuft in Ihrem Rechenzentrum, auf Docker Compose oder Kubernetes, hinter Ihrer Firewall.",
   "price.track.managed.label": "Als Managed Service",
   "price.track.managed.title": "Von uns betreiben lassen.",
   "price.track.managed.body":
-    "Dedizierte Instanz für Ihr Unternehmen — keine Multi-Tenant-Cloud. Wir betreiben Ihre Kubernetes-Umgebung in einer EU-Region Ihrer Wahl. Sie behalten Datenhoheit, wir übernehmen Betrieb, Patches, Backups und 24/7-Bereitschaft.",
+    "Dedizierte Instanz für Ihr Unternehmen — keine Multi-Tenant-Cloud. Wir betreiben Ihr Setup in einer EU-Region Ihrer Wahl, wahlweise auf Docker Compose oder Kubernetes. Sie behalten Datenhoheit, wir übernehmen Betrieb, Patches, Backups und 24/7-Bereitschaft.",
   "price.managed.included.1": "Dedizierte Instanz in EU-Rechenzentrum (Wien, Frankfurt, Zürich)",
   "price.managed.included.2": "24/7-Monitoring und On-Call-Team",
   "price.managed.included.3": "Sicherheits-Patches innerhalb von 24 h",
@@ -257,9 +259,9 @@ const de: Dict = {
   "onprem.meta.desc":
     "RecordTailor wird ausschließlich On-Premise ausgeliefert. Kein Cloud-Angebot. Kein SaaS. Ihre Dokumente bleiben in Ihrem Rechenzentrum.",
   "onprem.req.title": "Was Sie tatsächlich brauchen.",
-  "onprem.req.1.title": "Ein Kubernetes-Cluster.",
+  "onprem.req.1.title": "Ein Docker-Host — oder ein Kubernetes-Cluster.",
   "onprem.req.1.body":
-    "Ab drei Nodes ausreichend. K3s, RKE2, OpenShift, EKS-on-prem — egal. Wir liefern ein Helm-Chart, das überall läuft.",
+    "Für kleinere Standorte reicht ein Docker-Host mit Docker Compose — ein Kommando, ein System, fertig. Wer mehr Skalierung braucht: K3s, RKE2, OpenShift, EKS-on-prem — egal. Wir liefern das Helm-Chart mit, das überall läuft.",
   "onprem.req.2.title": "Postgres 16 mit pgvector.",
   "onprem.req.2.body":
     "Von uns oder Ihrem eigenen. HA-Setup mit Patroni ist im Chart drin, wenn gewünscht.",
@@ -314,9 +316,11 @@ const en: Dict = {
     "RecordTailor — Records, tailored. AI-native document management, on-premise only. Every record measures. Made in Austria.",
 
   "nav.produkt": "Product",
+  "nav.migration": "Migration",
   "nav.onprem": "On-premise",
   "nav.sicherheit": "Security",
   "nav.preise": "Pricing",
+  "nav.blog": "Blog",
   "nav.story": "Story",
   "nav.cta_primary": "Contact",
 
@@ -397,9 +401,9 @@ const en: Dict = {
   "prem.p2.title": "Air-gapped ready.",
   "prem.p2.body":
     "Install without internet. Updates as signed tarballs. Attestation check verifies the origin.",
-  "prem.p3.title": "One Kubernetes, one Helm chart.",
+  "prem.p3.title": "Docker Compose or Kubernetes — you choose.",
   "prem.p3.body":
-    "One command to deploy. No 40-container Compose file to wire together.",
+    "Standard deployment is Docker Compose: one command, one Docker host, done. For HA setups and larger scale we ship a Helm chart. No 40-container wiring marathon either way.",
 
   "cmp.eyebrow": "Not comparable to legacy DMS",
   "cmp.title": "Why not what everyone else uses?",
@@ -411,7 +415,7 @@ const en: Dict = {
   "cmp.legacy.5": "Versions are linear copies — no branching, no merge",
   "cmp.legacy.6": "Licensing per user, per module, per storage, per support",
   "cmp.rt.title": "RecordTailor",
-  "cmp.rt.1": "On-premise only, one Helm chart, air-gapped ready",
+  "cmp.rt.1": "Docker Compose by default, Kubernetes/Helm optional, air-gapped ready",
   "cmp.rt.2": "UX from 2026. Keyboard-first, mobile-ready. No training required.",
   "cmp.rt.3": "AI assistant builds your schema in four hours from your own document set",
   "cmp.rt.4": "AI is the core, not the add-on. Local LLMs shipped",
@@ -437,7 +441,7 @@ const en: Dict = {
   "price.included.1": "Every module — AI, branching, graph, search, signatures, ArchiveLink, CMIS",
   "price.included.2": "Unlimited users inside your network",
   "price.included.3": "Local AI models with commercial-use license",
-  "price.included.4": "Air-gapped install, Helm chart, attestation check",
+  "price.included.4": "Air-gapped install, Docker Compose or Helm chart, attestation check",
   "price.included.5": "Signed update channel for 24 months",
   "price.cta.body":
     "Sit down with us. We look at your document volumes, quote the base pack plus SLA, and you know where you stand. No trick questions about company size.",
@@ -477,8 +481,8 @@ const en: Dict = {
   "contact.title": "Let's talk.",
   "contact.body":
     "30 minutes. Show us your current DMS pain, we show you RecordTailor. Honest: if we don't fit, we say so.",
-  "contact.mail": "hello@recordtailor.com",
-  "contact.phone": "+43 664 000 00 00",
+  "contact.mail": "office@clouddna.at",
+  "contact.phone": "+43 664 1964199",
   "contact.address": "CloudDNA GmbH · Loipersdorf",
 
   "moment.eyebrow": "An afternoon in accounts payable",
@@ -511,11 +515,11 @@ const en: Dict = {
   "price.track.onprem.label": "As a product",
   "price.track.onprem.title": "Run it yourself.",
   "price.track.onprem.body":
-    "You buy the license, we hand you your system. Runs in your data center, your Kubernetes, behind your firewall.",
+    "You buy the license, we hand you your system. Runs in your data center, on Docker Compose or Kubernetes, behind your firewall.",
   "price.track.managed.label": "As managed service",
   "price.track.managed.title": "Let us run it.",
   "price.track.managed.body":
-    "A dedicated instance for your company — not a multi-tenant cloud. We operate your Kubernetes environment in the EU region you choose. You keep data sovereignty; we handle operations, patches, backups and 24/7 on-call.",
+    "A dedicated instance for your company — not a multi-tenant cloud. We operate your setup in the EU region you choose, on Docker Compose or Kubernetes. You keep data sovereignty; we handle operations, patches, backups and 24/7 on-call.",
   "price.managed.included.1": "Dedicated instance in EU data center (Vienna, Frankfurt, Zurich)",
   "price.managed.included.2": "24/7 monitoring and on-call team",
   "price.managed.included.3": "Security patches within 24 h",
@@ -532,9 +536,9 @@ const en: Dict = {
   "onprem.meta.desc":
     "RecordTailor ships on-premise only. No cloud offering. No SaaS. Your documents stay in your data center.",
   "onprem.req.title": "What you actually need.",
-  "onprem.req.1.title": "A Kubernetes cluster.",
+  "onprem.req.1.title": "A Docker host — or a Kubernetes cluster.",
   "onprem.req.1.body":
-    "Three nodes is enough. K3s, RKE2, OpenShift, EKS-on-prem — doesn't matter. We ship a Helm chart that runs anywhere.",
+    "For smaller sites a Docker host with Docker Compose is enough — one command, one system, done. Need more scale? K3s, RKE2, OpenShift, EKS-on-prem — doesn't matter. We ship a Helm chart that runs anywhere.",
   "onprem.req.2.title": "Postgres 16 with pgvector.",
   "onprem.req.2.body":
     "From us or your own. HA setup with Patroni is in the chart if you want it.",

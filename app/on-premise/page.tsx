@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Lock, ServerCog, ShieldOff } from "lucide-react";
 
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Reveal } from "@/components/reveal";
 import { DICTS } from "@/lib/i18n/dictionary";
 import { getLocale, getT } from "@/lib/i18n";
@@ -17,6 +18,12 @@ export default async function OnPremisePage() {
   const t = await getT();
   return (
     <div>
+      <Breadcrumbs
+        crumbs={[
+          { label: "Start", href: "/" },
+          { label: t("nav.onprem"), href: "/on-premise" },
+        ]}
+      />
       <section className="border-b border-border bg-cream">
         <div className="mx-auto max-w-4xl px-5 py-20">
           <Reveal>

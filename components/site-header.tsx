@@ -19,9 +19,12 @@ export async function SiteHeader() {
           RecordTailor
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 text-sm md:flex" aria-label="Primary">
           <Link href="/produkt" className="text-muted-foreground hover:text-foreground">
             {t("nav.produkt")}
+          </Link>
+          <Link href="/migration" className="text-muted-foreground hover:text-foreground">
+            {t("nav.migration")}
           </Link>
           <Link href="/on-premise" className="text-muted-foreground hover:text-foreground">
             {t("nav.onprem")}
@@ -32,8 +35,8 @@ export async function SiteHeader() {
           <Link href="/preise" className="text-muted-foreground hover:text-foreground">
             {t("nav.preise")}
           </Link>
-          <Link href="/story" className="text-muted-foreground hover:text-foreground">
-            {t("nav.story")}
+          <Link href="/blog" className="text-muted-foreground hover:text-foreground">
+            {t("nav.blog")}
           </Link>
         </nav>
 

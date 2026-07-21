@@ -143,7 +143,7 @@ export default async function RootLayout({
         name: "RecordTailor",
         applicationCategory: "BusinessApplication",
         applicationSubCategory: "Document Management System (DMS)",
-        operatingSystem: "Linux / Kubernetes (On-Premise, Public Cloud, Private Cloud Managed)",
+        operatingSystem: "Linux · Docker Compose oder Kubernetes (On-Premise, Public Cloud, Private Cloud Managed)",
         slogan: "Every record measures.",
         description: t("meta.description"),
         featureList: [
@@ -158,7 +158,8 @@ export default async function RootLayout({
           "eIDAS-QES-Signaturen (PAdES-B-LTA)",
           "Hash-Chain-Audit über alle Events",
           "Migrations-Adapter: Alfresco, ELO, DocuWare, d.velop, OpenText, SharePoint",
-          "Air-Gapped Installation, Helm-Chart, Sigstore-Attestation",
+          "Docker Compose als Standard-Deployment, Kubernetes/Helm optional für HA",
+          "Air-Gapped Installation, signierte Updates, Sigstore-Attestation",
           "Open-Source-Kern (Apache-2.0)",
           "Deployment als On-Premise-Produkt, Public Cloud oder Managed Private Cloud",
         ],

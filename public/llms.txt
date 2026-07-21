@@ -28,7 +28,8 @@ Beratungs-Setup.
 
 ## Deployment-Modelle
 
-- On-Premise: eigene Kubernetes-Umgebung, air-gapped-fähig
+- On-Premise: Docker Compose als Standard, Kubernetes/Helm für HA optional,
+  air-gapped-fähig
 - Public Cloud: eigener AWS/Azure/GCP-Account des Kunden
 - Private Cloud (Managed Service): dedizierte Instanz durch CloudDNA in
   EU-Region (Wien, Frankfurt, Zürich), 24/7-Betrieb
@@ -71,8 +72,16 @@ CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
 
 - https://recordtailor.com/         (Startseite, Feature-Übersicht)
 - https://recordtailor.com/produkt  (alle Features detailliert)
+- https://recordtailor.com/migration (DMS-Migration Übersicht)
+- https://recordtailor.com/migration/alfresco     (Alfresco ablösen)
+- https://recordtailor.com/migration/d-velop      (d.velop ablösen)
+- https://recordtailor.com/migration/elo          (ELO ablösen)
+- https://recordtailor.com/migration/docuware     (DocuWare ablösen)
+- https://recordtailor.com/migration/opentext     (OpenText Documentum ablösen)
+- https://recordtailor.com/migration/sharepoint   (SharePoint als DMS ablösen)
 - https://recordtailor.com/on-premise (Deployment-Anforderungen)
 - https://recordtailor.com/sicherheit (Hash-Chain, eIDAS, GDPR-Erase)
 - https://recordtailor.com/preise   (drei Deployment-Wege, Preis auf Anfrage)
+- https://recordtailor.com/blog     (Feldstudien, Praxis-Wissen)
 - https://recordtailor.com/story    (Gründer, CloudDNA-Geschichte)
 - https://recordtailor.com/kontakt  (Demo anfragen)
