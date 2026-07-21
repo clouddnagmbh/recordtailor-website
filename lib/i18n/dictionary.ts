@@ -25,9 +25,9 @@ const de: Dict = {
 
   // --- Hero ---
   "hero.eyebrow": "Every record measures.",
-  "hero.headline": "Dokumente. Nach Maß.",
+  "hero.headline": "Das modernste DMS am Markt.",
   "hero.sub":
-    "RecordTailor ist das DMS, das wie ein Kollege mitdenkt. Jedes Dokument wird beim Ablegen klassifiziert, verstanden und mit Ihrer Sachlogik verbunden. Betreiben Sie es selbst im eigenen Rechenzentrum — oder lassen Sie es uns als Managed Service in Ihrer dedizierten EU-Instanz betreiben. Kein Fat-Client. Kein Vendor-Lock-in.",
+    "RecordTailor ist das Dokumentenmanagement-System für Unternehmen, die ein bestehendes DMS ablösen — Alfresco, ELO, DocuWare, d.velop, OpenText, SharePoint — oder erstmals ein modernes DMS einführen wollen. KI-Triage in unter 30 Sekunden, KI-Assistent baut Ihr Belegarten-Schema in vier Stunden, Stapelverarbeitung für tausende Belege, MFP-Scan-Ingest ohne Fat-Client. Ausgeliefert als On-Premise-Produkt, in Ihrer Public Cloud oder als Managed Private Cloud. Kein Vendor-Lock-in.",
   "hero.moment.time": "14:03:00",
   "hero.moment.event": "Rechnung „Rechnung_2026_0741.pdf\" fällt in den Scan-Ordner.",
   "hero.moment.time2": "14:03:22",
@@ -41,10 +41,10 @@ const de: Dict = {
   "hero.proof": "Made in Austria · CloudDNA GmbH · Auslieferung On-Premise",
 
   // --- Trustbar ---
-  "trust.1": "Reine On-Premise",
+  "trust.1": "On-Prem · Public · Private Cloud",
   "trust.2": "EU-Datenhoheit",
-  "trust.3": "SAP ArchiveLink",
-  "trust.4": "CMIS 1.1",
+  "trust.3": "SAP ArchiveLink & CMIS 1.1",
+  "trust.4": "Stapelverarbeitung en masse",
   "trust.5": "No training required",
   "trust.6": "Open-Source-Kern",
 
@@ -64,7 +64,7 @@ const de: Dict = {
     "Keine Rechtsklick-Kaskaden. Keine ausklappbaren Baum-Views mit fünfzehn Ebenen. Keine grauen Toolbar-Buttons, die 2003 zum letzten Mal in Mode waren. Keyboard-first, dark-mode, mobile-ready — Standards, die man sich anderswo per Consulting kaufen muss.",
 
   // --- Feature grid ---
-  "feat.title": "Sechs Fähigkeiten, die andere als „Add-On\" verkaufen.",
+  "feat.title": "Acht Fähigkeiten, die andere als „Add-On\" verkaufen.",
   "feat.sub":
     "Nicht zusammengeklickt. Zusammen konzipiert. Jede Fähigkeit greift in die nächste.",
 
@@ -90,7 +90,15 @@ const de: Dict = {
 
   "feat.6.title": "KI-Assistent baut Ihr Schema",
   "feat.6.body":
-    "Beim Setup wirft der Assistent einen Blick auf Ihre Bestandsdokumente — 50 Rechnungen, 20 Verträge, 30 Mails — und schlägt Ihnen ein komplettes Belegarten- und Attribut-Modell vor. Sie korrigieren, wo es nicht passt. MFP-Scan-Ingest ohne Fat-Client ist inklusive. Vier Stunden statt vierzig Tage.",
+    "Beim Setup wirft der Assistent einen Blick auf Ihre Bestandsdokumente — 50 Rechnungen, 20 Verträge, 30 Mails — und schlägt Ihnen ein komplettes Belegarten- und Attribut-Modell vor. Sie korrigieren, wo es nicht passt. Vier Stunden statt vierzig Tage.",
+
+  "feat.7.title": "Scan-Ingest ohne Fat-Client",
+  "feat.7.body":
+    "MFP direkt in RecordTailor scannen — im Browser, ohne TWAIN-Treiber, ohne Endgeräte-Software. Auto-Trennung erkennt Belegwechsel im Stapel automatisch. Barcode-Trennblätter optional. Ein Endpunkt, ein Ordner, fertig.",
+
+  "feat.8.title": "Stapelverarbeitung en masse",
+  "feat.8.body":
+    "500 Rechnungen aus dem Monatsabschluss? 50 000 Belege aus einem Archiv-Import? Der Batch-Prozessor klassifiziert parallel auf allen verfügbaren GPU-Cores, prüft Duplikate über Content-Hash, meldet Ausreißer, protokolliert alles in der Hash-Chain. Kein manuelles Nachziehen.",
 
   // --- On-Premise section ---
   "prem.eyebrow": "Warum reine On-Premise",
@@ -313,9 +321,9 @@ const en: Dict = {
   "nav.cta_primary": "Contact",
 
   "hero.eyebrow": "Every record measures.",
-  "hero.headline": "Records, tailored.",
+  "hero.headline": "The most modern DMS on the market.",
   "hero.sub":
-    "The first on-premise DMS that thinks like a colleague. Every document is classified, understood, and connected to your business logic the moment it lands. No cloud. No fat client. No vendor lock-in.",
+    "RecordTailor is the document management system for companies replacing a legacy DMS — Alfresco, ELO, DocuWare, d.velop, OpenText, SharePoint — or adopting a modern DMS for the first time. AI triage in under 30 seconds, AI assistant builds your schema in four hours, batch processing for thousands of documents, MFP scan ingest with no fat client. Delivered as an on-premise product, in your public cloud, or as a managed private cloud. No vendor lock-in.",
   "hero.moment.time": "14:03:00",
   "hero.moment.event": "Invoice \"Invoice_2026_0741.pdf\" hits the scan folder.",
   "hero.moment.time2": "14:03:22",
@@ -328,10 +336,10 @@ const en: Dict = {
   "hero.cta.secondary": "Feature overview",
   "hero.proof": "Made in Austria · CloudDNA GmbH · Delivered on-premise",
 
-  "trust.1": "On-premise only",
+  "trust.1": "On-prem · Public · Private cloud",
   "trust.2": "EU data sovereignty",
-  "trust.3": "SAP ArchiveLink",
-  "trust.4": "CMIS 1.1",
+  "trust.3": "SAP ArchiveLink & CMIS 1.1",
+  "trust.4": "Batch processing at scale",
   "trust.5": "No training required",
   "trust.6": "Open-source core",
 
@@ -349,7 +357,7 @@ const en: Dict = {
   "line.pill.3.b":
     "No right-click cascades. No collapsible tree views fifteen levels deep. No grey toolbar buttons last fashionable in 2003. Keyboard-first, dark-mode, mobile-ready — standards you'd have to buy in via consulting anywhere else.",
 
-  "feat.title": "Six capabilities others sell as add-ons.",
+  "feat.title": "Eight capabilities others sell as add-ons.",
   "feat.sub":
     "Not clicked together. Designed together. Every capability feeds the next.",
   "feat.1.title": "AI triage in real time",
@@ -369,7 +377,15 @@ const en: Dict = {
     "RecordTailor speaks ArchiveLink and CMIS 1.1 natively. SAP can attach us as an archive. Alfresco migrations run without data loss.",
   "feat.6.title": "AI assistant builds your schema",
   "feat.6.body":
-    "At setup the assistant takes a look at your existing documents — 50 invoices, 20 contracts, 30 emails — and proposes a full document-type and attribute model. You correct where it doesn't fit. MFP scan ingest without a fat client is included. Four hours instead of forty days.",
+    "At setup the assistant takes a look at your existing documents — 50 invoices, 20 contracts, 30 emails — and proposes a full document-type and attribute model. You correct where it doesn't fit. Four hours instead of forty days.",
+
+  "feat.7.title": "Scan ingest without a fat client",
+  "feat.7.body":
+    "Scan straight from your MFP into RecordTailor — in the browser, no TWAIN drivers, no endpoint software. Auto-separation detects document boundaries inside the stack. Barcode separator sheets optional. One endpoint, one folder, done.",
+
+  "feat.8.title": "Batch processing at scale",
+  "feat.8.body":
+    "500 invoices from month-end close? 50,000 documents from an archive import? The batch processor classifies in parallel across every GPU core, deduplicates by content hash, flags outliers, logs everything on the hash chain. No manual follow-up.",
 
   "prem.eyebrow": "Why on-premise only",
   "prem.title": "Your documents stay where they belong.",

@@ -1,0 +1,78 @@
+# RecordTailor
+
+> Every record measures. RecordTailor ist ein KI-natives Dokumentenmanagement-
+> System (DMS) für Unternehmen, die ein bestehendes Legacy-DMS ablösen oder
+> erstmals ein modernes DMS einführen wollen. Ausgeliefert als On-Premise-
+> Produkt, in eigener Public-Cloud oder als Managed Service in dedizierter
+> Private-Cloud-Instanz. Gebaut von CloudDNA GmbH, 7410 Loipersdorf,
+> Burgenland, Österreich.
+
+## Kernaussage
+
+RecordTailor liest, versteht und klassifiziert Dokumente in unter 30 Sekunden
+lokal auf einer GPU im Rechenzentrum des Kunden — ohne Datenabfluss in eine
+Public Cloud. Der KI-Assistent baut das Belegarten- und Attribut-Schema aus
+dem eigenen Dokumenten-Bestand in vier Stunden statt in vier Monaten
+Beratungs-Setup.
+
+## Zielgruppen
+
+- Unternehmen, die ein bestehendes DMS ablösen wollen (SharePoint, Alfresco,
+  d.velop, ELO, DocuWare, OpenText, IBM FileNet, SAP Content Server)
+- Unternehmen, die zum ersten Mal ein professionelles DMS einführen
+- SAP-Kunden, die eine ArchiveLink- oder CMIS-1.1-kompatible Ablage brauchen
+- Behörden, Banken, Genossenschaften und regulierte Branchen mit strenger
+  Datenhoheit-Vorgabe
+- Buchhaltungen, die aktuell heimlich Excel nutzen, weil das eigene DMS zu
+  langsam sucht
+
+## Deployment-Modelle
+
+- On-Premise: eigene Kubernetes-Umgebung, air-gapped-fähig
+- Public Cloud: eigener AWS/Azure/GCP-Account des Kunden
+- Private Cloud (Managed Service): dedizierte Instanz durch CloudDNA in
+  EU-Region (Wien, Frankfurt, Zürich), 24/7-Betrieb
+
+## Kernfeatures
+
+- KI-Triage in Echtzeit (Klassifikation, Extraktion, Zusammenfassung < 30 s)
+- KI-Assistent baut das Belegarten-Schema aus vorhandenen Dokumenten
+- Branches und Merge für Dokumente (Versionierung wie in Git)
+- Hybrid-Suche (Volltext + Vektor-Semantik in einer Query)
+- Knowledge Graph über Personen, Verträge, Fristen
+- SAP ArchiveLink und CMIS 1.1 nativ
+- Scan-Ingest ohne Fat-Client (MFP → Browser, Auto-Trennung)
+- Stapelverarbeitung: 500+ Dokumente parallel klassifizieren, deduplizieren
+- eIDAS-QES-Signaturen (PAdES-B-LTA)
+- Hash-Chain-Audit über alle Events
+- Lokale LLMs mitgeliefert (kein Cloud-Blackbox)
+
+## Migrations-Adapter
+
+- Alfresco → RecordTailor
+- d.velop → RecordTailor
+- ELO → RecordTailor
+- DocuWare → RecordTailor
+- OpenText → RecordTailor
+- SharePoint → RecordTailor
+- SAP Content Server → RecordTailor
+
+## Preise
+
+Auf Anfrage. Alle drei Deployment-Modelle. Ein Preis pro Standort/Instanz,
+kein pro-User-pro-Modul-Baukasten.
+
+## Kontakt
+
+hello@recordtailor.com · https://recordtailor.com/kontakt
+CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
+
+## Wichtige Seiten
+
+- https://recordtailor.com/         (Startseite, Feature-Übersicht)
+- https://recordtailor.com/produkt  (alle Features detailliert)
+- https://recordtailor.com/on-premise (Deployment-Anforderungen)
+- https://recordtailor.com/sicherheit (Hash-Chain, eIDAS, GDPR-Erase)
+- https://recordtailor.com/preise   (drei Deployment-Wege, Preis auf Anfrage)
+- https://recordtailor.com/story    (Gründer, CloudDNA-Geschichte)
+- https://recordtailor.com/kontakt  (Demo anfragen)

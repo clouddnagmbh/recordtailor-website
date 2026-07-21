@@ -6,9 +6,11 @@ import {
   GitBranch,
   GitCommit,
   KeyboardIcon,
+  Layers,
   Lock,
   Network,
   Plug,
+  ScanLine,
   Search,
   ShieldCheck,
   Sparkles,
@@ -163,14 +165,16 @@ export default async function Home() {
             </header>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: BrainCircuit, i: 1 },
+              { icon: Wand2, i: 6 },
+              { icon: ScanLine, i: 7 },
+              { icon: Layers, i: 8 },
               { icon: GitBranch, i: 2 },
               { icon: Search, i: 3 },
               { icon: Network, i: 4 },
               { icon: Plug, i: 5 },
-              { icon: Wand2, i: 6 },
             ].map(({ icon: Icon, i }) => (
               <Reveal key={i} delay={i * 60}>
                 <article className="h-full rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-elevated">
