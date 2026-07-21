@@ -96,7 +96,7 @@ const de: Dict = {
 
   "feat.7.title": "Scan-Ingest ohne Fat-Client",
   "feat.7.body":
-    "MFP direkt in RecordTailor scannen — im Browser, ohne TWAIN-Treiber, ohne Endgeräte-Software. Auto-Trennung erkennt Belegwechsel im Stapel automatisch. Barcode-Trennblätter optional. Ein Endpunkt, ein Ordner, fertig.",
+    "MFP direkt in RecordTailor scannen — per Scan-to-Folder oder HTTPS-Endpunkt. Kein TWAIN-Treiber, keine Endgeräte-Software auf Sachbearbeiter-PCs. Belegtrennung im Stapel wahlweise per Barcode-Trennblatt (deterministisch, empfohlen für hohe Volumen) oder per KI-Heuristik (Layout- und Content-Wechsel). Ein Endpunkt, ein Ordner, fertig.",
 
   "feat.8.title": "Stapelverarbeitung en masse",
   "feat.8.body":
@@ -385,7 +385,7 @@ const en: Dict = {
 
   "feat.7.title": "Scan ingest without a fat client",
   "feat.7.body":
-    "Scan straight from your MFP into RecordTailor — in the browser, no TWAIN drivers, no endpoint software. Auto-separation detects document boundaries inside the stack. Barcode separator sheets optional. One endpoint, one folder, done.",
+    "Scan straight from your MFP into RecordTailor — via scan-to-folder or an HTTPS endpoint. No TWAIN drivers, no endpoint software on user PCs. Document separation inside a stack: either barcode separator sheets (deterministic, recommended for high volumes) or AI heuristics (layout- and content-change detection). One endpoint, one folder, done.",
 
   "feat.8.title": "Batch processing at scale",
   "feat.8.body":
