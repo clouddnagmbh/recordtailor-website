@@ -3,10 +3,12 @@ import {
   ArrowRight,
   BrainCircuit,
   GitBranch,
+  Layers,
   Network,
   Plug,
   ScanLine,
   Search,
+  Wand2,
 } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -24,11 +26,13 @@ export async function generateMetadata() {
 
 const FEATURES = [
   { icon: BrainCircuit, i: 1 },
+  { icon: Wand2, i: 6 },
+  { icon: ScanLine, i: 7 },
+  { icon: Layers, i: 8 },
   { icon: GitBranch, i: 2 },
   { icon: Search, i: 3 },
   { icon: Network, i: 4 },
   { icon: Plug, i: 5 },
-  { icon: ScanLine, i: 6 },
 ];
 
 export default async function ProduktPage() {
