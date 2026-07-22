@@ -1,13 +1,17 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  BotMessageSquare,
   BrainCircuit,
   Check,
+  FileText,
   GitBranch,
   GitCommit,
+  Inbox,
   KeyboardIcon,
   Layers,
   Lock,
+  MessageCircleQuestion,
   Network,
   Plug,
   ScanLine,
@@ -16,6 +20,8 @@ import {
   Sparkles,
   Timer,
   Wand2,
+  Workflow,
+  X,
 } from "lucide-react";
 
 import { AppScreens } from "@/components/app-screens";
@@ -148,6 +154,91 @@ export default async function Home() {
       {/* S3b — App-Screens */}
       <AppScreens />
 
+      {/* S3c — Agenten-Showcase: "Die KI arbeitet. Sie entscheiden." */}
+      <section className="border-b border-border bg-ink py-20 text-cream">
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[1.05fr_1fr]">
+          <Reveal>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+                <BotMessageSquare className="mr-1 inline h-3 w-3" />
+                {t("agents.eyebrow")}
+              </div>
+              <h2 className="mt-2 font-serif text-3xl font-medium leading-[1.08] tracking-tight sm:text-4xl">
+                {t("agents.title")}
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-cream/80">
+                {t("agents.body")}
+              </p>
+              <Link
+                href="/produkt/ki-agenten"
+                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-white hover:bg-gold-hover"
+              >
+                {t("agents.cta")}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <div className="rounded-2xl border border-ink-border bg-ink-soft p-6 shadow-elevated">
+              <div className="flex items-center justify-between gap-3 border-b border-ink-border pb-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+                  {t("agents.card.eyebrow")}
+                </div>
+                <div className="tabular text-[11px] text-cream/60">14:03:24</div>
+              </div>
+              <div className="mt-4 flex items-start gap-3">
+                <span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gold-soft/20 text-gold">
+                  <FileText className="h-4 w-4" />
+                </span>
+                <div>
+                  <div className="text-sm font-semibold text-cream">
+                    {t("agents.card.doc")}
+                  </div>
+                  <ul className="mt-2 space-y-1.5 text-[13px] leading-relaxed text-cream/85">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1 inline-block h-1 w-1 shrink-0 rounded-full bg-gold" />
+                      {t("agents.card.line1")}
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1 inline-block h-1 w-1 shrink-0 rounded-full bg-gold" />
+                      {t("agents.card.line2")}
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1 inline-block h-1 w-1 shrink-0 rounded-full bg-gold" />
+                      {t("agents.card.line3")}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-5 rounded-xl border border-ink-border bg-ink/50 px-4 py-3 text-[12px] text-cream/70">
+                {t("agents.card.confidence")}
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-gold px-4 py-2.5 text-sm font-semibold text-white hover:bg-gold-hover"
+                  disabled
+                  aria-label="Approval-Karten-Demo (nur Illustration)"
+                >
+                  <Check className="h-4 w-4" />
+                  {t("agents.card.approve")}
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-ink-border bg-ink px-4 py-2.5 text-sm font-medium text-cream/80 hover:border-cream/40"
+                  disabled
+                  aria-label="Approval-Karten-Demo (nur Illustration)"
+                >
+                  <X className="h-4 w-4" />
+                  {t("agents.card.reject")}
+                </button>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* S4 — Feature grid */}
       <section id="features" className="border-b border-border bg-background">
         <div className="mx-auto max-w-6xl px-5 py-20">
@@ -167,27 +258,42 @@ export default async function Home() {
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: BrainCircuit, i: 1 },
+              { icon: BrainCircuit, i: 9, href: "/produkt/ki-agenten" },
+              { icon: MessageCircleQuestion, i: 10, href: "/produkt/wissen" },
+              { icon: Workflow, i: 11, href: "/produkt/workflows" },
+              { icon: Inbox, i: 12, href: "/produkt/posteingang" },
+              { icon: Wand2, i: 1, href: "/produkt/posteingang" },
               { icon: Wand2, i: 6 },
-              { icon: ScanLine, i: 7 },
-              { icon: Layers, i: 8 },
+              { icon: ScanLine, i: 7, href: "/produkt/posteingang" },
+              { icon: Layers, i: 8, href: "/produkt/posteingang" },
               { icon: GitBranch, i: 2 },
-              { icon: Search, i: 3 },
-              { icon: Network, i: 4 },
-              { icon: Plug, i: 5 },
-            ].map(({ icon: Icon, i }) => (
-              <Reveal key={i} delay={i * 60}>
-                <article className="h-full rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-elevated">
+              { icon: Search, i: 3, href: "/produkt/wissen" },
+              { icon: Network, i: 4, href: "/produkt/wissen" },
+              { icon: Plug, i: 5, href: "/produkt/integrationen" },
+            ].map(({ icon: Icon, i, href }) => {
+              const inner = (
+                <article className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-elevated">
                   <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold-soft text-gold">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-lg font-semibold">{t(`feat.${i}.title`)}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {t(`feat.${i}.body`)}
                   </p>
+                  {href ? (
+                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold">
+                      Details
+                      <ArrowRight className="h-3 w-3" />
+                    </span>
+                  ) : null}
                 </article>
-              </Reveal>
-            ))}
+              );
+              return (
+                <Reveal key={i} delay={i * 50}>
+                  {href ? <Link href={href}>{inner}</Link> : inner}
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

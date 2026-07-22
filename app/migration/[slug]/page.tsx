@@ -7,6 +7,9 @@ import { ArrowRight, Check, RefreshCw } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Reveal } from "@/components/reveal";
 import { LEGACY_DMS } from "@/lib/migration-data";
+import { findFeatureBySlug } from "@/lib/produkt-data";
+
+const MIGRATION_RELATED_FEATURES = ["ki-agenten", "wissen", "integrationen"];
 
 export function generateStaticParams() {
   return LEGACY_DMS.map((d) => ({ slug: d.slug }));
@@ -187,6 +190,34 @@ export default async function MigrationSlugPage({
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Related feature pages */}
+      <section className="border-b border-border bg-background">
+        <div className="mx-auto max-w-4xl px-5 py-14">
+          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+            Was Sie in RecordTailor bekommen
+          </div>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+            {MIGRATION_RELATED_FEATURES.map((slug) => {
+              const rel = findFeatureBySlug(slug);
+              if (!rel) return null;
+              return (
+                <li key={slug}>
+                  <Link
+                    href={`/produkt/${rel.slug}`}
+                    className="flex h-full flex-col gap-1 rounded-2xl border border-border bg-surface px-5 py-4 text-sm hover:border-gold/60"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+                      {rel.eyebrow}
+                    </span>
+                    <span className="text-base font-medium">{rel.h1}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 

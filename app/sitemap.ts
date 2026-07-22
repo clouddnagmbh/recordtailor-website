@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { ARTICLES } from "@/lib/blog-data";
 import { LEGACY_DMS } from "@/lib/migration-data";
+import { PRODUKT_PAGES } from "@/lib/produkt-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://recordtailor.com";
@@ -25,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/datenschutz", freq: "monthly", priority: 0.2 },
   ];
 
+  const produktUrls = PRODUKT_PAGES.map((p) => ({
+    url: `${base}/produkt/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
   const migrationUrls = LEGACY_DMS.map((d) => ({
     url: `${base}/migration/${d.slug}`,
     lastModified: now,
@@ -46,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: freq,
       priority,
     })),
+    ...produktUrls,
     ...migrationUrls,
     ...blogUrls,
   ];

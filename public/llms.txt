@@ -86,6 +86,12 @@ CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
 
 - https://recordtailor.com/         (Startseite, Feature-Übersicht)
 - https://recordtailor.com/produkt  (alle Features im Überblick)
+- https://recordtailor.com/produkt/ki-agenten     (Inbox-, Compliance-, Vertrags-, Rechnungs-Agent)
+- https://recordtailor.com/produkt/wissen         (RAG-Chat mit Citations, Hybrid-Suche, Knowledge Graph)
+- https://recordtailor.com/produkt/workflows      (Plain-Language-Workflows, Freigaben, Fristen)
+- https://recordtailor.com/produkt/posteingang    (Scan- und Mail-Ingest, Triage, Stapelverarbeitung)
+- https://recordtailor.com/produkt/compliance     (Audit-Hash-Chain, Retention, Legal Hold, DSGVO)
+- https://recordtailor.com/produkt/integrationen  (SAP ArchiveLink, CMIS 1.1, DATEV, MCP-Server, API)
 - https://recordtailor.com/migration (DMS-Migration Übersicht)
 - https://recordtailor.com/migration/alfresco     (Alfresco ablösen)
 - https://recordtailor.com/migration/d-velop      (d.velop ablösen)

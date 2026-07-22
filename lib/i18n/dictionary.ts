@@ -102,6 +102,37 @@ const de: Dict = {
   "feat.8.body":
     "500 Rechnungen aus dem Monatsabschluss? 50 000 Belege aus einem Archiv-Import? Der Batch-Prozessor klassifiziert parallel auf allen verfügbaren GPU-Cores, prüft Duplikate über Content-Hash, meldet Ausreißer, protokolliert alles in der Hash-Chain. Kein manuelles Nachziehen.",
 
+  "feat.9.title": "KI-Agenten, die arbeiten",
+  "feat.9.body":
+    "Vier Agenten laufen heute produktiv: Inbox, Compliance, Vertrag, Rechnung. Jede Aktion mit Begründung, Konfidenz und Freigabe-Gate — nicht auf einer Roadmap.",
+
+  "feat.10.title": "Chat mit Belegen",
+  "feat.10.body":
+    "RAG-Chat gegen den eigenen Bestand. Jede Antwort verlinkt auf die Textstelle im Original — kein LLM-Halluzinieren ohne Fundstelle.",
+
+  "feat.11.title": "Workflows in einem Satz",
+  "feat.11.body":
+    "Beschreiben Sie den Ablauf in einem Satz — RecordTailor erzeugt daraus ein validiertes Workflow-YAML und übersetzt es Klartext zurück. Kein Low-Code-Designer.",
+
+  "feat.12.title": "Mail-Ingest, GoBD-konform",
+  "feat.12.body":
+    "IMAP-Postfächer werden gezogen, .eml-Original beweiswertig abgelegt, Anhänge als eigene Dokumente in die Triage gehoben. Ein Posteingang für alles.",
+
+  // --- Agents section (homepage S3c) ---
+  "agents.eyebrow": "Die KI arbeitet. Sie entscheiden.",
+  "agents.title": "Vier Agenten. Vier Jobs. Ein Freigabe-Gate.",
+  "agents.body":
+    "Der Inbox-Agent triagiert, was reinkommt. Der Compliance-Agent prüft Bestände gegen Aufbewahrungsregeln. Der Vertrags-Agent findet Klauseln und Abweichungen vom Muster. Der Rechnungs-Agent liest Beträge, IBAN, Steuersätze und Vertragsbezug. Jede Aktion mit Begründung und Konfidenz — unter dem Schwellwert wandert sie in Ihre Approval-Inbox, darüber schlägt der Agent vor oder wendet automatisch an. Alles verkettet in der Audit-Hash-Chain, exportierbar als EU-AI-Act-Protokoll.",
+  "agents.card.eyebrow": "Approval-Inbox · Rechnungs-Agent",
+  "agents.card.doc": "Rechnung 2026-0741 · Lieferant Kellner GmbH",
+  "agents.card.line1": "Betrag 8.420,00 € · Skonto 2 % bis 04.08.2026",
+  "agents.card.line2": "Bestellung PO-4711 gefunden · 3-Way-Match: ✓ Menge, ✓ Preis, ✓ IBAN",
+  "agents.card.line3": "Ablage: Kreditorenakte 4711 · Workflow: Zwei-Augen-Freigabe (Skonto-Deadline)",
+  "agents.card.confidence": "Konfidenz 94 % · Modell llama3-70b-local · Evidence: 3 Passagen",
+  "agents.card.approve": "Freigeben",
+  "agents.card.reject": "Ablehnen",
+  "agents.cta": "Mehr zu den KI-Agenten",
+
   // --- On-Premise section ---
   "prem.eyebrow": "Warum reine On-Premise",
   "prem.title": "Ihre Dokumente bleiben, wo sie hingehören.",

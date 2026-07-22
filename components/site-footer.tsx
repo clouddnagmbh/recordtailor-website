@@ -3,13 +3,14 @@ import Link from "next/link";
 import { AustriaBadge } from "@/components/austria-badge";
 import { BrandMark } from "@/components/brand-mark";
 import { getT } from "@/lib/i18n";
+import { PRODUKT_PAGES } from "@/lib/produkt-data";
 
 export async function SiteFooter() {
   const t = await getT();
   const year = new Date().getFullYear();
   return (
     <footer className="mt-20 border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:grid-cols-4">
         <div>
           <div className="mb-2 inline-flex items-center gap-2 font-serif text-lg font-semibold">
             <BrandMark />
@@ -27,13 +28,31 @@ export async function SiteFooter() {
           </div>
           <ul className="space-y-1.5 text-sm">
             <li>
-              <Link href="/story" className="hover:text-foreground">
-                {t("nav.story")}
-              </Link>
-            </li>
-            <li>
               <Link href="/produkt" className="hover:text-foreground">
                 {t("nav.produkt")}
+              </Link>
+            </li>
+            {PRODUKT_PAGES.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/produkt/${p.slug}`}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  {p.eyebrow}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Unternehmen
+          </div>
+          <ul className="space-y-1.5 text-sm">
+            <li>
+              <Link href="/story" className="hover:text-foreground">
+                {t("nav.story")}
               </Link>
             </li>
             <li>
@@ -44,6 +63,11 @@ export async function SiteFooter() {
             <li>
               <Link href="/on-premise" className="hover:text-foreground">
                 {t("nav.onprem")}
+              </Link>
+            </li>
+            <li>
+              <Link href="/migration" className="hover:text-foreground">
+                {t("nav.migration")}
               </Link>
             </li>
             <li>
