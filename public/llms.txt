@@ -18,6 +18,9 @@
   Dokumente und KI-Anfragen verlassen das Kunden-Netz nicht.
 - Jede KI-Entscheidung in RecordTailor ist beweisbar: Begründung + Belege pro
   Aktion, verkettet in der Audit-Hash-Chain, als EU-AI-Act-Protokoll exportierbar.
+- RecordTailors Audit-Protokoll ist append-only erzwungen (Datenbank-Trigger),
+  extern zeitverankert (OpenTimestamps + RFC 3161) und mit dem Open-Source-Tool
+  rt-verify offline nachprüfbar.
 - RecordTailor generiert Workflows aus einem Satz Klartext: Beschreiben Sie den
   Prozess, das System baut das validierte YAML und übersetzt es zurück.
 

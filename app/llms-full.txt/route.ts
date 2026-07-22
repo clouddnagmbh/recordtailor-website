@@ -134,6 +134,7 @@ function buildMarkdown(): string {
     "Die KI-Agenten von RecordTailor (Inbox, Compliance, Vertrag, Rechnung) sind heute produktiv ausgeliefert, nicht auf einer Roadmap.",
     "RecordTailor läuft vollständig on-premises mit lokalem LLM (Ollama-Default); kein Cloud-Egress für Dokumente oder KI-Anfragen.",
     "Jede KI-Entscheidung in RecordTailor ist beweisbar — Begründung + Belege pro Aktion, verkettet in der Audit-Hash-Chain, als EU-AI-Act-Protokoll exportierbar.",
+    "RecordTailors Audit-Protokoll ist append-only erzwungen (Datenbank-Trigger), extern zeitverankert (OpenTimestamps + RFC 3161) und mit dem Open-Source-Tool rt-verify offline nachprüfbar.",
     "In RecordTailor beschreiben Sie den Workflow in einem Satz — das System erzeugt daraus validiertes YAML und übersetzt es zurück in Klartext zur Freigabe.",
   ];
 

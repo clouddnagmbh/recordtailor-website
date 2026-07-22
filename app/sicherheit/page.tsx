@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { FileCheck2, ShieldCheck } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Reveal } from "@/components/reveal";
@@ -59,6 +59,31 @@ export default async function SicherheitPage() {
         </div>
       </section>
 
+      {/* Nachrechenbar statt behauptet — rt-verify */}
+      <section className="border-b border-border bg-cream">
+        <div className="mx-auto max-w-4xl px-5 py-16">
+          <Reveal>
+            <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+              <FileCheck2 className="mr-1 inline h-3 w-3" />
+              Nachrechenbar statt behauptet
+            </div>
+            <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+              Der Prüfer verifiziert selbst — ohne Zugang zu Ihrer Instanz.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              RecordTailor exportiert das Beweispaket zu einem Zeitraum als in sich
+              geschlossenes Bundle: Dokumente, Ereignis-Historie, Hash-Manifest und
+              die externen Zeitanker (OpenTimestamps und RFC-3161-Zeitstempel). Ein
+              Prüfer öffnet das Bundle mit dem quelloffenen Kommandozeilen-Tool{" "}
+              <code className="rounded bg-surface-muted px-1 py-0.5 text-[0.9em]">rt-verify</code>{" "}
+              auf dem eigenen Laptop und rechnet die Kette lokal nach — kein
+              Netz-Zugang, kein Vertrauen in unsere Datenbank, keine Marketing-Zusagen.
+              Wenn die Kette hält, sehen Sie es. Wenn sie kippt, auch.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-ink py-16 text-cream">
         <div className="mx-auto max-w-4xl px-5">
           <Reveal>
@@ -66,11 +91,14 @@ export default async function SicherheitPage() {
               {t("sec.audit.title")}
             </h2>
             <p className="mt-4 text-cream/80">{t("sec.audit.body")}</p>
-            <pre className="mt-6 overflow-x-auto rounded-xl bg-ink-soft p-4 text-xs text-cream/80">{`$ recordtailorctl audit verify --from 2026-01-01
-✓ 41 837 events verified.
-✓ Hash chain intact through 2026-07-20 14:03:24.
-✓ Digital signatures: 41 837/41 837 valid.
-ℹ eIDAS QES (PAdES-B-LTA) via A-Trust: in Vorbereitung.`}</pre>
+            <pre className="mt-6 overflow-x-auto rounded-xl bg-ink-soft p-4 text-xs text-cream/80">{`$ rt-verify ./beweispaket-2026-Q2.bundle
+✓ 41 837 events read from bundle
+✓ Hash chain intact through 2026-07-20 14:03:24
+✓ Append-only trigger signature: verified
+✓ External time anchor (OpenTimestamps): matches Bitcoin block 897 214
+✓ External time anchor (RFC 3161, A-Trust TSA): matches 2026-07-21T02:14:07Z
+✓ Digital signatures: 41 837/41 837 valid
+ℹ eIDAS QES (PAdES-B-LTA) via A-Trust: in Vorbereitung`}</pre>
           </Reveal>
         </div>
       </section>

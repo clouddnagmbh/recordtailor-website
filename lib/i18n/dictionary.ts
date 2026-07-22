@@ -170,9 +170,9 @@ const de: Dict = {
   "sec.eyebrow": "Sicherheit",
   "sec.title": "Prüfbar bis auf die Log-Zeile.",
   "sec.body":
-    "Jede Aktion — Upload, Klassifikation, Freigabe, Signatur, Löschung — landet in einer Hash-Chain. Wer wann was mit welchem Dokument tat, ist kryptographisch nicht mehr umschreibbar. Elektronische Signaturen mit manipulationssichtbarer Beweiskette; qualifizierte Signatur (eIDAS QES) über Vertrauensdiensteanbieter in Vorbereitung. GDPR-Erase inklusive.",
+    "Jede Aktion — Upload, Klassifikation, Freigabe, Signatur, Löschung — landet in einer unveränderbaren, kryptografisch verketteten Protokollierung: Append-only auf Datenbankebene erzwungen, täglich extern zeitverankert (OpenTimestamps + RFC 3161) — mit dem Open-Source-Prüftool rt-verify von jedem Prüfer offline nachrechenbar. Elektronische Signaturen mit manipulationssichtbarer Beweiskette; qualifizierte Signatur (eIDAS QES) über Vertrauensdiensteanbieter in Vorbereitung. GDPR-Erase inklusive.",
   "sec.item1": "Postgres-RLS pro Tenant — auch wir sehen Ihre Daten nicht",
-  "sec.item2": "Hash-Chain über alle Audit-Events, überprüfbar per CLI",
+  "sec.item2": "Unveränderbare, kryptografisch verkettete Protokollierung: Append-only auf Datenbankebene erzwungen, täglich extern zeitverankert (OpenTimestamps + RFC 3161) — mit dem Open-Source-Prüftool rt-verify von jedem Prüfer offline nachrechenbar",
   "sec.item3": "Elektronische Signaturen mit manipulationssichtbarer Beweiskette; qualifizierte Signatur (eIDAS QES) über Vertrauensdiensteanbieter in Vorbereitung",
   "sec.item4": "Sigstore-Attestation für alle Container-Images",
   "sec.item5": "Confidential Compute (AMD SEV-SNP) optional",
@@ -312,7 +312,7 @@ const de: Dict = {
     "Postgres-RLS pro Tenant, Hash-Chain-Audit, elektronische Signaturen (eIDAS QES in Vorbereitung), Sigstore-Attestation, Confidential Compute optional. RecordTailor ist prüfbar bis auf die Log-Zeile.",
   "sec.audit.title": "Ein Audit-Log, der sich nicht umschreiben lässt.",
   "sec.audit.body":
-    "Jedes Event bekommt einen SHA-256-Hash, der den Hash des Vorgängers enthält. Manipuliert jemand einen Eintrag, kippt die gesamte Kette. Verifiziert wird per CLI — Sie können jederzeit selbst prüfen, dass Ihre Historie unverfälscht ist.",
+    "Jedes Event bekommt einen SHA-256-Hash, der den Hash des Vorgängers enthält. Ein Datenbank-Trigger erzwingt Append-only — UPDATE und DELETE sind auf der Log-Tabelle physisch unmöglich; Löschungen im Content laufen über Legal-Hold- und Retention-Prüfung. Einmal täglich wird der Ketten-Kopf extern zeitverankert (OpenTimestamps und ein RFC-3161-Zeitstempeldienst), ein nightly Selfcheck rechnet die Kette gegen den letzten Anker nach. Verifiziert wird mit dem Open-Source-Prüftool rt-verify — offline, ohne Zugang zur produktiven Instanz.",
 
   // --- Preise Subpage ---
   "price.meta.desc":
@@ -456,9 +456,9 @@ const en: Dict = {
   "sec.eyebrow": "Security",
   "sec.title": "Auditable down to the log line.",
   "sec.body":
-    "Every action — upload, classify, approve, sign, delete — lands on a hash chain. Who did what to which document, when, is cryptographically unforgeable. Electronic signatures with a tamper-evident audit chain; qualified signature (eIDAS QES) via trust service provider in preparation. GDPR-erase included.",
+    "Every action — upload, classify, approve, sign, delete — lands in an immutable, cryptographically chained log: append-only enforced at the database level, externally time-anchored daily (OpenTimestamps + RFC 3161) — offline verifiable by any auditor with the open-source rt-verify tool. Electronic signatures with a tamper-evident audit chain; qualified signature (eIDAS QES) via trust service provider in preparation. GDPR-erase included.",
   "sec.item1": "Postgres RLS per tenant — we can't see your data either",
-  "sec.item2": "Hash chain over every audit event, verifiable via CLI",
+  "sec.item2": "Immutable, cryptographically chained logging: append-only enforced at the database level, externally time-anchored daily (OpenTimestamps + RFC 3161) — offline verifiable by any auditor with the open-source rt-verify tool",
   "sec.item3": "Electronic signatures with tamper-evident audit chain; qualified signature (eIDAS QES) via trust service provider in preparation",
   "sec.item4": "Sigstore attestation on every container image",
   "sec.item5": "Confidential compute (AMD SEV-SNP) optional",
@@ -588,7 +588,7 @@ const en: Dict = {
     "Postgres RLS per tenant, hash-chain audit, electronic signatures (eIDAS QES in preparation), Sigstore attestation, confidential compute optional. RecordTailor is auditable down to the log line.",
   "sec.audit.title": "An audit log that can't be rewritten.",
   "sec.audit.body":
-    "Every event gets a SHA-256 hash that includes the hash of the previous one. Tamper with a single entry and the whole chain breaks. Verified via CLI — you can prove your history is intact at any time.",
+    "Every event gets a SHA-256 hash that includes the hash of the previous one. A database trigger enforces append-only — UPDATE and DELETE on the log table are physically impossible; content deletions run through legal-hold and retention checks. Once per day the chain head is externally time-anchored (OpenTimestamps and an RFC-3161 timestamp authority); a nightly self-check reconciles the chain against the latest anchor. Verified with the open-source rt-verify tool — offline, without access to the production instance.",
 
   "price.meta.desc":
     "One price, for your data center. No per-user-per-module matrix. Pricing on request — includes every module and unlimited users.",
