@@ -4,13 +4,17 @@ import { ArrowRight } from "lucide-react";
 import { TailorFamilySection } from "@/components/tailor-family";
 import { DICTS } from "@/lib/i18n/dictionary";
 import { getLocale } from "@/lib/i18n";
+import { bilingualAlternates } from "@/lib/i18n/alternates";
 
 export async function generateMetadata() {
   const l = await getLocale();
   return {
     title: "Story",
     description: DICTS[l]["story.meta.desc"],
-    alternates: { canonical: "/story" },
+    alternates: {
+      canonical: "/story",
+      languages: bilingualAlternates("/story", "/en/story"),
+    },
   };
 }
 

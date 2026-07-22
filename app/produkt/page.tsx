@@ -15,13 +15,17 @@ import { Reveal } from "@/components/reveal";
 import { DICTS } from "@/lib/i18n/dictionary";
 import { getLocale, getT } from "@/lib/i18n";
 import { PRODUKT_PAGES } from "@/lib/produkt-data";
+import { bilingualAlternates } from "@/lib/i18n/alternates";
 
 export async function generateMetadata() {
   const l = await getLocale();
   return {
     title: l === "en" ? "Product" : "Produkt",
     description: DICTS[l]["produkt.meta.desc"],
-    alternates: { canonical: "/produkt" },
+    alternates: {
+      canonical: "/produkt",
+      languages: bilingualAlternates("/produkt", "/en/produkt"),
+    },
   };
 }
 

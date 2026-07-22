@@ -4,12 +4,17 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Reveal } from "@/components/reveal";
 import { DICTS } from "@/lib/i18n/dictionary";
 import { getLocale, getT } from "@/lib/i18n";
+import { bilingualAlternates } from "@/lib/i18n/alternates";
 
 export async function generateMetadata() {
   const l = await getLocale();
   return {
     title: l === "en" ? "Contact" : "Kontakt",
     description: DICTS[l]["contact.meta.desc"],
+    alternates: {
+      canonical: "/kontakt",
+      languages: bilingualAlternates("/kontakt", "/en/kontakt"),
+    },
   };
 }
 

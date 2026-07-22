@@ -7,6 +7,7 @@ import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Reveal } from "@/components/reveal";
 import { PRODUKT_PAGES, findFeatureBySlug } from "@/lib/produkt-data";
+import { bilingualAlternates } from "@/lib/i18n/alternates";
 
 export function generateStaticParams() {
   return PRODUKT_PAGES.map((p) => ({ slug: p.slug }));
@@ -23,7 +24,10 @@ export async function generateMetadata({
   return {
     title: { absolute: page.metaTitle },
     description: page.metaDescription,
-    alternates: { canonical: `/produkt/${page.slug}` },
+    alternates: {
+      canonical: `/produkt/${page.slug}`,
+      languages: bilingualAlternates(`/produkt/${page.slug}`, `/en/produkt/${page.slug}`),
+    },
     openGraph: { title: page.metaTitle, description: page.metaDescription },
     twitter: { title: page.metaTitle, description: page.metaDescription },
   };

@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       "de-AT": "/",
       "de-DE": "/",
       "de-CH": "/",
-      en: "/",
+      en: "/en",
       "x-default": "/",
     },
   },

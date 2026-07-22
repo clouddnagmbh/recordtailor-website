@@ -5,14 +5,19 @@ import { DEFAULT_LOCALE, DICTS, LOCALES, type Locale } from "./dictionary";
 export const LOCALE_COOKIE = "rt_locale";
 
 /**
- * Aktive Locale: Cookie > Accept-Language > DE.
+ * Aktive Locale: Pfad (`/en/*` via Middleware-Header) > Cookie > Accept-Language > DE.
+ * Der Pfad-Header stammt aus `middleware.ts` und macht `/en/*`-Routen sprachlich
+ * eindeutig — unabhängig vom Cookie des Besuchers.
  */
 export async function getLocale(): Promise<Locale> {
+  const h = await headers();
+  const pathLocale = h.get("x-rt-locale") as Locale | undefined;
+  if (pathLocale && LOCALES.includes(pathLocale)) return pathLocale;
+
   const cookieStore = await cookies();
   const cookieVal = cookieStore.get(LOCALE_COOKIE)?.value as Locale | undefined;
   if (cookieVal && LOCALES.includes(cookieVal)) return cookieVal;
 
-  const h = await headers();
   const accept = h.get("accept-language") ?? "";
   if (/(^|,|\s)en\b/i.test(accept)) return "en";
   if (/(^|,|\s)de\b/i.test(accept)) return "de";
