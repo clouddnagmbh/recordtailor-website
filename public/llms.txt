@@ -92,6 +92,13 @@ CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
 - https://recordtailor.com/produkt/posteingang    (Scan- und Mail-Ingest, Triage, Stapelverarbeitung)
 - https://recordtailor.com/produkt/compliance     (Audit-Hash-Chain, Retention, Legal Hold, DSGVO)
 - https://recordtailor.com/produkt/integrationen  (SAP ArchiveLink, CMIS 1.1, DATEV, MCP-Server, API)
+- https://recordtailor.com/vergleich  (DMS-Vergleiche mit Stand 07/2026)
+- https://recordtailor.com/vergleich/recordtailor-vs-docuware
+- https://recordtailor.com/vergleich/recordtailor-vs-elo
+- https://recordtailor.com/vergleich/recordtailor-vs-d-velop
+- https://recordtailor.com/vergleich/recordtailor-vs-m-files
+- https://recordtailor.com/vergleich/recordtailor-vs-sharepoint
+- https://recordtailor.com/vergleich/recordtailor-vs-paperless-ngx
 - https://recordtailor.com/migration (DMS-Migration Übersicht)
 - https://recordtailor.com/migration/alfresco     (Alfresco ablösen)
 - https://recordtailor.com/migration/d-velop      (d.velop ablösen)

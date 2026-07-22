@@ -26,6 +26,9 @@ export async function SiteHeader() {
           <Link href="/migration" className="text-muted-foreground hover:text-foreground">
             {t("nav.migration")}
           </Link>
+          <Link href="/vergleich" className="text-muted-foreground hover:text-foreground">
+            Vergleich
+          </Link>
           <Link href="/on-premise" className="text-muted-foreground hover:text-foreground">
             {t("nav.onprem")}
           </Link>

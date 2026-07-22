@@ -51,7 +51,7 @@ export default async function BlogArticlePage({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: article.title,
     description: article.metaDescription,
     datePublished: article.publishedAt,
