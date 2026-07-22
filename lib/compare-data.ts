@@ -6,20 +6,28 @@
  *   - Nur öffentlich nachprüfbare Fakten aus Produktdoku/Produktseiten der
  *     jeweiligen Anbieter (Stand: Juli 2026).
  *   - Keine Preisspekulationen über Dritte.
- *   - Keine Herabsetzung („SharePoint-2007-Optik“ ist raus — stattdessen
- *     „klassische Ordner-Metapher“).
+ *   - Keine Herabsetzung.
  *   - Jede Tabelle trägt „Stand 07/2026“ und einen Marken-Disclaimer.
- *   - Roadmap-Angaben der Wettbewerber werden als „angekündigt“ gekennzeichnet.
+ *   - Roadmap-Angaben der Wettbewerber werden als „angekündigt“ gekennzeichnet
+ *     und bekommen den Status `partial`, nicht `yes`.
  *
- * Datenquellen: Marktanalyse-SWOT-Update 07/2026 sowie die dort zitierten
- * öffentlichen Produktseiten. Wo eine Angabe nicht klar public war, ist die
- * Zelle mit „nicht öffentlich dokumentiert“ befüllt statt geraten.
+ * Status-Semantik (steuert das Icon in der Tabelle):
+ *   yes     → Feature vorhanden/produktiv
+ *   partial → Feature nur teilweise / angekündigt / add-on / eingeschränkt
+ *   no      → Feature nicht vorhanden / nicht öffentlich dokumentiert
  */
+
+export type CompareStatus = "yes" | "partial" | "no";
+
+export type CompareCell = {
+  status: CompareStatus;
+  text: string;
+};
 
 export type CompareRow = {
   criterion: string;
-  rt: string;
-  competitor: string;
+  rt: CompareCell;
+  competitor: CompareCell;
 };
 
 export type CompareEntry = {
@@ -37,8 +45,83 @@ export type CompareEntry = {
 };
 
 const AS_OF = "Stand 07/2026";
-
 export const COMPARISON_AS_OF = AS_OF;
+
+// Kurze Helper, damit die Zeilen kompakt lesbar bleiben.
+const yes = (text: string): CompareCell => ({ status: "yes", text });
+const partial = (text: string): CompareCell => ({ status: "partial", text });
+const no = (text: string): CompareCell => ({ status: "no", text });
+
+// Gemeinsame RecordTailor-Zellen — reduzieren Wiederholung über die 6 Slugs.
+const RT = {
+  klassifikation: yes("Produktiv, mit Erklärbarkeit und Few-Shot-Loop"),
+  agenten: yes("Vier Agenten produktiv (Inbox, Compliance, Vertrag, Rechnung), Konfidenz-Gate, Approval-Inbox"),
+  rag: yes("Produktiv, per-Tenant Embeddings, versionsbewusst"),
+  plain: yes("Ein Satz → validiertes YAML → Klartext-Rückblick"),
+  localLLM: yes("Ollama-Default, per Tenant konfigurierbar; kein Cloud-Egress"),
+  onPrem: yes("Docker Compose oder Kubernetes; air-gapped-fähig"),
+  git: yes("Branch, Diff, Merge — echte Dokument-Versionierung"),
+  workflow: yes("Light: approve/review/sign/notify, n-Augen, Fristen, Eskalation"),
+  gobd: partial("Manipulationssichtbare Audit-Hash-Chain; IDW-PS-880-Testat auf Roadmap"),
+  sap: yes("SAP ArchiveLink und CMIS 1.1 nativ"),
+  datev: partial("DATEV-CSV produktiv; DATEVconnect-API und XRechnung/ZUGFeRD in Vorbereitung"),
+  addins: no("Office/Outlook-Add-ins in Vorbereitung"),
+  mcp: yes("Nativer MCP-Server, fünf Tools"),
+  multitenancy: yes("Postgres RLS pro Tenant"),
+  legalHold: yes("Legal Hold produktiv, versioniert, mit Grund"),
+  retention: partial("Policies-as-Code + Compliance-Agent meldet; Enforcement-Worker in Vorbereitung"),
+  erase: yes("DSGVO-Art.-17-Erase über Content, Extraktionen, Embeddings und Cache"),
+  airgap: yes("Air-gapped-Installation, signierte Updates, Sigstore-Attestation"),
+  encryption: yes("AES-256-GCM at rest, TLS in transit"),
+  auditProof: yes("Court-Bundle-Export inkl. Hash-Manifest, extern verifizierbar"),
+  mailIngest: yes("IMAP-Mail-Agent, .eml GoBD-konform; Anhänge als eigene Belege"),
+  scanIngest: yes("MFP-Scan-Ingest ohne Fat-Client, Barcode- oder KI-Trennung"),
+  batch: yes("Batch-Prozessor auf GPU-Cores, BLAKE3-Deduplikation, Ausreißer-Bericht"),
+  hybridSearch: yes("BM25 + Vektor (RRF) in einer Query"),
+  openSourceCore: yes("Apache-2.0-Kern, keine Vendor-Lock-in-Falle"),
+  packaging: yes("Ein Paket, alle Module inklusive, unbegrenzte Nutzer"),
+  ssoMfa: partial("OIDC vorbereitet; SAML/SCIM auf Roadmap"),
+  undo: yes("Rückgängigmachen von Agenten-Aktionen über Versionierung"),
+  restApi: yes("REST-API mit Scoped Service-Tokens"),
+  webhooks: yes("Webhooks (`workflow_event`, Ingest-Events) für Kunden-Automatisierung"),
+  aiActProtocol: yes("EU-AI-Act-Protokoll als PDF exportierbar"),
+} as const;
+
+// -----------------------------------------------------------------------------
+// Wettbewerber-Zellen
+// -----------------------------------------------------------------------------
+const COMMON_ROWS_BASE = (competitor: Record<string, CompareCell>): CompareRow[] => [
+  { criterion: "KI-Klassifikation & Extraktion", rt: RT.klassifikation, competitor: competitor.klassifikation },
+  { criterion: "KI-Agenten (produktiv, nicht Roadmap)", rt: RT.agenten, competitor: competitor.agenten },
+  { criterion: "RAG-Chat mit Citations", rt: RT.rag, competitor: competitor.rag },
+  { criterion: "Plain-Language-Workflows", rt: RT.plain, competitor: competitor.plain },
+  { criterion: "Lokales LLM / kein Cloud-Egress", rt: RT.localLLM, competitor: competitor.localLLM },
+  { criterion: "Deployment On-Premise", rt: RT.onPrem, competitor: competitor.onPrem },
+  { criterion: "Air-gapped Installation", rt: RT.airgap, competitor: competitor.airgap },
+  { criterion: "Git-artige Dokument-Versionierung (Branch/Merge)", rt: RT.git, competitor: competitor.git },
+  { criterion: "Workflow-Engine (Freigabe, n-Augen, Fristen)", rt: RT.workflow, competitor: competitor.workflow },
+  { criterion: "GoBD-Testat / IDW PS 880", rt: RT.gobd, competitor: competitor.gobd },
+  { criterion: "ISO 27001 (Anbieter)", rt: partial("Auf Roadmap, nicht zertifiziert"), competitor: competitor.iso },
+  { criterion: "Audit-Beweispaket (Court-Bundle mit Hash-Manifest)", rt: RT.auditProof, competitor: competitor.auditProof },
+  { criterion: "Legal Hold", rt: RT.legalHold, competitor: competitor.legalHold },
+  { criterion: "Retention-Enforcement", rt: RT.retention, competitor: competitor.retention },
+  { criterion: "DSGVO-Erase (auch Extraktionen, Embeddings, Cache)", rt: RT.erase, competitor: competitor.erase },
+  { criterion: "Verschlüsselung at rest", rt: RT.encryption, competitor: competitor.encryption },
+  { criterion: "Multi-Tenancy (Row-Level Security)", rt: RT.multitenancy, competitor: competitor.multitenancy },
+  { criterion: "SSO / MFA / SAML / SCIM", rt: RT.ssoMfa, competitor: competitor.ssoMfa },
+  { criterion: "Hybrid-Suche (BM25 + Vektor in einer Query)", rt: RT.hybridSearch, competitor: competitor.hybridSearch },
+  { criterion: "SAP ArchiveLink + CMIS 1.1", rt: RT.sap, competitor: competitor.sap },
+  { criterion: "DATEV-Anbindung", rt: RT.datev, competitor: competitor.datev },
+  { criterion: "Office- & Outlook-Add-ins", rt: RT.addins, competitor: competitor.addins },
+  { criterion: "Mail-Ingest (IMAP, .eml GoBD-konform)", rt: RT.mailIngest, competitor: competitor.mailIngest },
+  { criterion: "Scan-Ingest ohne Fat-Client", rt: RT.scanIngest, competitor: competitor.scanIngest },
+  { criterion: "Stapelverarbeitung mit Deduplikation", rt: RT.batch, competitor: competitor.batch },
+  { criterion: "MCP-Server (offene KI-Schnittstelle)", rt: RT.mcp, competitor: competitor.mcp },
+  { criterion: "Undo / Rollback von KI-Aktionen", rt: RT.undo, competitor: competitor.undo },
+  { criterion: "REST-API + Webhooks", rt: RT.restApi, competitor: competitor.restApi },
+  { criterion: "EU-AI-Act-Protokoll exportierbar", rt: RT.aiActProtocol, competitor: competitor.aiActProtocol },
+  { criterion: "Open-Source-Kern", rt: RT.openSourceCore, competitor: competitor.openSourceCore },
+];
 
 export const COMPARISONS: CompareEntry[] = [
   // --------------------------------------------------------------------------
@@ -50,77 +133,42 @@ export const COMPARISONS: CompareEntry[] = [
     displayName: "DocuWare",
     metaTitle: "RecordTailor vs. DocuWare — DMS-Vergleich",
     metaDescription:
-      "RecordTailor und DocuWare im nachprüfbaren Feature-Vergleich (Stand 07/2026): KI-Agenten, On-Prem, Git-Branching, GoBD-Zertifikate. Fair verglichen, mit Quellen.",
+      "RecordTailor und DocuWare im nachprüfbaren Feature-Vergleich (Stand 07/2026): KI-Agenten, On-Prem, Git-Branching, GoBD-Testat. Fair verglichen, mit Quellen.",
     h1: "RecordTailor vs. DocuWare — der ehrliche Vergleich.",
     directAnswer:
-      "DocuWare bringt ein GoBD-Testat und Office-/Outlook-Add-ins mit, RecordTailor liefert dafür produktive KI-Agenten, RAG-Chat mit Citations, Plain-Language-Workflows und Git-artige Dokumenten-Branches on-premises mit lokalem LLM. Wer Zertifikate braucht, greift heute zu DocuWare; wer KI-Vorsprung und volle Datenhoheit will, zu RecordTailor.",
-    rows: [
-      {
-        criterion: "KI-Klassifikation & Extraktion",
-        rt: "Produktiv, mit Erklärbarkeit und Few-Shot-Loop",
-        competitor: "Produktiv (Intelligent Indexing)",
-      },
-      {
-        criterion: "KI-Agenten (Inbox/Compliance/Vertrag/Rechnung)",
-        rt: "Vier Agenten produktiv, Auto-Apply-Gate mit Konfidenz",
-        competitor: "Angekündigt (Roadmap)",
-      },
-      {
-        criterion: "RAG-Chat mit Citations",
-        rt: "Produktiv, per-Tenant Embeddings",
-        competitor: "Nicht öffentlich als Feature dokumentiert",
-      },
-      {
-        criterion: "Plain-Language-Workflows",
-        rt: "Ein Satz → validiertes YAML → Klartext-Rückblick",
-        competitor: "Grafischer Designer (Kinetic)",
-      },
-      {
-        criterion: "Lokales LLM / kein Cloud-Egress",
-        rt: "Ollama-Default; kein Cloud-Egress",
-        competitor: "Cloud-KI-Dienste",
-      },
-      {
-        criterion: "Deployment On-Premise",
-        rt: "Docker Compose oder Kubernetes; air-gapped-fähig",
-        competitor: "On-Premise-Variante verfügbar; Cloud-Priorität im Vertrieb",
-      },
-      {
-        criterion: "Git-Branching/Merge für Dokumente",
-        rt: "Produktiv (Branch, Diff, Merge)",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "Workflow-Engine",
-        rt: "Light: approve/review/sign/notify, n-Augen, Fristen, Eskalation",
-        competitor: "Umfassend (Kinetic)",
-      },
-      {
-        criterion: "GoBD-Testat / Zertifikate",
-        rt: "Nicht zertifiziert; ISO 27001 und IDW PS 880 sind Roadmap",
-        competitor: "Zertifiziert",
-      },
-      {
-        criterion: "SAP ArchiveLink / CMIS 1.1",
-        rt: "Nativ (beides)",
-        competitor: "Über Connectors",
-      },
-      {
-        criterion: "DATEV-Anbindung",
-        rt: "DATEV-CSV; DATEVconnect-API angekündigt",
-        competitor: "DATEV-Anbindungen etabliert",
-      },
-      {
-        criterion: "Office- & Outlook-Add-ins",
-        rt: "Nicht vorhanden (in Vorbereitung)",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "MCP-Server (offene KI-Schnittstelle)",
-        rt: "Nativ (fünf Tools)",
-        competitor: "Nicht öffentlich als Feature dokumentiert",
-      },
-    ],
+      "DocuWare bringt ein GoBD-Testat, eine ausgereifte Workflow-Engine (Kinetic) und Office-/Outlook-Add-ins mit; RecordTailor liefert dafür vier produktive KI-Agenten, RAG-Chat mit Citations, Plain-Language-Workflows und Git-artige Dokumenten-Branches on-premises mit lokalem LLM. Wer heute ein Testat als K.-o.-Kriterium braucht, greift zu DocuWare; wer KI-Vorsprung und volle Datenhoheit will, zu RecordTailor.",
+    rows: COMMON_ROWS_BASE({
+      klassifikation: yes("Produktiv (Intelligent Indexing)"),
+      agenten: partial("Als Marktthema in Trend-Reports; keine öffentlich verfügbare Agent-Runtime"),
+      rag: partial("KI-Assistenten-Ansätze in DocuWare-Cloud dokumentiert; kein klassischer RAG-Chat als eigenständiges Feature dokumentiert"),
+      plain: no("Grafischer Designer (Kinetic), keine Ein-Satz-Generierung dokumentiert"),
+      localLLM: no("KI-Dienste laufen über die DocuWare-Cloud-Infrastruktur"),
+      onPrem: yes("On-Premise-Variante verfügbar (Cloud-Priorität im Vertrieb)"),
+      airgap: partial("On-Prem ist möglich, air-gapped-Installation nicht als Standard dokumentiert"),
+      git: no("Lineare Versionierung, kein Branch/Merge"),
+      workflow: yes("Umfassend (Kinetic, langjährig ausgereift)"),
+      gobd: yes("GoBD-Testat vorhanden"),
+      iso: yes("ISO 27001 zertifiziert"),
+      auditProof: yes("GoBD-Audit-Log und Export­funktionen dokumentiert"),
+      legalHold: yes("Records-Management-Funktion vorhanden"),
+      retention: yes("Retention-Regeln produktiv durchsetzbar"),
+      erase: partial("DSGVO-Erase möglich; Umfang über KI-Nebenprodukte nicht öffentlich detailliert"),
+      encryption: yes("Verschlüsselung at rest"),
+      multitenancy: yes("Multi-Mandanten-Fähigkeit"),
+      ssoMfa: yes("SSO/SAML/MFA etabliert"),
+      hybridSearch: partial("Volltext + strukturierte Suche; keine öffentlich dokumentierte Vektor-Semantik in derselben Query"),
+      sap: yes("SAP-Integration und CMIS-Adapter verfügbar"),
+      datev: yes("DATEV-Anbindung etabliert"),
+      addins: yes("Office/Outlook-Add-ins nativ"),
+      mailIngest: yes("E-Mail-Import produktiv"),
+      scanIngest: yes("Scan-Client / Web-Ingest produktiv"),
+      batch: yes("Batch-Import und Klassifikation etabliert"),
+      mcp: no("Nicht öffentlich als Feature dokumentiert"),
+      undo: partial("Versionierung linear; agentische Undo-Kette nicht dokumentiert"),
+      restApi: yes("REST-API vorhanden"),
+      aiActProtocol: no("Kein öffentlich dokumentiertes Agent-Protokoll als Export"),
+      openSourceCore: no("Proprietär"),
+    }),
     migrationSteps: [
       {
         title: "Discovery — was liegt in DocuWare?",
@@ -138,7 +186,7 @@ export const COMPARISONS: CompareEntry[] = [
     faq: [
       {
         q: "DocuWare ist GoBD-zertifiziert. Warum sollten wir wechseln?",
-        a: "Wenn das Testat ein K.o.-Kriterium ist, bleiben Sie heute bei DocuWare. Wenn Sie KI-Vorsprung (Agenten, RAG-Chat, Plain-Language-Workflows) und volle Datenhoheit brauchen — insbesondere bei DSGVO-sensiblen Beständen — ist RecordTailor die Wette. ISO 27001 und IDW PS 880 sind bei uns Roadmap; wir sagen offen, dass sie heute nicht ausgestellt sind.",
+        a: "Wenn das Testat ein K.-o.-Kriterium ist, bleiben Sie heute bei DocuWare. Wenn Sie KI-Vorsprung (produktive Agenten, RAG-Chat, Plain-Language-Workflows) und volle Datenhoheit brauchen — insbesondere bei DSGVO-sensiblen Beständen — ist RecordTailor die Wette. IDW-PS-880 und ISO 27001 sind bei uns Roadmap; wir sagen offen, dass sie heute nicht ausgestellt sind.",
       },
       {
         q: "Kann RecordTailor Kinetic-Workflows importieren?",
@@ -146,7 +194,7 @@ export const COMPARISONS: CompareEntry[] = [
       },
       {
         q: "Bekommen wir Outlook-Integration wie in DocuWare?",
-        a: "Nein, heute nicht. Ein Outlook-Add-in ist in Vorbereitung. Falls Ihre Nutzer stark Outlook-gebunden sind (viele Belege per Mail), warten Sie diesen Meilenstein ab — oder brücken über den IMAP-Mail-Agent, der Mails automatisiert in den Posteingang hebt.",
+        a: "Heute nicht. Ein Outlook-Add-in ist in Vorbereitung. Falls Ihre Nutzer stark Outlook-gebunden sind (viele Belege per Mail), warten Sie diesen Meilenstein ab — oder brücken über den IMAP-Mail-Agent, der Mails automatisiert in den Posteingang hebt.",
       },
     ],
   },
@@ -160,72 +208,42 @@ export const COMPARISONS: CompareEntry[] = [
     displayName: "ELO",
     metaTitle: "RecordTailor vs. ELO — DMS-Vergleich",
     metaDescription:
-      "RecordTailor und ELO Digital Office im nachprüfbaren Feature-Vergleich (Stand 07/2026): KI-Agenten, Workflows, GoBD-Testat, Add-ins. Fair verglichen, mit Quellen.",
+      "RecordTailor und ELO im nachprüfbaren Feature-Vergleich (Stand 07/2026): KI-Agenten, Workflows, Testat, Add-ins. Fair verglichen, mit Quellen.",
     h1: "RecordTailor vs. ELO — der ehrliche Vergleich.",
     directAnswer:
-      "ELO liefert eine tief ausgereifte Workflow-Engine und ein GoBD-Testat, RecordTailor bringt produktive KI-Agenten, RAG-Chat mit Citations und Plain-Language-Workflows on-premises mit lokalem LLM sowie Git-Branching für Dokumente. ELO ist der reife Klassiker, RecordTailor der KI-native Herausforderer.",
-    rows: [
-      {
-        criterion: "KI-Klassifikation & Extraktion",
-        rt: "Produktiv, mit Erklärbarkeit und Few-Shot-Loop",
-        competitor: "Produktiv (ELO KI-Modul)",
-      },
-      {
-        criterion: "KI-Agenten (Inbox/Compliance/Vertrag/Rechnung)",
-        rt: "Vier Agenten produktiv, Auto-Apply-Gate mit Konfidenz",
-        competitor: "Angekündigt (Roadmap)",
-      },
-      {
-        criterion: "RAG-Chat mit Citations",
-        rt: "Produktiv, per-Tenant Embeddings",
-        competitor: "Nicht öffentlich als Feature dokumentiert",
-      },
-      {
-        criterion: "Plain-Language-Workflows",
-        rt: "Ein Satz → validiertes YAML",
-        competitor: "Grafischer Workflow-Designer",
-      },
-      {
-        criterion: "Lokales LLM / kein Cloud-Egress",
-        rt: "Ollama-Default; kein Cloud-Egress",
-        competitor: "KI-Optionen mit Cloud-Anteil",
-      },
-      {
-        criterion: "Deployment On-Premise",
-        rt: "Docker Compose oder Kubernetes; air-gapped-fähig",
-        competitor: "On-Premise etabliert",
-      },
-      {
-        criterion: "Git-Branching/Merge für Dokumente",
-        rt: "Produktiv",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "Workflow-Engine",
-        rt: "Light (approve/review/sign/notify, n-Augen, Fristen)",
-        competitor: "Umfassend (Standard des Segments)",
-      },
-      {
-        criterion: "GoBD-Testat / Zertifikate",
-        rt: "Nicht zertifiziert (Roadmap)",
-        competitor: "Zertifiziert",
-      },
-      {
-        criterion: "SAP ArchiveLink / CMIS 1.1",
-        rt: "Nativ",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "Office- & Outlook-Add-ins",
-        rt: "Nicht vorhanden (in Vorbereitung)",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "MCP-Server (offene KI-Schnittstelle)",
-        rt: "Nativ",
-        competitor: "Nicht öffentlich als Feature dokumentiert",
-      },
-    ],
+      "ELO liefert eine tief ausgereifte Workflow-Engine, langjährige SAP-Integration und ein GoBD-Testat; RecordTailor bringt produktive KI-Agenten, RAG-Chat mit Citations, Plain-Language-Workflows und Git-Branching für Dokumente on-premises mit lokalem LLM. ELO ist der reife Klassiker, RecordTailor der KI-native Herausforderer.",
+    rows: COMMON_ROWS_BASE({
+      klassifikation: yes("Produktiv (ELO KI-Modul)"),
+      agenten: partial("Als Roadmap-Thema kommuniziert; keine öffentlich verfügbare Agent-Runtime"),
+      rag: partial("KI-Modul mit Chat-Ansätzen; kein klassischer RAG-Chat als Kern-Feature dokumentiert"),
+      plain: no("Grafischer Workflow-Designer"),
+      localLLM: partial("KI-Anteile mit optionalen Cloud-Diensten; lokaler Betrieb nicht als Default dokumentiert"),
+      onPrem: yes("On-Premise etabliert"),
+      airgap: partial("On-Prem-Betrieb möglich, air-gapped-Installation nicht als Standard dokumentiert"),
+      git: no("Lineare Versionierung"),
+      workflow: yes("Umfassend, Segment-Standard"),
+      gobd: yes("GoBD-Testat vorhanden"),
+      iso: yes("ISO 27001 zertifiziert"),
+      auditProof: yes("Audit-Log und Records-Management etabliert"),
+      legalHold: yes("Records-Management-Funktionen"),
+      retention: yes("Retention produktiv"),
+      erase: partial("DSGVO-Erase möglich; Behandlung von KI-Nebenprodukten (Embeddings, Cache) nicht öffentlich detailliert"),
+      encryption: yes("Verschlüsselung at rest"),
+      multitenancy: yes("Mandantenfähigkeit"),
+      ssoMfa: yes("SSO/SAML/MFA etabliert"),
+      hybridSearch: partial("iSearch + strukturierte Suche; Vektor-Anteil in einer Query nicht öffentlich detailliert"),
+      sap: yes("SAP-Integration + CMIS langjährig etabliert"),
+      datev: yes("DATEV-Anbindungen etabliert"),
+      addins: yes("Office/Outlook-Add-ins vorhanden"),
+      mailIngest: yes("Mail-Import produktiv"),
+      scanIngest: yes("ELO-Scan-Client verbreitet"),
+      batch: yes("Batch-Import und Klassifikation etabliert"),
+      mcp: no("Nicht öffentlich als Feature dokumentiert"),
+      undo: partial("Versionierung linear"),
+      restApi: yes("REST-API vorhanden"),
+      aiActProtocol: no("Kein öffentlich dokumentiertes Agent-Protokoll als Export"),
+      openSourceCore: no("Proprietär"),
+    }),
     migrationSteps: [
       {
         title: "Discovery — ELO-Verschlagwortungs-Masken sichten",
@@ -265,77 +283,42 @@ export const COMPARISONS: CompareEntry[] = [
     displayName: "d.velop",
     metaTitle: "RecordTailor vs. d.velop — DMS-Vergleich",
     metaDescription:
-      "RecordTailor und d.velop im nachprüfbaren Feature-Vergleich (Stand 07/2026): KI-Agenten (d.velop agent center beta), Git-Branching, On-Prem-LLM. Fair, mit Quellen.",
+      "RecordTailor und d.velop im nachprüfbaren Feature-Vergleich (Stand 07/2026): agent center Beta, Git-Branching, On-Prem-LLM. Fair, mit Quellen.",
     h1: "RecordTailor vs. d.velop — der ehrliche Vergleich.",
     directAnswer:
-      "d.velop hat mit dem agent center Agenten in Beta angekündigt (Q4 2026) und ist im GoBD-Testat etabliert; RecordTailor liefert Agenten heute produktiv aus, plus RAG-Chat mit Citations, Plain-Language-Workflows und Git-Branching für Dokumente — alles on-premises mit lokalem LLM. Wer den Zertifikats-Anker braucht, bleibt bei d.velop; wer den KI-Vorsprung greifen will, wechselt zu RecordTailor.",
-    rows: [
-      {
-        criterion: "KI-Klassifikation & Extraktion",
-        rt: "Produktiv, mit Erklärbarkeit und Few-Shot-Loop",
-        competitor: "Produktiv",
-      },
-      {
-        criterion: "KI-Agenten (Inbox/Compliance/Vertrag/Rechnung)",
-        rt: "Vier Agenten produktiv",
-        competitor: "d.velop agent center — Beta angekündigt (Q4 2026)",
-      },
-      {
-        criterion: "RAG-Chat mit Citations",
-        rt: "Produktiv, per-Tenant Embeddings",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "Plain-Language-Workflows",
-        rt: "Ein Satz → validiertes YAML",
-        competitor: "Grafischer Prozess-Designer",
-      },
-      {
-        criterion: "Lokales LLM / kein Cloud-Egress",
-        rt: "Ollama-Default",
-        competitor: "KI-Anteile Cloud-gestützt",
-      },
-      {
-        criterion: "Deployment On-Premise",
-        rt: "Docker Compose oder Kubernetes; air-gapped-fähig",
-        competitor: "On-Premise verfügbar",
-      },
-      {
-        criterion: "Git-Branching/Merge für Dokumente",
-        rt: "Produktiv",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "GoBD-Testat / Zertifikate",
-        rt: "Nicht zertifiziert (Roadmap)",
-        competitor: "Zertifiziert",
-      },
-      {
-        criterion: "SAP ArchiveLink / CMIS 1.1",
-        rt: "Nativ",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "Signaturen",
-        rt: "Elektronische Signaturen mit Beweiskette; eIDAS QES via QTSP in Vorbereitung",
-        competitor: "d.velop sign etabliert",
-      },
-      {
-        criterion: "Modulmodell",
-        rt: "Ein Paket (KI, Branching, Graph, Suche, Signaturen, ArchiveLink, CMIS)",
-        competitor: "Modulbaukasten (d.3, d.velop sign, d.velop analytics, d.velop connect)",
-      },
-      {
-        criterion: "Office- & Outlook-Add-ins",
-        rt: "Nicht vorhanden (in Vorbereitung)",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "MCP-Server",
-        rt: "Nativ",
-        competitor: "Nicht öffentlich als Feature dokumentiert",
-      },
-    ],
+      "d.velop hat mit dem agent center Agenten in Beta angekündigt (Q4 2026), ist GoBD-testiert und im DACH-Vertrieb stark; RecordTailor liefert vier Agenten heute produktiv aus, plus RAG-Chat mit Citations, Plain-Language-Workflows und Git-Branching für Dokumente — alles on-premises mit lokalem LLM. Wer den Zertifikats-Anker braucht, bleibt bei d.velop; wer den KI-Vorsprung greifen will, wechselt zu RecordTailor.",
+    rows: COMMON_ROWS_BASE({
+      klassifikation: yes("Produktiv"),
+      agenten: partial("d.velop agent center als Beta angekündigt (Q4 2026)"),
+      rag: yes("d.velop-KI-Assistent mit Chat-Funktionalität"),
+      plain: no("Grafischer Prozess-Designer"),
+      localLLM: partial("KI-Anteile Cloud-gestützt; lokaler Betrieb nicht als Default dokumentiert"),
+      onPrem: yes("On-Premise verfügbar"),
+      airgap: partial("On-Prem-Betrieb möglich; air-gapped-Installation nicht als Standard dokumentiert"),
+      git: no("Lineare Versionierung"),
+      workflow: yes("Umfassend, Prozess-Designer produktiv"),
+      gobd: yes("GoBD-Testat vorhanden"),
+      iso: yes("ISO 27001 zertifiziert"),
+      auditProof: yes("Audit-Trail und Export dokumentiert"),
+      legalHold: yes("Records-Management verfügbar"),
+      retention: yes("Retention produktiv"),
+      erase: partial("DSGVO-Erase möglich; KI-Nebenprodukte nicht öffentlich detailliert"),
+      encryption: yes("Verschlüsselung at rest"),
+      multitenancy: yes("Mandantenfähigkeit"),
+      ssoMfa: yes("SSO/SAML/MFA etabliert"),
+      hybridSearch: partial("Semantische Suche in d.velop-KI-Assistent; Umfang der Vektor-Fusion nicht detailliert"),
+      sap: yes("SAP-Integration + CMIS etabliert"),
+      datev: yes("DATEV-Konnektor vorhanden"),
+      addins: yes("Office/Outlook-Add-ins vorhanden"),
+      mailIngest: yes("Mail-Import produktiv"),
+      scanIngest: yes("Scan-Client verbreitet"),
+      batch: yes("Batch-Import mit d.velop-Modulen"),
+      mcp: no("Nicht öffentlich als Feature dokumentiert"),
+      undo: partial("Versionierung linear"),
+      restApi: yes("REST-API + Konnektor-Modul"),
+      aiActProtocol: partial("Erklärbarkeits-Ansätze in KI-Assistent; kein publiziertes Protokoll-Format"),
+      openSourceCore: no("Proprietär (Modulbaukasten d.3, d.velop sign, d.velop analytics …)"),
+    }),
     migrationSteps: [
       {
         title: "Discovery — d.3, sign, analytics, connect zusammenführen",
@@ -357,7 +340,7 @@ export const COMPARISONS: CompareEntry[] = [
       },
       {
         q: "Wir nutzen d.velop sign für qualifizierte Signaturen — verlieren wir das?",
-        a: "Nein. Von d.velop sign qualifiziert signierte Dokumente (PAdES-B-LTA) bleiben nach der Migration verifizierbar. In RecordTailor selbst arbeiten wir mit elektronischen Signaturen und manipulationssichtbarer Beweiskette; die QES-Integration mit einem QTSP (Österreich: A-Trust) ist in Vorbereitung. Falls QES-Ausstellung im Neusystem heute unverzichtbar ist, warten Sie diesen Meilenstein ab.",
+        a: "Nein. Von d.velop sign qualifiziert signierte Dokumente (PAdES-B-LTA) bleiben nach der Migration verifizierbar. In RecordTailor selbst arbeiten wir heute mit elektronischen Signaturen und manipulationssichtbarer Beweiskette; die QES-Integration mit einem QTSP (Österreich: A-Trust) ist in Vorbereitung. Falls QES-Ausstellung im Neusystem heute unverzichtbar ist, warten Sie diesen Meilenstein ab.",
       },
       {
         q: "Wir haben viele d.velop-Konnektoren. Was wird daraus?",
@@ -378,64 +361,39 @@ export const COMPARISONS: CompareEntry[] = [
       "RecordTailor und M-Files (Aino) im nachprüfbaren Feature-Vergleich (Stand 07/2026): RAG-Chat, KI-Agenten, On-Prem, Git-Branching. Fair verglichen, mit Quellen.",
     h1: "RecordTailor vs. M-Files — der ehrliche Vergleich.",
     directAnswer:
-      "M-Files Aino ist am Markt bei RAG und Auto-Metadaten weit vorne und bringt Zertifikate mit; RecordTailor liefert vier produktive Agenten, Plain-Language-Workflows, Git-Branching und läuft on-premises mit lokalem LLM — kein Cloud-Egress. Für Metadaten-getriebene Prozesse mit externer Cloud passt M-Files, für souveräne Agenten-Automatisierung RecordTailor.",
-    rows: [
-      {
-        criterion: "KI-Klassifikation & Extraktion",
-        rt: "Produktiv, mit Erklärbarkeit und Few-Shot-Loop",
-        competitor: "Produktiv (Aino)",
-      },
-      {
-        criterion: "KI-Agenten (Inbox/Compliance/Vertrag/Rechnung)",
-        rt: "Vier Agenten produktiv",
-        competitor: "Ansätze in Aino",
-      },
-      {
-        criterion: "RAG-Chat mit Citations",
-        rt: "Produktiv, per-Tenant Embeddings",
-        competitor: "Produktiv (Aino Chat)",
-      },
-      {
-        criterion: "Plain-Language-Workflows",
-        rt: "Ein Satz → validiertes YAML",
-        competitor: "Nicht öffentlich dokumentiert",
-      },
-      {
-        criterion: "Lokales LLM / kein Cloud-Egress",
-        rt: "Ollama-Default",
-        competitor: "Cloud-KI",
-      },
-      {
-        criterion: "Deployment On-Premise",
-        rt: "Docker Compose oder Kubernetes; air-gapped-fähig",
-        competitor: "Cloud-Priorität; On-Premise-Variante verfügbar",
-      },
-      {
-        criterion: "Git-Branching/Merge für Dokumente",
-        rt: "Produktiv",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "GoBD-Testat / Zertifikate",
-        rt: "Nicht zertifiziert (Roadmap)",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "SAP ArchiveLink / CMIS 1.1",
-        rt: "Nativ",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "Office- & Outlook-Add-ins",
-        rt: "Nicht vorhanden (in Vorbereitung)",
-        competitor: "Vorhanden",
-      },
-      {
-        criterion: "MCP-Server",
-        rt: "Nativ (fünf Tools)",
-        competitor: "Nicht öffentlich als Feature dokumentiert",
-      },
-    ],
+      "M-Files Aino ist am Markt bei RAG und Auto-Metadaten weit vorne, bringt Zertifikate mit und ist metadaten­getrieben stark; RecordTailor liefert vier produktive Agenten, Plain-Language-Workflows, Git-Branching und läuft on-premises mit lokalem LLM — kein Cloud-Egress. Für Metadaten-getriebene Prozesse mit externer Cloud passt M-Files, für souveräne Agenten-Automatisierung RecordTailor.",
+    rows: COMMON_ROWS_BASE({
+      klassifikation: yes("Produktiv (Aino)"),
+      agenten: partial("Aktions-Vorschläge in Aino; volle Agent-Runtime nicht öffentlich detailliert"),
+      rag: yes("Produktiv (Aino Chat, mit Aktions-Vorschlägen)"),
+      plain: no("Kein Ein-Satz-Workflow-Ansatz öffentlich dokumentiert"),
+      localLLM: no("Cloud-KI (Aino läuft M-Files-seitig)"),
+      onPrem: partial("On-Premise-Variante verfügbar; Cloud-Priorität"),
+      airgap: no("Air-gapped-Installation nicht als Standard dokumentiert"),
+      git: no("Version­ierung linear"),
+      workflow: yes("Workflow-Engine produktiv"),
+      gobd: yes("GoBD-Testat vorhanden"),
+      iso: yes("ISO 27001 zertifiziert"),
+      auditProof: yes("Audit-Trail und Export"),
+      legalHold: yes("Records-Management-Funktionen"),
+      retention: yes("Retention produktiv"),
+      erase: partial("DSGVO-Erase möglich; Behandlung von Aino-Nebenprodukten nicht öffentlich detailliert"),
+      encryption: yes("Verschlüsselung at rest"),
+      multitenancy: yes("Vaults / Multi-Tenant"),
+      ssoMfa: yes("SSO/SAML/MFA etabliert"),
+      hybridSearch: yes("Metadata-driven + Aino-RAG; Volltext-Vektor-Kombination in Aino-Chat vorhanden"),
+      sap: yes("SAP-Konnektor + CMIS"),
+      datev: partial("DATEV-Integrationen über Partner"),
+      addins: yes("Office/Outlook-Add-ins nativ"),
+      mailIngest: yes("Mail-Import produktiv"),
+      scanIngest: yes("Scan-Client vorhanden"),
+      batch: yes("Bulk-Import in Aino-Klassifikation"),
+      mcp: no("Nicht öffentlich als Feature dokumentiert"),
+      undo: partial("Versionierung linear"),
+      restApi: yes("REST-API vorhanden"),
+      aiActProtocol: partial("Erklärbarkeit in Aino-Vorschlägen; kein publiziertes Protokoll-Export-Format"),
+      openSourceCore: no("Proprietär"),
+    }),
     migrationSteps: [
       {
         title: "Discovery — M-Files-Metadaten-Struktur sichten",
@@ -457,7 +415,7 @@ export const COMPARISONS: CompareEntry[] = [
       },
       {
         q: "Ist M-Files nicht führend bei Auto-Metadaten?",
-        a: "M-Files ist am Markt für metadatengetriebene Ablage sehr weit. RecordTailor extrahiert Metadaten mit KI und macht den Knowledge Graph daraus — plus Klartext-Begründung pro Extraktion, plus Undo über die Versionierung. Wenn Ihr Anwendungsfall reines Metadaten-Filtern ist, bleibt M-Files stark; wenn Erklärbarkeit und Undo dazukommen, ist RecordTailor die bessere Wahl.",
+        a: "M-Files ist für metadatengetriebene Ablage sehr weit. RecordTailor extrahiert Metadaten mit KI und macht den Knowledge Graph daraus — plus Klartext-Begründung pro Extraktion, plus Undo über die Versionierung. Wenn Ihr Anwendungsfall reines Metadaten-Filtern ist, bleibt M-Files stark; wenn Erklärbarkeit und Undo dazukommen, ist RecordTailor die bessere Wahl.",
       },
       {
         q: "Was ist mit dem Vault-Konzept von M-Files?",
@@ -478,64 +436,39 @@ export const COMPARISONS: CompareEntry[] = [
       "RecordTailor und SharePoint mit Copilot im Feature-Vergleich (Stand 07/2026): Datenhoheit, KI-Agenten, GoBD, Git-Branching. Fair verglichen, mit Quellen.",
     h1: "RecordTailor vs. SharePoint + Copilot — der ehrliche Vergleich.",
     directAnswer:
-      "SharePoint mit Copilot bringt umfassende Office-Integration und Microsoft-Ökosystem-Nähe mit, RecordTailor liefert echte On-Prem-Ablage mit lokalem LLM, produktiven Agenten, Plain-Language-Workflows und Git-Branching für Dokumente. Bei EU-Datenhoheit und DSGVO-sensiblen Beständen ist der Unterschied strukturell.",
-    rows: [
-      {
-        criterion: "KI-Klassifikation & Extraktion",
-        rt: "Produktiv, mit Erklärbarkeit",
-        competitor: "Vorhanden (Syntex)",
-      },
-      {
-        criterion: "KI-Agenten",
-        rt: "Vier Agenten produktiv, on-premises",
-        competitor: "Copilot Agents (Cloud)",
-      },
-      {
-        criterion: "RAG-Chat mit Citations",
-        rt: "Produktiv, per-Tenant, lokal",
-        competitor: "Vorhanden (Copilot, Cloud)",
-      },
-      {
-        criterion: "Plain-Language-Workflows",
-        rt: "Ein Satz → validiertes YAML",
-        competitor: "Copilot → Power Automate (Cloud)",
-      },
-      {
-        criterion: "Lokales LLM / kein Cloud-Egress",
-        rt: "Ollama-Default",
-        competitor: "Cloud-KI (Azure OpenAI)",
-      },
-      {
-        criterion: "Deployment On-Premise",
-        rt: "Docker Compose oder Kubernetes; air-gapped-fähig",
-        competitor: "Microsoft 365 ist Cloud-only; SharePoint Server on-prem separate Produktlinie",
-      },
-      {
-        criterion: "Git-Branching/Merge für Dokumente",
-        rt: "Produktiv",
-        competitor: "Versionierung linear",
-      },
-      {
-        criterion: "GoBD-konforme Ablage",
-        rt: "Manipulationssichtbare Audit-Hash-Chain (Testat Roadmap)",
-        competitor: "Umsetzung stark implementierungs­abhängig",
-      },
-      {
-        criterion: "SAP ArchiveLink / CMIS 1.1",
-        rt: "Nativ",
-        competitor: "Über Konnektoren",
-      },
-      {
-        criterion: "MCP-Server",
-        rt: "Nativ",
-        competitor: "Copilot-Toolkit vorhanden",
-      },
-      {
-        criterion: "Office-Add-ins",
-        rt: "Nicht vorhanden (in Vorbereitung)",
-        competitor: "Nativ (SharePoint = Teil von Microsoft 365)",
-      },
-    ],
+      "SharePoint mit Copilot bringt umfassende Office-Integration, das Microsoft-Ökosystem und Cloud-KI-Agenten; RecordTailor liefert echte On-Prem-Ablage mit lokalem LLM, vier produktive Agenten, Plain-Language-Workflows und Git-Branching für Dokumente. Bei EU-Datenhoheit und DSGVO-sensiblen Beständen ist der Unterschied strukturell — Cloud vs. souverän.",
+    rows: COMMON_ROWS_BASE({
+      klassifikation: yes("Vorhanden (Syntex, Cloud)"),
+      agenten: yes("Copilot Agents in Cloud verfügbar"),
+      rag: yes("Copilot mit RAG in Cloud"),
+      plain: partial("Copilot → Power Automate (Cloud); kein Ein-Satz-DMS-Workflow-Format"),
+      localLLM: no("Cloud-KI (Azure OpenAI)"),
+      onPrem: partial("Microsoft 365 ist Cloud-only; SharePoint Server on-prem als separate Produktlinie mit reduziertem Funktionsumfang"),
+      airgap: no("Cloud-only für die neuesten KI-Features; kein air-gapped M365"),
+      git: no("Versionierung linear"),
+      workflow: yes("Power Automate umfassend"),
+      gobd: partial("GoBD-Konformität stark implementierungs­abhängig; kein Standard-Testat auf die reine Plattform"),
+      iso: yes("Microsoft ISO 27001 zertifiziert"),
+      auditProof: partial("Audit-Log vorhanden, Court-Bundle-Analogon nicht als Standard-Export"),
+      legalHold: yes("Purview/Records-Management verfügbar"),
+      retention: yes("Retention-Labels und Enforcement (Purview)"),
+      erase: partial("DSGVO-Erase über M365; Cloud-Sub-Prozessor-Kette in EU-Data-Boundary umstritten"),
+      encryption: yes("BYOK / Customer Key möglich"),
+      multitenancy: yes("Multi-Tenant per Design"),
+      ssoMfa: yes("Entra ID / SSO / MFA / SCIM"),
+      hybridSearch: yes("Microsoft Search + Copilot Retrieval"),
+      sap: partial("Über Konnektoren (Middleware)"),
+      datev: partial("Nur über Partner-Konnektoren"),
+      addins: yes("Nativ Teil von Microsoft 365"),
+      mailIngest: yes("Outlook-Integration nativ"),
+      scanIngest: partial("Nur über 3rd-Party-Konnektoren"),
+      batch: yes("Batch-Import über Migration Manager / Syntex"),
+      mcp: partial("Copilot-Toolkit / Agent Store vorhanden; kein offener MCP-Server im DMS-Sinn"),
+      undo: partial("Versionierung linear"),
+      restApi: yes("Microsoft Graph API"),
+      aiActProtocol: no("Kein publiziertes Agent-Protokoll-Export-Format im DMS-Sinn"),
+      openSourceCore: no("Proprietär"),
+    }),
     migrationSteps: [
       {
         title: "Discovery — was liegt in SharePoint tatsächlich als DMS?",
@@ -578,69 +511,39 @@ export const COMPARISONS: CompareEntry[] = [
       "RecordTailor und Paperless-ngx im Feature-Vergleich (Stand 07/2026): Enterprise-Interop, KI-Agenten, GoBD, SAP ArchiveLink. Wann OSS reicht, wann nicht.",
     h1: "RecordTailor vs. Paperless-ngx — der ehrliche Vergleich.",
     directAnswer:
-      "Paperless-ngx ist als OSS-DMS im Kleinkundensegment stark und läuft lokal; RecordTailor deckt Enterprise-Anforderungen ab (SAP ArchiveLink, CMIS 1.1, Multi-Tenancy mit RLS, Workflow-Engine, Agenten, MCP) und liefert ein Enterprise-Support-Modell. Für Ein-Personen-Ablage bleibt Paperless-ngx solide; für regulierte Unternehmen skaliert es nicht mit.",
-    rows: [
-      {
-        criterion: "KI-Klassifikation & Extraktion",
-        rt: "Produktiv, mit Erklärbarkeit und Few-Shot-Loop",
-        competitor: "Add-on-basiert (paperless-ai u. a.)",
-      },
-      {
-        criterion: "KI-Agenten (Inbox/Compliance/Vertrag/Rechnung)",
-        rt: "Vier Agenten produktiv, Auto-Apply-Gate",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "RAG-Chat mit Citations",
-        rt: "Produktiv, per-Tenant Embeddings",
-        competitor: "Community-Skripte, kein Kern-Feature",
-      },
-      {
-        criterion: "Workflow-Engine",
-        rt: "Light: approve/review/sign/notify, n-Augen, Fristen",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "Multi-Tenancy",
-        rt: "Nativ (Postgres RLS pro Tenant)",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "Lokales LLM / kein Cloud-Egress",
-        rt: "Ollama-Default",
-        competitor: "Lokal (OSS-Prinzip)",
-      },
-      {
-        criterion: "Deployment On-Premise",
-        rt: "Docker Compose oder Kubernetes; air-gapped-fähig",
-        competitor: "Docker Compose (lokal)",
-      },
-      {
-        criterion: "Git-Branching/Merge für Dokumente",
-        rt: "Produktiv",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "SAP ArchiveLink / CMIS 1.1",
-        rt: "Nativ",
-        competitor: "Nicht vorhanden",
-      },
-      {
-        criterion: "GoBD-konforme Ablage",
-        rt: "Manipulationssichtbare Audit-Hash-Chain (Testat Roadmap)",
-        competitor: "Nicht als Kern-Feature",
-      },
-      {
-        criterion: "MCP-Server",
-        rt: "Nativ",
-        competitor: "Community-Extensions",
-      },
-      {
-        criterion: "Enterprise-Support / SLA",
-        rt: "Kommerzieller Support inkl. SLA",
-        competitor: "Community",
-      },
-    ],
+      "Paperless-ngx ist als OSS-DMS im Kleinkundensegment stark und läuft lokal; RecordTailor deckt Enterprise-Anforderungen ab (SAP ArchiveLink, CMIS 1.1, Multi-Tenancy mit RLS, Workflow-Engine, produktive Agenten, MCP) und liefert Enterprise-Support samt SLA. Für Ein-Personen-Ablage bleibt Paperless-ngx solide; für regulierte Unternehmen skaliert es nicht mit.",
+    rows: COMMON_ROWS_BASE({
+      klassifikation: partial("Community-Add-ons (paperless-ai u. a.)"),
+      agenten: no("Keine Agent-Runtime im Kern"),
+      rag: partial("Community-Skripte, kein Kern-Feature"),
+      plain: no("Kein Workflow-Konzept im Kern"),
+      localLLM: yes("Lokal (OSS-Prinzip, oft mit lokalem Ollama betrieben)"),
+      onPrem: yes("Docker Compose (lokal)"),
+      airgap: yes("Air-gapped-Betrieb technisch möglich"),
+      git: no("Nicht vorhanden"),
+      workflow: no("Kein Workflow-Modul im Kern"),
+      gobd: no("Kein Testat, keine GoBD-Zertifikate"),
+      iso: no("Community-Projekt, keine Anbieter-Zertifikate"),
+      auditProof: partial("Audit-Trail vorhanden; kein Court-Bundle-Export als Standard"),
+      legalHold: no("Kein Legal-Hold-Konzept im Kern"),
+      retention: partial("Retention über Custom-Tags und externe Skripte"),
+      erase: partial("DSGVO-Erase über Standard-Delete; Sonderbehandlung von KI-Add-on-Nebenprodukten nicht dokumentiert"),
+      encryption: partial("Über Storage-Layer/Filesystem konfigurierbar; kein Standard-at-rest"),
+      multitenancy: no("Ein Corpus pro Instanz; keine RLS"),
+      ssoMfa: partial("SSO nur über Reverse-Proxy-Setups"),
+      hybridSearch: partial("Volltext + Tags; keine Vektor-Semantik im Kern"),
+      sap: no("Nicht vorhanden"),
+      datev: no("Nicht vorhanden"),
+      addins: partial("Community-Add-ons für Mobile/Web-Clients"),
+      mailIngest: yes("IMAP-Ingest produktiv (Community)"),
+      scanIngest: yes("Scan-Folder-Import produktiv"),
+      batch: yes("Bulk-Import + OCR"),
+      mcp: partial("Community-Extensions"),
+      undo: no("Kein Undo-Konzept für KI-Aktionen (weil kein KI-Agenten-Kern)"),
+      restApi: yes("REST-API vorhanden"),
+      aiActProtocol: no("Nicht vorhanden"),
+      openSourceCore: yes("Vollständig Open Source (AGPL)"),
+    }),
     migrationSteps: [
       {
         title: "Content-Export aus Paperless-ngx",

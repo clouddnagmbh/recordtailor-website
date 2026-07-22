@@ -2,10 +2,16 @@ import Link from "next/link";
 import {
   ArrowRight,
   BrainCircuit,
+  GitBranch,
   Inbox,
+  Layers,
+  MessageCircleQuestion,
   Network,
+  Plug,
+  ScanLine,
   Search,
   ShieldCheck,
+  Wand2,
   Workflow,
   type LucideIcon,
 } from "lucide-react";
@@ -29,7 +35,7 @@ export async function generateMetadata() {
   };
 }
 
-const ICONS: Record<string, LucideIcon> = {
+const FEATURE_PAGE_ICONS: Record<string, LucideIcon> = {
   "ki-agenten": BrainCircuit,
   wissen: Search,
   workflows: Workflow,
@@ -37,6 +43,26 @@ const ICONS: Record<string, LucideIcon> = {
   compliance: ShieldCheck,
   integrationen: Network,
 };
+
+/**
+ * Die zwölf Fähigkeiten aus der Homepage-Feature-Grid — auf /produkt zeigen
+ * wir sie mit Deep-Links auf die jeweils passendste Feature-Seite. So bleibt
+ * die Homepage-Aussage („Zwölf Fähigkeiten") konsistent zur Produkt-Übersicht.
+ */
+const CAPABILITIES: Array<{ icon: LucideIcon; i: number; href?: string }> = [
+  { icon: BrainCircuit, i: 9, href: "/produkt/ki-agenten" },
+  { icon: MessageCircleQuestion, i: 10, href: "/produkt/wissen" },
+  { icon: Workflow, i: 11, href: "/produkt/workflows" },
+  { icon: Inbox, i: 12, href: "/produkt/posteingang" },
+  { icon: Wand2, i: 1, href: "/produkt/posteingang" },
+  { icon: Wand2, i: 6 },
+  { icon: ScanLine, i: 7, href: "/produkt/posteingang" },
+  { icon: Layers, i: 8, href: "/produkt/posteingang" },
+  { icon: GitBranch, i: 2 },
+  { icon: Search, i: 3, href: "/produkt/wissen" },
+  { icon: Network, i: 4, href: "/produkt/wissen" },
+  { icon: Plug, i: 5, href: "/produkt/integrationen" },
+];
 
 export default async function ProduktPage() {
   const t = await getT();
@@ -55,7 +81,7 @@ export default async function ProduktPage() {
               {t("nav.produkt")}
             </div>
             <h1 className="mt-3 font-serif text-4xl font-medium tracking-tight sm:text-5xl">
-              Sechs Fähigkeiten. Ein Dokumentensystem.
+              Sechs Themen. Zwölf Fähigkeiten. Ein Dokumentensystem.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               KI-Agenten, die heute produktiv arbeiten. Ein Chat, der mit Belegen antwortet.
@@ -67,36 +93,94 @@ export default async function ProduktPage() {
         </div>
       </section>
 
+      {/* Section 1: Die 6 Feature-Themen als Übersichts-Karten */}
       <section className="border-b border-border bg-background">
-        <div className="mx-auto grid max-w-6xl gap-6 px-5 py-16 sm:grid-cols-2 lg:grid-cols-3">
-          {PRODUKT_PAGES.map((p, idx) => {
-            const Icon = ICONS[p.slug] ?? BrainCircuit;
-            return (
-              <Reveal key={p.slug} delay={idx * 60}>
-                <Link
-                  href={`/produkt/${p.slug}`}
-                  className="flex h-full flex-col rounded-2xl border border-border bg-surface p-8 transition-shadow hover:shadow-elevated"
-                >
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft text-gold">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <Reveal>
+            <header className="max-w-3xl">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+                Feature-Seiten im Detail
+              </div>
+              <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+                Sechs Themen — jedes eine eigene Seite.
+              </h2>
+            </header>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PRODUKT_PAGES.map((p, idx) => {
+              const Icon = FEATURE_PAGE_ICONS[p.slug] ?? BrainCircuit;
+              return (
+                <Reveal key={p.slug} delay={idx * 60}>
+                  <Link
+                    href={`/produkt/${p.slug}`}
+                    className="flex h-full flex-col rounded-2xl border border-border bg-surface p-8 transition-shadow hover:shadow-elevated"
+                  >
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold-soft text-gold">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      {p.eyebrow}
+                    </div>
+                    <h3 className="mt-1 font-serif text-2xl font-medium tracking-tight">
+                      {p.h1}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      {p.glance[0]}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold">
+                      Details
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Die 12 Fähigkeiten — synchron zur Homepage */}
+      <section className="border-b border-border bg-cream">
+        <div className="mx-auto max-w-6xl px-5 py-16">
+          <Reveal>
+            <header className="max-w-3xl">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+                {t("featgrid.eyebrow")}
+              </div>
+              <h2 className="mt-2 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+                {t("feat.title")}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                {t("feat.sub")}
+              </p>
+            </header>
+          </Reveal>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {CAPABILITIES.map(({ icon: Icon, i, href }) => {
+              const inner = (
+                <article className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-elevated">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold-soft text-gold">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    {p.eyebrow}
-                  </div>
-                  <h2 className="mt-1 font-serif text-2xl font-medium tracking-tight">
-                    {p.h1}
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {p.glance[0]}
+                  <h3 className="text-lg font-semibold">{t(`feat.${i}.title`)}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {t(`feat.${i}.body`)}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold">
-                    Details
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
-              </Reveal>
-            );
-          })}
+                  {href ? (
+                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-gold">
+                      Details
+                      <ArrowRight className="h-3 w-3" />
+                    </span>
+                  ) : null}
+                </article>
+              );
+              return (
+                <Reveal key={i} delay={i * 50}>
+                  {href ? <Link href={href}>{inner}</Link> : inner}
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 

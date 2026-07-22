@@ -67,7 +67,27 @@ export default function DatenschutzPage() {
       </section>
 
       <section className="mb-8">
-        <h2 className="mb-2 font-serif text-lg font-semibold">5. Ihre Rechte</h2>
+        <h2 className="mb-2 font-serif text-lg font-semibold">5. Kontaktformular</h2>
+        <p>
+          Wenn Sie das Kontaktformular auf <code>/kontakt</code> nutzen, verarbeiten wir die
+          angegebenen Pflichtfelder (Name, E-Mail, Nachricht) und die freiwilligen Felder (Firma,
+          derzeit genutztes DMS) zur Bearbeitung Ihrer Anfrage und zur Vorbereitung einer
+          vorvertraglichen Kommunikation. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Anfrage im
+          Rahmen der Vertragsanbahnung).
+        </p>
+        <p className="mt-2">
+          Zum Schutz vor automatisierten Einreichungen setzen wir ein serverseitiges
+          Honeypot-Feld und eine Zeit-Falle ein — beides erfordert keine Cookies und keine
+          Einwilligung. Die Nachricht wird von uns per E-Mail (Resend-Auftragsverarbeitung,
+          Rechenzentrum EU) an hello@recordtailor.com zugestellt. Wir speichern den Inhalt Ihrer
+          Anfrage für die Bearbeitung und für gesetzliche Aufbewahrungspflichten (z. B. UGB, BAO);
+          darüber hinaus löschen wir die Daten, sobald sie nicht mehr erforderlich sind.
+          Weitergabe an Dritte findet außerhalb der genannten Auftragsverarbeiter nicht statt.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-2 font-serif text-lg font-semibold">6. Ihre Rechte</h2>
         <p>
           Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
           Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO). Wenden Sie sich dazu an

@@ -71,6 +71,21 @@ export async function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/vergleich" className="hover:text-foreground">
+                Vergleich
+              </Link>
+            </li>
+            <li>
+              <Link href="/branchen" className="hover:text-foreground">
+                Branchen
+              </Link>
+            </li>
+            <li>
+              <Link href="/glossar" className="hover:text-foreground">
+                Glossar
+              </Link>
+            </li>
+            <li>
               <Link href="/kontakt" className="hover:text-foreground">
                 {t("nav.cta_primary")}
               </Link>

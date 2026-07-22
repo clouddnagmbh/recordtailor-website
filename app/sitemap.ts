@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 
 import { ARTICLES } from "@/lib/blog-data";
+import { BRANCHEN } from "@/lib/branchen-data";
 import { COMPARISONS } from "@/lib/compare-data";
+import { GLOSSAR } from "@/lib/glossar-data";
 import { LEGACY_DMS } from "@/lib/migration-data";
 import { PRODUKT_PAGES } from "@/lib/produkt-data";
 
@@ -56,6 +58,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog", freq: "weekly", priority: 0.7 },
     { path: "/story", freq: "monthly", priority: 0.7 },
     { path: "/kontakt", freq: "monthly", priority: 0.8 },
+    { path: "/glossar", freq: "monthly", priority: 0.7 },
+    { path: "/branchen", freq: "monthly", priority: 0.8 },
     { path: "/impressum", freq: "monthly", priority: 0.2 },
     { path: "/datenschutz", freq: "monthly", priority: 0.2 },
   ];
@@ -63,6 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const produkt = PRODUKT_PAGES.map((p) => entry(`/produkt/${p.slug}`, "monthly", 0.9));
   const compare = COMPARISONS.map((c) => entry(`/vergleich/${c.slug}`, "monthly", 0.85));
   const migration = LEGACY_DMS.map((d) => entry(`/migration/${d.slug}`, "monthly", 0.85));
+  const branchen = BRANCHEN.map((b) => entry(`/branchen/${b.slug}`, "monthly", 0.75));
+  const glossar = GLOSSAR.map((g) => entry(`/glossar/${g.slug}`, "monthly", 0.5));
   const blog = ARTICLES.map((a) => {
     const e = entry(`/blog/${a.slug}`, "monthly", 0.6);
     return { ...e, lastModified: new Date(a.publishedAt) };
@@ -90,6 +96,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...produkt,
     ...compare,
     ...migration,
+    ...branchen,
+    ...glossar,
     ...blog,
     ...enOnlyUrls,
   ];

@@ -111,4 +111,8 @@ CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
 - https://recordtailor.com/preise   (drei Deployment-Wege, Preis auf Anfrage)
 - https://recordtailor.com/blog     (Feldstudien, Praxis-Wissen)
 - https://recordtailor.com/story    (Gründer, CloudDNA-Geschichte)
-- https://recordtailor.com/kontakt  (Demo anfragen)
+- https://recordtailor.com/glossar   (Fach-Glossar mit 20 Begriffen)
+- https://recordtailor.com/branchen  (branchen-spezifische Sichten)
+- https://recordtailor.com/kontakt  (Formular + Cal.com-Demo-Booking)
+
+Vollständiger Site-Inhalt als Markdown: https://recordtailor.com/llms-full.txt

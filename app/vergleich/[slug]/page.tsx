@@ -2,11 +2,51 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
-import { ArrowRight, Check, Scale, X } from "lucide-react";
+import { ArrowRight, Check, CircleDashed, MinusCircle, Scale } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Reveal } from "@/components/reveal";
-import { COMPARISONS, COMPARISON_AS_OF, findComparisonBySlug } from "@/lib/compare-data";
+import {
+  COMPARISONS,
+  COMPARISON_AS_OF,
+  findComparisonBySlug,
+  type CompareCell,
+} from "@/lib/compare-data";
+
+const STATUS_ICON: Record<CompareCell["status"], LucideIcon> = {
+  yes: Check,
+  partial: CircleDashed,
+  no: MinusCircle,
+};
+
+const STATUS_CLASS: Record<CompareCell["status"], string> = {
+  yes: "text-gold",
+  partial: "text-thread-red",
+  no: "opacity-40 text-muted-foreground",
+};
+
+const STATUS_LABEL: Record<CompareCell["status"], string> = {
+  yes: "Vorhanden",
+  partial: "Teilweise / in Vorbereitung / angekündigt",
+  no: "Nicht vorhanden oder nicht öffentlich dokumentiert",
+};
+
+function StatusCell({ cell, side }: { cell: CompareCell; side: "rt" | "competitor" }) {
+  const Icon = STATUS_ICON[cell.status];
+  const iconClass = STATUS_CLASS[cell.status];
+  const wrapperClass =
+    side === "rt" ? "text-foreground/85" : "text-muted-foreground";
+  return (
+    <div className={`flex items-start gap-2 ${wrapperClass}`}>
+      <Icon
+        className={`mt-0.5 h-4 w-4 shrink-0 ${iconClass}`}
+        aria-label={STATUS_LABEL[cell.status]}
+      />
+      <span>{cell.text}</span>
+    </div>
+  );
+}
 
 export function generateStaticParams() {
   return COMPARISONS.map((c) => ({ slug: c.slug }));
@@ -145,22 +185,27 @@ export default async function VergleichSlugPage({
                     >
                       {r.criterion}
                     </th>
-                    <td className="px-5 py-4 text-foreground/85">
-                      <div className="flex items-start gap-2">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-                        <span>{r.rt}</span>
-                      </div>
+                    <td className="px-5 py-4">
+                      <StatusCell cell={r.rt} side="rt" />
                     </td>
-                    <td className="px-5 py-4 text-muted-foreground">
-                      <div className="flex items-start gap-2">
-                        <X className="mt-0.5 h-4 w-4 shrink-0 opacity-40" />
-                        <span>{r.competitor}</span>
-                      </div>
+                    <td className="px-5 py-4">
+                      <StatusCell cell={r.competitor} side="competitor" />
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[11px] text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5">
+              <Check className="h-3.5 w-3.5 text-gold" /> Vorhanden / produktiv
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <CircleDashed className="h-3.5 w-3.5 text-thread-red" /> Teilweise, angekündigt oder in Vorbereitung
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <MinusCircle className="h-3.5 w-3.5 opacity-40" /> Nicht vorhanden oder nicht öffentlich dokumentiert
+            </span>
           </div>
           <p className="mt-4 text-[11px] text-muted-foreground">
             Alle Markennamen sind Eigentum der jeweiligen Inhaber. Angaben zu {cmp.displayName}{" "}

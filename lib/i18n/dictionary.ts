@@ -66,9 +66,9 @@ const de: Dict = {
     "Keine Rechtsklick-Kaskaden. Keine ausklappbaren Baum-Views mit fünfzehn Ebenen. Keine grauen Toolbar-Buttons, die 2003 zum letzten Mal in Mode waren. Keyboard-first, dark-mode, mobile-ready — Standards, die man sich anderswo per Consulting kaufen muss.",
 
   // --- Feature grid ---
-  "feat.title": "Acht Fähigkeiten, die andere als „Add-On\" verkaufen.",
+  "feat.title": "Zwölf Fähigkeiten, die andere als „Add-On\" verkaufen.",
   "feat.sub":
-    "Nicht zusammengeklickt. Zusammen konzipiert. Jede Fähigkeit greift in die nächste.",
+    "Nicht zusammengeklickt. Zusammen konzipiert. Jede Fähigkeit greift in die nächste — von den vier ausgelieferten KI-Agenten bis zur MFP-Scan-Aufnahme ohne Fat-Client.",
 
   "feat.1.title": "KI-Triage in Echtzeit",
   "feat.1.body":
@@ -392,9 +392,9 @@ const en: Dict = {
   "line.pill.3.b":
     "No right-click cascades. No collapsible tree views fifteen levels deep. No grey toolbar buttons last fashionable in 2003. Keyboard-first, dark-mode, mobile-ready — standards you'd have to buy in via consulting anywhere else.",
 
-  "feat.title": "Eight capabilities others sell as add-ons.",
+  "feat.title": "Twelve capabilities others sell as add-ons.",
   "feat.sub":
-    "Not clicked together. Designed together. Every capability feeds the next.",
+    "Not clicked together. Designed together. Every capability feeds the next — from four shipped AI agents to fat-client-free MFP scan ingest.",
   "feat.1.title": "AI triage in real time",
   "feat.1.body":
     "Every uploaded document is classified, summarized and scored in under 30 seconds. Under 80 % — a human decides. Above — an automatic suggestion.",
