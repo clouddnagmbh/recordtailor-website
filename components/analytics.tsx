@@ -8,7 +8,7 @@ import { usePathname, useSearchParams } from "next/navigation";
  * sessionStorage (kein Cookie → kein Consent-Banner nötig). Endpoint
  * über ENV konfigurierbar; wenn nicht gesetzt, wird gar nichts gesendet.
  */
-const SID_KEY = "mt_ma_sid";
+const SID_KEY = "rt_ma_sid";
 const SITE_KEY_ENV = process.env.NEXT_PUBLIC_ANALYTICS_SITE_KEY;
 const ENDPOINT_ENV = process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT;
 
@@ -28,7 +28,7 @@ function sid(): string {
 function post(body: Record<string, unknown>) {
   const endpoint = ENDPOINT_ENV;
   if (!endpoint) return;
-  const payload = JSON.stringify({ ...body, k: SITE_KEY_ENV ?? "mt_marketing" });
+  const payload = JSON.stringify({ ...body, k: SITE_KEY_ENV ?? "rt_marketing" });
   try {
     if (navigator.sendBeacon) {
       const ok = navigator.sendBeacon(endpoint, new Blob([payload], { type: "application/json" }));
@@ -80,9 +80,10 @@ export function Analytics() {
       const href = a.getAttribute("href") ?? "";
       const label = (a.textContent ?? "").trim().slice(0, 80);
       let name: string | null = null;
-      if (href.includes("/demo")) name = "cta_demo";
+      if (href.includes("/kontakt") || href.includes("mailto:")) name = "cta_contact";
+      else if (href.includes("cal.com") || href.includes("/demo")) name = "cta_demo";
       else if (href.includes("/preise") || href.includes("/pricing")) name = "cta_pricing";
-      else if (/^https?:\/\//i.test(href) && !href.includes("meetingtailor")) name = "outbound";
+      else if (/^https?:\/\//i.test(href) && !href.includes("recordtailor")) name = "outbound";
       if (!name) return;
       post({
         t: "custom",

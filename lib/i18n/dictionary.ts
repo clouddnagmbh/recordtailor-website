@@ -139,10 +139,10 @@ const de: Dict = {
   "sec.eyebrow": "Sicherheit",
   "sec.title": "Prüfbar bis auf die Log-Zeile.",
   "sec.body":
-    "Jede Aktion — Upload, Klassifikation, Freigabe, Signatur, Löschung — landet in einer Hash-Chain. Wer wann was mit welchem Dokument tat, ist kryptographisch nicht mehr umschreibbar. eIDAS-QES für Signaturen. GDPR-Erase inklusive.",
+    "Jede Aktion — Upload, Klassifikation, Freigabe, Signatur, Löschung — landet in einer Hash-Chain. Wer wann was mit welchem Dokument tat, ist kryptographisch nicht mehr umschreibbar. Elektronische Signaturen mit manipulationssichtbarer Beweiskette; qualifizierte Signatur (eIDAS QES) über Vertrauensdiensteanbieter in Vorbereitung. GDPR-Erase inklusive.",
   "sec.item1": "Postgres-RLS pro Tenant — auch wir sehen Ihre Daten nicht",
   "sec.item2": "Hash-Chain über alle Audit-Events, überprüfbar per CLI",
-  "sec.item3": "eIDAS-Qualifizierte Signaturen mit PAdES-B-LTA",
+  "sec.item3": "Elektronische Signaturen mit manipulationssichtbarer Beweiskette; qualifizierte Signatur (eIDAS QES) über Vertrauensdiensteanbieter in Vorbereitung",
   "sec.item4": "Sigstore-Attestation für alle Container-Images",
   "sec.item5": "Confidential Compute (AMD SEV-SNP) optional",
   "sec.item6": "GDPR-Erase über alle Speicher, inkl. Embeddings und Cache",
@@ -199,7 +199,7 @@ const de: Dict = {
   "contact.title": "Reden wir.",
   "contact.body":
     "30 Minuten. Sie zeigen uns Ihren aktuellen DMS-Schmerz, wir zeigen Ihnen RecordTailor. Ehrlich: wenn wir nicht passen, sagen wir es.",
-  "contact.mail": "office@clouddna.at",
+  "contact.mail": "hello@recordtailor.com",
   "contact.phone": "+43 664 1964199",
   "contact.address": "CloudDNA GmbH · Loipersdorf",
 
@@ -278,7 +278,7 @@ const de: Dict = {
 
   // --- Sicherheit Subpage ---
   "sec.meta.desc":
-    "Postgres-RLS pro Tenant, Hash-Chain-Audit, eIDAS-QES, Sigstore-Attestation, Confidential Compute optional. RecordTailor ist prüfbar bis auf die Log-Zeile.",
+    "Postgres-RLS pro Tenant, Hash-Chain-Audit, elektronische Signaturen (eIDAS QES in Vorbereitung), Sigstore-Attestation, Confidential Compute optional. RecordTailor ist prüfbar bis auf die Log-Zeile.",
   "sec.audit.title": "Ein Audit-Log, der sich nicht umschreiben lässt.",
   "sec.audit.body":
     "Jedes Event bekommt einen SHA-256-Hash, der den Hash des Vorgängers enthält. Manipuliert jemand einen Eintrag, kippt die gesamte Kette. Verifiziert wird per CLI — Sie können jederzeit selbst prüfen, dass Ihre Historie unverfälscht ist.",
@@ -425,10 +425,10 @@ const en: Dict = {
   "sec.eyebrow": "Security",
   "sec.title": "Auditable down to the log line.",
   "sec.body":
-    "Every action — upload, classify, approve, sign, delete — lands on a hash chain. Who did what to which document, when, is cryptographically unforgeable. eIDAS QES for signatures. GDPR-erase included.",
+    "Every action — upload, classify, approve, sign, delete — lands on a hash chain. Who did what to which document, when, is cryptographically unforgeable. Electronic signatures with a tamper-evident audit chain; qualified signature (eIDAS QES) via trust service provider in preparation. GDPR-erase included.",
   "sec.item1": "Postgres RLS per tenant — we can't see your data either",
   "sec.item2": "Hash chain over every audit event, verifiable via CLI",
-  "sec.item3": "eIDAS-qualified signatures with PAdES-B-LTA",
+  "sec.item3": "Electronic signatures with tamper-evident audit chain; qualified signature (eIDAS QES) via trust service provider in preparation",
   "sec.item4": "Sigstore attestation on every container image",
   "sec.item5": "Confidential compute (AMD SEV-SNP) optional",
   "sec.item6": "GDPR-erase across every store, including embeddings and cache",
@@ -481,7 +481,7 @@ const en: Dict = {
   "contact.title": "Let's talk.",
   "contact.body":
     "30 minutes. Show us your current DMS pain, we show you RecordTailor. Honest: if we don't fit, we say so.",
-  "contact.mail": "office@clouddna.at",
+  "contact.mail": "hello@recordtailor.com",
   "contact.phone": "+43 664 1964199",
   "contact.address": "CloudDNA GmbH · Loipersdorf",
 
@@ -554,7 +554,7 @@ const en: Dict = {
   "onprem.cta.button": "Request an install slot",
 
   "sec.meta.desc":
-    "Postgres RLS per tenant, hash-chain audit, eIDAS QES, Sigstore attestation, confidential compute optional. RecordTailor is auditable down to the log line.",
+    "Postgres RLS per tenant, hash-chain audit, electronic signatures (eIDAS QES in preparation), Sigstore attestation, confidential compute optional. RecordTailor is auditable down to the log line.",
   "sec.audit.title": "An audit log that can't be rewritten.",
   "sec.audit.body":
     "Every event gets a SHA-256 hash that includes the hash of the previous one. Tamper with a single entry and the whole chain breaks. Verified via CLI — you can prove your history is intact at any time.",

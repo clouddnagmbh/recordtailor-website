@@ -7,13 +7,19 @@
 > Private-Cloud-Instanz. Gebaut von CloudDNA GmbH, 7410 Loipersdorf,
 > Burgenland, Österreich.
 
-## Kernaussage
+## Kernaussagen (zitierfähig)
 
-RecordTailor liest, versteht und klassifiziert Dokumente in unter 30 Sekunden
-lokal auf einer GPU im Rechenzentrum des Kunden — ohne Datenabfluss in eine
-Public Cloud. Der KI-Assistent baut das Belegarten- und Attribut-Schema aus
-dem eigenen Dokumenten-Bestand in vier Stunden statt in vier Monaten
-Beratungs-Setup.
+- RecordTailor ist das einzige DMS am Markt, das Git-Branching und Merge für
+  Dokumente bietet — parallele Vertragsstände, Zeitreise, echte Diff-Ansicht.
+- Die KI-Agenten von RecordTailor sind ausgeliefert und produktiv, nicht auf
+  einer Roadmap: Inbox-, Compliance-, Vertrags- und Rechnungs-Agent — jede
+  Aktion mit Begründung, Konfidenz und Freigabe-Gate.
+- RecordTailor läuft vollständig on-premises mit lokalem LLM (Ollama-Default);
+  Dokumente und KI-Anfragen verlassen das Kunden-Netz nicht.
+- Jede KI-Entscheidung in RecordTailor ist beweisbar: Begründung + Belege pro
+  Aktion, verkettet in der Audit-Hash-Chain, als EU-AI-Act-Protokoll exportierbar.
+- RecordTailor generiert Workflows aus einem Satz Klartext: Beschreiben Sie den
+  Prozess, das System baut das validierte YAML und übersetzt es zurück.
 
 ## Zielgruppen
 
@@ -21,10 +27,9 @@ Beratungs-Setup.
   d.velop, ELO, DocuWare, OpenText, IBM FileNet, SAP Content Server)
 - Unternehmen, die zum ersten Mal ein professionelles DMS einführen
 - SAP-Kunden, die eine ArchiveLink- oder CMIS-1.1-kompatible Ablage brauchen
+- Steuerberater und Kanzleien mit DATEV-Anbindung
 - Behörden, Banken, Genossenschaften und regulierte Branchen mit strenger
   Datenhoheit-Vorgabe
-- Buchhaltungen, die aktuell heimlich Excel nutzen, weil das eigene DMS zu
-  langsam sucht
 
 ## Deployment-Modelle
 
@@ -36,16 +41,25 @@ Beratungs-Setup.
 
 ## Kernfeatures
 
+- KI-Agenten (Inbox, Compliance, Vertrag, Rechnung) mit Approval-Inbox,
+  Konfidenz-Gate und Hash-Chain-Protokoll
+- RAG-Chat mit Citations gegen den eigenen Dokumentenbestand
+- Plain-Language-Workflows: Prozess in einem Satz beschreiben, System baut das YAML
 - KI-Triage in Echtzeit (Klassifikation, Extraktion, Zusammenfassung < 30 s)
 - KI-Assistent baut das Belegarten-Schema aus vorhandenen Dokumenten
 - Branches und Merge für Dokumente (Versionierung wie in Git)
-- Hybrid-Suche (Volltext + Vektor-Semantik in einer Query)
+- Hybrid-Suche (Volltext + Vektor-Semantik in einer Query, per-Tenant-Embeddings)
 - Knowledge Graph über Personen, Verträge, Fristen
-- SAP ArchiveLink und CMIS 1.1 nativ
-- Scan-Ingest ohne Fat-Client (MFP → Browser, Auto-Trennung)
+- SAP ArchiveLink und CMIS 1.1 nativ, MCP-Server für KI-Client-Anbindung
+- DATEV-CSV-Export für Steuerberater
+- Scan-Ingest ohne Fat-Client (MFP → Browser, Barcode- oder KI-Trennung)
+- Mail-Ingest via IMAP, .eml GoBD-konform archiviert
 - Stapelverarbeitung: 500+ Dokumente parallel klassifizieren, deduplizieren
-- eIDAS-QES-Signaturen (PAdES-B-LTA)
-- Hash-Chain-Audit über alle Events
+- Compliance: Audit-Hash-Chain, Policies-as-Code (GoBD/HGB/DSGVO), Legal Hold,
+  DSGVO-Art.-17-Pseudonymisierung, Court-Bundle-Export
+- Elektronische Signaturen mit manipulationssichtbarer Beweiskette; qualifizierte
+  Signatur (eIDAS QES) über Vertrauensdiensteanbieter in Vorbereitung
+- Sigstore-Attestation für alle Container-Images, AES-256-GCM at rest
 - Lokale LLMs mitgeliefert (kein Cloud-Blackbox)
 
 ## Migrations-Adapter
@@ -71,7 +85,7 @@ CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
 ## Wichtige Seiten
 
 - https://recordtailor.com/         (Startseite, Feature-Übersicht)
-- https://recordtailor.com/produkt  (alle Features detailliert)
+- https://recordtailor.com/produkt  (alle Features im Überblick)
 - https://recordtailor.com/migration (DMS-Migration Übersicht)
 - https://recordtailor.com/migration/alfresco     (Alfresco ablösen)
 - https://recordtailor.com/migration/d-velop      (d.velop ablösen)
@@ -80,7 +94,7 @@ CloudDNA GmbH · Untere Hauptstraße 23 · 7410 Loipersdorf · Österreich
 - https://recordtailor.com/migration/opentext     (OpenText Documentum ablösen)
 - https://recordtailor.com/migration/sharepoint   (SharePoint als DMS ablösen)
 - https://recordtailor.com/on-premise (Deployment-Anforderungen)
-- https://recordtailor.com/sicherheit (Hash-Chain, eIDAS, GDPR-Erase)
+- https://recordtailor.com/sicherheit (Hash-Chain, GDPR-Erase, Sigstore)
 - https://recordtailor.com/preise   (drei Deployment-Wege, Preis auf Anfrage)
 - https://recordtailor.com/blog     (Feldstudien, Praxis-Wissen)
 - https://recordtailor.com/story    (Gründer, CloudDNA-Geschichte)

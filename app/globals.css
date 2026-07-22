@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 /*
- * MeetingTailor Design-Tokens — 1:1 wie StayTailor + DineTailor:
+ * RecordTailor Design-Tokens — geteilt mit der Tailor-Familie
+ * (DineTailor, StayTailor, MeetingTailor, DocumentTailor, TaxTailor, Weintailor):
  * Warm Ivory · Midnight Navy · Heritage Blue. Der Token-Name --gold
  * ist historisch — der Farbwert ist ein Blau-600 aus der Schwester-Familie.
  * Bewusst nur hell — dunkle Sektionen sind gestaltete Navy-Panels,

@@ -107,7 +107,7 @@ export const LEGACY_DMS: LegacyDms[] = [
       },
       {
         title: "Ein Preis, alle Module",
-        body: "Statt d.3-Basis + d.velop sign + d.velop analytics + d.velop connect: RecordTailor kommt mit Signaturen (eIDAS-QES, PAdES-B-LTA), Analytics, KI, ArchiveLink und CMIS in einem Paket. Ein Preis pro Standort.",
+        body: "Statt d.3-Basis + d.velop sign + d.velop analytics + d.velop connect: RecordTailor kommt mit elektronischen Signaturen (Beweiskette in der Hash-Chain; eIDAS-QES über Vertrauensdiensteanbieter in Vorbereitung), Analytics, KI, ArchiveLink und CMIS in einem Paket. Ein Preis pro Standort.",
       },
     ],
     migrationPhases: [
@@ -127,7 +127,7 @@ export const LEGACY_DMS: LegacyDms[] = [
     faq: [
       {
         q: "Was passiert mit unseren d.velop-sign-Signaturen?",
-        a: "Wir übernehmen die Signatur-Historie 1:1. eIDAS-qualifizierte Signaturen bleiben nach PAdES-B-LTA valide. Neue Signaturen laufen in RecordTailor über einen QTSP Ihrer Wahl.",
+        a: "Wir übernehmen die Signatur-Historie 1:1. Vom Altsystem qualifiziert signierte Dokumente (PAdES-B-LTA) bleiben verifizierbar. Neue eIDAS-QES-Signaturen in RecordTailor selbst folgen sobald der QTSP-Anschluss (A-Trust) live ist — bis dahin: elektronische Signaturen mit manipulationssichtbarer Beweiskette.",
       },
       {
         q: "Können wir während der Migration noch d.velop nutzen?",

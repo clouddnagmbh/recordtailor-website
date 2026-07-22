@@ -60,8 +60,13 @@ export const metadata: Metadata = {
     "MFP Scan Ingest",
     "Scan-Ingest ohne Fat-Client",
     "Hybrid-Suche Dokumente",
-    "eIDAS QES DMS",
     "CMIS 1.1 kompatibles DMS",
+    "KI-Agenten DMS",
+    "agentic AI DMS",
+    "RAG Chat DSGVO",
+    "MCP DMS",
+    "DATEV DMS Schnittstelle",
+    "SAP ArchiveLink DMS",
     // Deployment
     "On-Premise DMS",
     "Air-Gapped DMS",
@@ -155,55 +160,64 @@ export default async function RootLayout({
           "Hybrid-Suche (BM25 + Vektor-Semantik)",
           "Knowledge Graph über Personen, Verträge, Fristen",
           "SAP ArchiveLink & CMIS 1.1 nativ",
-          "eIDAS-QES-Signaturen (PAdES-B-LTA)",
+          "Elektronische Signaturen mit Beweiskette (eIDAS QES via A-Trust in Vorbereitung)",
           "Hash-Chain-Audit über alle Events",
+          "KI-Agenten mit Approval-Inbox und EU-AI-Act-Protokoll",
+          "RAG-Chat mit Citations gegen den eigenen Dokumentenbestand",
+          "Plain-Language-Workflows (Prozess in einem Satz beschreiben)",
+          "Mail-Ingest (IMAP, .eml GoBD-konform)",
+          "MCP-Server (offene KI-Schnittstelle)",
+          "DATEV-CSV-Export",
           "Migrations-Adapter: Alfresco, ELO, DocuWare, d.velop, OpenText, SharePoint",
           "Docker Compose als Standard-Deployment, Kubernetes/Helm optional für HA",
           "Air-Gapped Installation, signierte Updates, Sigstore-Attestation",
           "Open-Source-Kern (Apache-2.0)",
           "Deployment als On-Premise-Produkt, Public Cloud oder Managed Private Cloud",
         ],
-        offers: [
-          {
-            "@type": "Offer",
-            name: "On-Premise",
-            description:
-              "Selbst-betrieben im eigenen Rechenzentrum. Kubernetes, air-gapped-fähig.",
-            price: "0",
-            priceCurrency: "EUR",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              price: "Auf Anfrage",
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          offerCount: 3,
+          offers: [
+            {
+              "@type": "Offer",
+              name: "On-Premise",
+              description:
+                "Selbst-betrieben im eigenen Rechenzentrum. Kubernetes, air-gapped-fähig.",
               priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                priceCurrency: "EUR",
+                description: "Preis auf Anfrage",
+              },
             },
-          },
-          {
-            "@type": "Offer",
-            name: "Public Cloud",
-            description:
-              "Deployment in eigenem AWS-, Azure- oder GCP-Account des Kunden.",
-            price: "0",
-            priceCurrency: "EUR",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              price: "Auf Anfrage",
+            {
+              "@type": "Offer",
+              name: "Public Cloud",
+              description:
+                "Deployment in eigenem AWS-, Azure- oder GCP-Account des Kunden.",
               priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                priceCurrency: "EUR",
+                description: "Preis auf Anfrage",
+              },
             },
-          },
-          {
-            "@type": "Offer",
-            name: "Private Cloud (Managed Service)",
-            description:
-              "Von CloudDNA betriebene dedizierte Instanz in EU-Region (Wien, Frankfurt, Zürich).",
-            price: "0",
-            priceCurrency: "EUR",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              price: "Auf Anfrage",
+            {
+              "@type": "Offer",
+              name: "Private Cloud (Managed Service)",
+              description:
+                "Von CloudDNA betriebene dedizierte Instanz in EU-Region (Wien, Frankfurt, Zürich).",
               priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                priceCurrency: "EUR",
+                description: "Preis auf Anfrage",
+              },
             },
-          },
-        ],
+          ],
+        },
         publisher: { "@id": "https://recordtailor.com/#org" },
       },
       {

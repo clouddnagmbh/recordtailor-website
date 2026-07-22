@@ -64,7 +64,8 @@ export default async function SicherheitPage() {
             <pre className="mt-6 overflow-x-auto rounded-xl bg-ink-soft p-4 text-xs text-cream/80">{`$ recordtailorctl audit verify --from 2026-01-01
 ✓ 41 837 events verified.
 ✓ Hash chain intact through 2026-07-20 14:03:24.
-✓ Signatures: 41 837/41 837 valid (eIDAS PAdES-B-LTA).`}</pre>
+✓ Digital signatures: 41 837/41 837 valid.
+ℹ eIDAS QES (PAdES-B-LTA) via A-Trust: in Vorbereitung.`}</pre>
           </Reveal>
         </div>
       </section>
